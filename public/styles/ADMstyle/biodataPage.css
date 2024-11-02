@@ -226,6 +226,32 @@ main .main-tabel table{
     font-size: 10px;
 }
 
+.main-tabel .slide-data{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-tabel .slide-data button{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #6C9BCF;
+    border-radius: 20%;
+    opacity: 0.9;
+}
+
+.main-tabel .slide-data button:hover{
+    opacity: 1;
+}
+
+.main-tabel .slide-data .arrow{
+    color: var(--color-white);
+    font-size: 25px;
+}
+
 /* end of main contain */
 
 /* .right-section .dark-mode{
@@ -258,4 +284,8 @@ main .main-tabel table{
 aside .sidebar .close{
     /* padding-right: 1rem; */
     display: none;
+}
+
+.main-tabel tbody .primary{
+    color: var(--color-primary);
 }

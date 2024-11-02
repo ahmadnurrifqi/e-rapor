@@ -181,6 +181,7 @@
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
+                            {{-- <span class="material-symbols-outlined">search</span> --}}
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                             <p>10</p>
                         </div>
@@ -196,18 +197,22 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>NIK</th>
                                 <th>NUPTK</th>
                                 <th>NPY</th>
                                 <th>TTL</th>
                                 <th>No Telp</th>
-                                <th>Email</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
+                    <div class="slide-data">
+                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
+                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
+                    </div>
                 </div>
             </div>
         </main>
