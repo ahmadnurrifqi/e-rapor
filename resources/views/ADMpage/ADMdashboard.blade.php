@@ -235,7 +235,7 @@
             <!-- End of Nav -->
 
             <div class="user-profile">
-                <a href="#">
+                <a href="tentang">
                     <div class="logo">
                         <img src="assets/logo.png">
                         <h3>SMK Nusantara</h3>
@@ -257,7 +257,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna</small>
+                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
@@ -269,7 +269,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>

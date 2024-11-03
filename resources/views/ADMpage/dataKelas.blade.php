@@ -35,7 +35,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -54,7 +54,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun" class="active">
+                                        <a href="dataAkun">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -62,7 +62,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -75,7 +75,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataKelas">
+                                        <a href="dataKelas" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Kelas</p>
                                         </a>
@@ -144,7 +144,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Akun</p>
+                <p class="main-title">Data Kelas</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -187,7 +187,7 @@
                     <div class="right-fitur">
                         <a href="">
                             <span class="material-symbols-outlined">add</span>
-                            Akun
+                            Kelas
                         </a>
                     </div>
                 </div>
@@ -196,10 +196,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Role,admin/guru</th>
+                                <th>Nama Kelas</th>
+                                <th>Tingkat Kelas</th>
+                                <th>Wali Kelas</th>
+                                <th>Tahun Ajaran</th>
                                 <th></th>
                             </tr>
                         </thead>

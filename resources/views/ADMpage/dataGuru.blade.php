@@ -48,7 +48,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="dataGuru" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
@@ -181,15 +181,13 @@
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
-                            {{-- <span class="material-symbols-outlined">search</span> --}}
-                            <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                            <p>10</p>
+                            <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
                     <div class="right-fitur">
                         <a href="">
                             <span class="material-symbols-outlined">add</span>
-                            siswa
+                            Guru
                         </a>
                     </div>
                 </div>

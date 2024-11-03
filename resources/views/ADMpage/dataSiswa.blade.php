@@ -42,7 +42,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="dataSiswa" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
@@ -181,9 +181,7 @@
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
-                            {{-- <span class="material-symbols-outlined">search</span> --}}
-                            <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                            <p>10</p>
+                            <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
                     <div class="right-fitur">
@@ -199,10 +197,10 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>NIK</th>
-                                <th>NUPTK</th>
-                                <th>NPY</th>
+                                <th>NIS</th>
+                                <th>NISN</th>
                                 <th>TTL</th>
+                                <th>Jenis Kelamin</th>
                                 <th>No Telp</th>
                                 <th></th>
                             </tr>

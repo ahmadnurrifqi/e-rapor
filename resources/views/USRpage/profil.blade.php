@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMprofil.css">
+    <link rel="stylesheet" href="/styles/USRstyle/profil.css">
     <title>{{ $title }}</title>
 </head>
 <body>

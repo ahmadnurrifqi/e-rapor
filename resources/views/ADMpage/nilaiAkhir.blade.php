@@ -35,7 +35,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -54,7 +54,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun" class="active">
+                                        <a href="dataAkun">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -106,7 +106,7 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirADM">
+                                <a href="nilaiAkhirADM" class="active">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
@@ -144,7 +144,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Akun</p>
+                <p class="main-title">Data Nilai Akhir</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -187,7 +187,7 @@
                     <div class="right-fitur">
                         <a href="">
                             <span class="material-symbols-outlined">add</span>
-                            Akun
+                            siswa
                         </a>
                     </div>
                 </div>
@@ -196,10 +196,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Role,admin/guru</th>
+                                <th>Nama Kelas</th>
+                                <th>Wali Kelas</th>
+                                <th>Tahun Pelajaran</th>
                                 <th></th>
                             </tr>
                         </thead>

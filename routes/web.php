@@ -21,8 +21,8 @@ Route::get('/', function () {
 Route::get('ADMdashboard', function () {
     return view('/ADMpage/ADMdashboard',["title" => "E-Rapor | SMK Nusantara"]);
 });
-Route::get('ADMprofil', function () {
-    return view('/ADMpage/ADMprofil',["title" => "E-Rapor | SMK Nusantara"]);
+Route::get('profil', function () {
+    return view('/USRpage/profil',["title" => "E-Rapor | SMK Nusantara"]);
 });
 
 // route biodata admin
@@ -46,11 +46,19 @@ Route::get('dataKelas', function () {
 Route::get('dataMapel', function () {
     return view('/ADMpage/dataMapel',["title" => "E-Rapor | SMK Nusantara"]);
 });
-Route::get('dataEkstrakurikular', function () {
-    return view('/ADMpage/dataEkstrakurikular',["title" => "E-Rapor | SMK Nusantara"]);
+Route::get('dataEkstrakurikuler', function () {
+    return view('/ADMpage/dataEkstrakurikuler',["title" => "E-Rapor | SMK Nusantara"]);
 });
 Route::get('dataPrestasi', function () {
     return view('/ADMpage/dataPrestasi',["title" => "E-Rapor | SMK Nusantara"]);
+});
+
+//route menu rapor nilai admin
+Route::get('nilaiAkhirADM', function () {
+    return view('/ADMpage/nilaiAkhir',["title" => "E-Rapor | SMK Nusantara"]);
+});
+Route::get('cetakRapor', function () {
+    return view('/ADMpage/cetakRapor',["title" => "E-Rapor | SMK Nusantara"]);
 });
 
 //route page tambahan

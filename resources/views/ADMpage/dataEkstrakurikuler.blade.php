@@ -35,7 +35,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -54,7 +54,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun" class="active">
+                                        <a href="dataAkun">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -62,7 +62,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -87,7 +87,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataEkstrakurikuler">
+                                        <a href="dataEkstrakurikuler" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Ekstrakurikuler</p>
                                         </a>
@@ -144,7 +144,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Akun</p>
+                <p class="main-title">Data Ekstrakurikuler</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -187,7 +187,7 @@
                     <div class="right-fitur">
                         <a href="">
                             <span class="material-symbols-outlined">add</span>
-                            Akun
+                            Ekstrakurikuler
                         </a>
                     </div>
                 </div>
@@ -196,10 +196,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Role,admin/guru</th>
+                                <th>Nama Ekstrakurikuler</th>
+                                <th>Pembina</th>
+                                <th>Tahun Ajaran</th>
                                 <th></th>
                             </tr>
                         </thead>
