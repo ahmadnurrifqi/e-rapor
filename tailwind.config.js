@@ -6,7 +6,11 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        tinos: ['Tinos', 'ui-serif'],
+      },
+    },
   },
   plugins: [],
 }
