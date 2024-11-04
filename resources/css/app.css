@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .rapor th,
+    .rapor td {
+        @apply border border-black text-xs;
+    }
+
+    .rapor th {
+        @apply p-1;
+    }
+
+    .rapor td {
+        @apply p-2;
+    }
+
+    .biodata td {
+        @apply px-2 font-bold;
+    }
+
+    .ekskul td,
+    .ekskul th {
+        @apply border border-black text-xs;
+    }
+}
+
+@layer utilities {
+    ol.alpha {
+        counter-reset: item;
+    }
+
+    ol.alpha li:before {
+        content: counter(item, upper-alpha) ". ";
+        counter-increment: item;
+        font-weight: 700;
+        margin-left: -14px;
+    }
+}

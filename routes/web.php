@@ -65,3 +65,8 @@ Route::get('cetakRapor', function () {
 Route::get('tentang', function () {
     return view('/ADMpage/ADMtentang',["title" => "E-Rapor | SMK Nusantara"]);
 });
+
+// route rosyan
+Route::get('/rapor', function () {
+    return view('export.rapor');
+});

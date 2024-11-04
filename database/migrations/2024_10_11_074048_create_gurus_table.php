@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string("nik");
-            $table->string("nuptk");
+            $table->string("nuptk")->nullable();
             $table->string("npy");
             $table->string("tempat_lahir");
             $table->date("tanggal_lahir");
@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string("agama");
             $table->string("studi_terakhir");
             $table->string("tahun_gabung");
-            $table->string("alamat");
-            $table->string("no_telp");
+            $table->string("alamat")->nullable();
+            $table->string("no_telp")->nullable();
             $table->timestamps();
         });
     }
