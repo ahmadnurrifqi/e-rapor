@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
-            $table->string('name');
+            $table->foreignId('kelas_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('nama');
             $table->string('nis');
             $table->string('nisn');
             $table->string('tempat_lahir');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('agama');
             $table->text('alamat');
             $table->string('no_telp');
-            $table->string('konsentrasi_keahlian');
+            $table->string('konsentrasi_keahlian')->nullable();
             $table->timestamps();
         });
     }
