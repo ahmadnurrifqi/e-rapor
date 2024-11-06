@@ -185,10 +185,10 @@
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        {{-- <a href="">
                             <span class="material-symbols-outlined">add</span>
                             siswa
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
                 <div class="main-tabel">

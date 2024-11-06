@@ -185,10 +185,10 @@
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
                             Kelas
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -215,6 +215,117 @@
         <!--End of main--> 
     </div>
 
+    {{-- modal tambah --}}
+    <div class="wrapper" id="wrapper">
+        <div class="modal">
+            <h3>Tambah Data Kelas</h3>
+            <table>
+                <tr>
+                    <td>Nama Kelas</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Pending (null)"></td>
+                </tr>
+                <tr>
+                    <td>Tingkat Kelas</td>
+                    <td>:</td>
+                    <td><select name="tingkat" id="tingkat">
+                            <option value="" disabled selected class="lol">--Pilih Tingkat Kelas--</option>
+                            <option value="X (Sepuluh)">X (Sepuluh)</option>
+                            <option value="XI (Sebelas)">XI (Sebelas)</option>
+                            <option value="XII(Duabelas)">XII (Duabelas)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Wali Kelas</td>
+                    <td>:</td>
+                    <td><select name="walikelas" id="walikelas">
+                            <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
+                            <option value="">ambil dari tabel guru 1</option>
+                            <option value="">ambil dari tabel guru 2</option>
+                            <option value="">ambil dari tabel guru 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Ajaran</td>
+                    <td>:</td>
+                    <td><select name="ajaran" id="ajaran">
+                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                            <option value="">ambil dari tabel tahun ajaran 1</option>
+                            <option value="">ambil dari tabel tahun ajaran 2</option>
+                            <option value="">ambil dari tabel tahun ajaran 3</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close" class="close">Kembali</button>
+                <button class="tambah">Simpan</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Info Data Kelas</h3>
+            <table>
+                <tr>
+                    <td>Nama Kelas</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Pending (null)"></td>
+                </tr>
+                <tr>
+                    <td>Tingkat Kelas</td>
+                    <td>:</td>
+                    <td><select name="tingkat" id="tingkat">
+                            <option value="" disabled selected class="lol">--Pilih Tingkat Kelas--</option>
+                            <option value="X (Sepuluh)">X (Sepuluh)</option>
+                            <option value="XI (Sebelas)">XI (Sebelas)</option>
+                            <option value="XII(Duabelas)">XII (Duabelas)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Wali Kelas</td>
+                    <td>:</td>
+                    <td><select name="walikelas" id="walikelas">
+                            <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
+                            <option value="">ambil dari tabel guru 1</option>
+                            <option value="">ambil dari tabel guru 2</option>
+                            <option value="">ambil dari tabel guru 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Ajaran</td>
+                    <td>:</td>
+                    <td><select name="ajaran" id="ajaran">
+                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                            <option value="">ambil dari tabel tahun ajaran 1</option>
+                            <option value="">ambil dari tabel tahun ajaran 2</option>
+                            <option value="">ambil dari tabel tahun ajaran 3</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <button class="tambah">Simpan Edit</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -223,6 +334,7 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

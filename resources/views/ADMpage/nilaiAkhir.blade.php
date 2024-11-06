@@ -184,12 +184,12 @@
                             <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
-                    <div class="right-fitur">
+                    {{-- <div class="right-fitur">
                         <a href="">
                             <span class="material-symbols-outlined">add</span>
                             siswa
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="main-tabel">
                     <table>
@@ -214,6 +214,17 @@
         <!--End of main--> 
     </div>
 
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -222,6 +233,7 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

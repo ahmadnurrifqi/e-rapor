@@ -146,7 +146,8 @@ Orders.forEach(order => {
         <td>${order.paymentStatus2}</td>
         <td>${order.paymentStatus3}</td>
         <td>${order.paymentStatus4}</td>
-        <td class="primary">Details</td>
+        <td class="primary"><button id="edit">Details</button></td>
+        <td class="danger"><span class="material-symbols-outlined" id="hapus">delete</span></td>
     `;
     tr.innerHTML = trContent;
     document.querySelector('table tbody').appendChild(tr);

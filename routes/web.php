@@ -70,3 +70,8 @@ Route::get('tentang', function () {
 Route::get('/rapor', function () {
     return view('export.rapor');
 });
+
+//route ezample
+Route::get('examp', function () {
+    return view('examp');
+});

@@ -185,10 +185,10 @@
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
                             Tahun Ajaran
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -197,8 +197,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>Tahun Ajaran</th>
-                                <th>Semester</th>
-                                <th>Golongan</th>
+                                <th>Tempat Pembagian</th>
+                                <th>Tanggal Pembagian</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -214,6 +214,91 @@
         <!--End of main--> 
     </div>
 
+    {{-- modal tambah --}}
+    <div class="wrapper" id="wrapper">
+        <div class="modal">
+            <h3>Tambah Data Tahun Ajaran</h3>
+            <table>
+                <tr>
+                    <td>Tahun Ajaran</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="2020/2021"></td>
+                </tr>
+                <tr>
+                    <td>Semester</td>
+                    <td>:</td>
+                    <td><select name="semester" id="semester">
+                            <option value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
+                            <option value="Ganjil">Ganjil</option>
+                            <option value="Genap">Genap</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tempat Pembagian</td>
+                    <td>:</td>
+                    <td><input type="text" value="Bontang"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Pembagian</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close" class="close">Kembali</button>
+                <button class="tambah">Simpan</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Info Data Tahun Ajaran</h3>
+            <table>
+                <tr>
+                    <td>Tahun Ajaran</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="2020/2021"></td>
+                </tr>
+                <tr>
+                    <td>Semester</td>
+                    <td>:</td>
+                    <td><select name="semester" id="semester">
+                        <option value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
+                            <option value="Ganjil">Ganjil</option>
+                            <option value="Genap">Genap</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tempat Pembagian</td>
+                    <td>:</td>
+                    <td><input type="text" value="Bontang"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Pembagian</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <button class="tambah">Simpan Edit</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -222,6 +307,7 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

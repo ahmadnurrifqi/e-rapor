@@ -169,7 +169,7 @@ main .time span{
     opacity: 1;
 }
 
-.main-fitur .right-fitur a{
+.main-fitur .right-fitur button{
     background-color: var(--color-primary);
     color: var(--color-white);
     display: flex;
@@ -179,6 +179,152 @@ main .time span{
     margin-right: 1rem;
     padding: 5px 7px 5px 2px;
     border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper.active{
+    display: flex;
+}
+
+.wrapper2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper2.active{
+    display: flex;
+}
+
+.wrapper3{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper3.active{
+    display: flex;
+}
+
+.wrapper3 .modal{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 20%;
+}
+
+.wrapper3 .modal p{
+    font-size: 13px;
+}
+
+.modal{
+    background-color: #fff;
+    width: 35%;
+    max-height: 80%;
+    border-radius: 5px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+    overflow: auto;
+}
+
+.modal h3{
+    margin-bottom: 1rem;
+}
+
+.modal table {
+    color: var(--color-dark-variant);
+    font-size: 12px;
+    width: 100%;
+}
+
+.modal table tr{
+    height: 2rem;
+    /* background-color: #1B9C85;
+    margin-bottom: 10px; */
+}
+
+.modal table input{
+    text-transform: capitalize;
+    margin-left: 5px;
+    padding: 2px 5px;
+    color: var(--color-dark-variant);
+    font-size: 12px;
+    width: 95%;
+    border: 0.1px solid var(--color-info-dark);
+}
+.modal table select{
+    text-transform: capitalize;
+    margin-left: 5px;
+    padding: 2px;
+    color: var(--color-dark-variant);
+    font-size: 12px;
+    width: 95%;
+    border: 0.1px solid var(--color-info-dark);
+}
+.modal table select .lol{
+    color: var(--color-info-dark);
+}
+
+.modal .modal-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 3rem;
+    width: 100%;
+}
+
+.modal-button button{
+    height: 2rem;
+    width: 20%;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: var(--color-success);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.modal-button button:hover{
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.modal .tambah{
+    background-color: var(--color-success);
+}
+
+.modal .hapus{
+    background-color: var(--color-danger);
+}
+
+.modal .close{
+    background-color: var(--color-primary);
 }
 
 .main-fitur .right-fitur:hover{
@@ -189,7 +335,8 @@ main .time span{
 .main-tabel{
     background-color: var(--color-white);
     border-radius: 0.8rem;
-    height: 38rem;
+    max-height: 38rem;
+    /* height: 38rem; */
     box-shadow: var(--box-shadow);
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -287,6 +434,23 @@ aside .sidebar .close{
     display: none;
 }
 
-.main-tabel tbody .primary{
+.main-tabel tbody .primary button{
+    font-size: 12px;
+    background-color: transparent;
     color: var(--color-primary);
+    cursor: pointer;
+}
+
+.main-tabel tbody .danger{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-tabel tbody .danger span{
+    font-size: 20px;
+    border-radius: 3px;
+    /* padding: 10px; */
+    background-color: var(--color-danger);
+    color: var(--color-background);
+    cursor: pointer;
 }

@@ -185,10 +185,10 @@
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
                             Prestasi
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -216,6 +216,83 @@
         <!--End of main--> 
     </div>
 
+    {{-- modal tambah --}}
+    <div class="wrapper" id="wrapper">
+        <div class="modal">
+            <h3>Tambah Data Prestasi</h3>
+            <table>
+                <tr>
+                    <td>Nama Siswa</td>
+                    <td>:</td>
+                    <td><select name="siswa" id="siswa">
+                            <option value="" disabled selected class="lol">--Pilih Siswa--</option>
+                            <option value="">ambil dari tabel siswa 1</option>
+                            <option value="">ambil dari tabel siswa 2</option>
+                            <option value="">ambil dari tabel siswa 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kelas</td>
+                    <td>:</td>
+                    <td><select name="kelas" id="kelas">
+                            <option value="" disabled selected class="lol">--Pilih Kelas--</option>
+                            <option value="">ambil dari tabel Kelas 1</option>
+                            <option value="">ambil dari tabel Kelas 2</option>
+                            <option value="">ambil dari tabel Kelas 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Uraian Prestasi</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Keterangan</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Prestasi</td>
+                    <td>:</td>
+                    <td><select name="jenisprestasi" id="jenisprestasi">
+                            <option value="" disabled selected class="lol">--Pilih Jenis Prestasi--</option>
+                            <option value="Akademik">Akademik</option>
+                            <option value="Non Akademik">Non Akademik</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Ajaran</td>
+                    <td>:</td>
+                    <td><select name="ajaran" id="ajaran">
+                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                            <option value="">ambil dari tabel tahun ajaran 1</option>
+                            <option value="">ambil dari tabel tahun ajaran 2</option>
+                            <option value="">ambil dari tabel tahun ajaran 3</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close" class="close">Kembali</button>
+                <button class="tambah">Simpan</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal edit gapake --}}
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -224,6 +301,7 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>
