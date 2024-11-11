@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login',["title" => "E-Rapor | SMK Nusantara"]);
 });
+
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 Route::get('ADMdashboard', function () {
     return view('/ADMpage/ADMdashboard',["title" => "E-Rapor | SMK Nusantara"]);

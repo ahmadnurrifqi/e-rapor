@@ -15,15 +15,18 @@
 
     <div class="container" id="container">
         <div class="form-container sign-in">
-            <form>
+            <form action="{{ route('login') }}" method="GET">
+                @csrf
                 <h2>Masuk E-Rapor</h2>
-                <input type="text" placeholder="Nama Pengguna">
-                <input type="password" placeholder="Password">
-                <input type="text" class="input_field captch_box" value="5 x 8 P" disabled>
-                <input type="text" class="input_field captch_input" placeholder="Ketik 4 Kode diatas">
-                <div class="message">Entered captcha</div>
+                <input type="text" name="email" placeholder="Nama Pengguna">
+                <input type="password" name="password"  placeholder="Password">
+                <input type="text" name="capthaKey" class="input_field captch_box" value="5 x 8 P" readonly>
+                <input type="text" name="captha" class="input_field captch_input" placeholder="Ketik 4 Kode diatas">
+                @if (session('error'))
+                    <div class="message" style="display: block; color: red;">{{ session('error') }}</div>
+                @endif
                 <div class="input_field button" disabled>
-                    <input type="button" value="Masuk" class="ButtonLog">
+                    <input type="submit" value="Masuk" class="ButtonLog">
                 </div>
             </form>
         </div>
