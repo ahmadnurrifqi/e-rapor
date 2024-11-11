@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMdashboard.css">
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+    <link rel="stylesheet" href="/styles/ADMstyle/ADMtentang.css">
+    {{-- <link rel="stylesheet" href="/styles/ADMstyle/ADMdashboard.css">
+    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css"> --}}
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -145,6 +146,69 @@
         <main>
             <p class="main-title">Tentang Kami</p>
             <!--Analysis-->
+            <div class="users">
+                <div class="column">
+                    <img src="assets/logo.png" alt="">
+                    <table>
+                        <tr>
+                            <td>Nama Sekolah</td>
+                            <td>:</td>
+                            <td>SMK Nusantara Mandiri Bontang</td>
+                        </tr>
+                        <tr>
+                            <td>Kepala Sekolah</td>
+                            <td>:</td>
+                            <td>Ir. Bahrun Amin, S.T., IPM</td>
+                        </tr>
+                        <tr>
+                            <td>Tempat Sekolah</td>
+                            <td>:</td>
+                            <td>Bontang</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td>Jl. Banjarmasin No. 29 Kel. Gn. Telihan Kec. Bontang Barat</td>
+                        </tr>
+                        <tr>
+                            <td>Tahun terbentuk</td>
+                            <td>:</td>
+                            <td>1999-09-09</td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan Keahlian</td>
+                            <td>:</td>
+                            <td>1. Teknik Alat Berat</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>2. Teknik Mekanik Industri</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>3. Desain Pemodelan dan Informasi Bangunan</td>
+                        </tr>
+                        <tr>
+                            <td>No Telp</td>
+                            <td>:</td>
+                            <td>082404248666</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>admin01@gmail.com</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="but_change">
+                    <p>*Jika data anda tidak benar atau ingin mengubahnya silahkan hubungi admin</p>
+                    <div class="input_field button">
+                        <input type="button" value="Ubah Data(soon)" class="ButtonLog">
+                    </div>
+                </div>
+            </div>
               
         </main>
         <!--End of main-->
@@ -206,7 +270,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna</small>
+                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
@@ -218,7 +282,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>

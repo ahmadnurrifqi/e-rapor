@@ -54,7 +54,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun">
+                                        <a href="dataAkun" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -181,16 +181,14 @@
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
-                            {{-- <span class="material-symbols-outlined">search</span> --}}
-                            <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                            <p>10</p>
+                            <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            siswa
-                        </a>
+                            Akun
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -198,12 +196,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>NIK</th>
-                                <th>NUPTK</th>
-                                <th>NPY</th>
-                                <th>TTL</th>
-                                <th>No Telp</th>
+                                <th>Nama Pemilik Akun</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Role</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -218,6 +214,90 @@
         </main>
         <!--End of main--> 
     </div>
+    {{-- modal tambah --}}
+    <div class="wrapper" id="wrapper">
+        <div class="modal">
+            <h3>Tambah Akun</h3>
+            <table>
+                <tr>
+                    <td>Nama Pemilik Akun</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="zzz@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>:</td>
+                    <td><select name="role" id="role">
+                            <option value="" disabled selected class="lol">--Pilih Role--</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Guru">Guru</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close" class="close">Kembali</button>
+                <button class="tambah">Simpan</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Info Data Akun</h3>
+            <table>
+                <tr>
+                    <td>Nama Pemilik Akun</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="zzz@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>:</td>
+                    <td><select name="role" id="role">
+                            <option value="" disabled selected class="lol">--Pilih Role--</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Guru">Guru</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <button class="tambah">Simpan Edit</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Jquery -->
     <script
@@ -227,6 +307,7 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

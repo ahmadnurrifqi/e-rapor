@@ -48,7 +48,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="dataGuru" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
@@ -181,16 +181,14 @@
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
-                            {{-- <span class="material-symbols-outlined">search</span> --}}
-                            <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                            <p>10</p>
+                            <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            siswa
-                        </a>
+                            Guru
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -217,7 +215,8 @@
                                     <td>{{ $guru->npy }}</td>
                                     <td>{{ $guru->tempat_lahir }}, {{ $guru->tanggal_lahir }}</td>
                                     <td>{{ $guru->no_telp }}</td>
-                                    <td class="primary">Details</td>
+                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="danger"><span class="material-symbols-outlined" id="hapus">delete</span></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -230,6 +229,216 @@
             </div>
         </main>
         <!--End of main--> 
+        {{-- modal tambah --}}
+    <div class="wrapper" id="wrapper">
+        <div class="modal">
+            <h3>Tambah Data Guru</h3>
+            <table>
+                <tr>
+                    <td>Nama Guru</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>NIK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NUPTK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NPY</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><select name="kelamin" id="kelamin">
+                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                            <option value="L">L</option>
+                            <option value="P">P</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>:</td>
+                    <td><select name="agama" id="agama">
+                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Studi Terakhir</td>
+                    <td>:</td>
+                    <td><select name="studi" id="studi">
+                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                            <option value="S3">S3</option>
+                            <option value="S2">S2</option>
+                            <option value="S1">S1</option>
+                            <option value="D4">D4</option>
+                            <option value="D3">D3</option>
+                            <option value="SMK">SMK/MAK</option>
+                            <option value="SMA">SMA/MA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Gabung</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>No Telp</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="zzz@gmail.com"></td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close" class="close">Kembali</button>
+                <button class="tambah">Simpan</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Info Data Guru</h3>
+            <table>
+                <tr>
+                    <td>Nama Guru</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>NIK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NUPTK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NPY</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><select name="kelamin" id="kelamin">
+                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                            <option value="L">L (Laki-Laki)</option>
+                            <option value="P">P (Perempuan)</option>
+                        </select>
+                </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>:</td>
+                    <td><select name="agama" id="agama">
+                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Studi Terakhir</td>
+                    <td>:</td>
+                    <td><select name="studi" id="studi">
+                            <option value="" disabled selected class="lol">--Pilih Studi Terakhir--</option>
+                            <option value="S3">S3</option>
+                            <option value="S2">S2</option>
+                            <option value="S1">S1</option>
+                            <option value="D4">D4</option>
+                            <option value="D3">D3</option>
+                            <option value="SMK">SMK/MAK</option>
+                            <option value="SMA">SMA/MA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Gabung</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>No Telp</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="zzz@gmail.com"></td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <button class="tambah">Simpan Edit</button>
+            </div>
+        </div>
+    </div>
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <!-- Jquery -->
@@ -240,6 +449,7 @@
     ></script>
 
     {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
+    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>
