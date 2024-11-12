@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login',["title" => "E-Rapor | SMK Nusantara"]);
 });
-
-Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 Route::get('ADMdashboard', function () {
     return view('/ADMpage/ADMdashboard',["title" => "E-Rapor | SMK Nusantara"]);
@@ -77,4 +77,25 @@ Route::get('/rapor', function () {
 //route ezample
 Route::get('examp', function () {
     return view('examp');
+});
+
+// route new
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+
+Route::controller(SiswaController::class)->group(function () {
+    Route::get('/dataSiswa', 'index')->name('siswa.index');
+    Route::post('/dataSiswa/store', 'store')->name('siswa.store');
+    Route::get('/dataSiswa/destroy/{siswa}', 'destroy')->name('siswa.destroy');
+});
+
+Route::controller(GuruController::class)->group(function () {
+    Route::get('/dataGuru', 'index')->name('guru.index');
+    Route::post('/dataGuru/store', 'store')->name('guru.store');
+    Route::get('/dataGuru/destroy/{guru}', 'destroy')->name('guru.destroy');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/dataAkun', 'index')->name('user.index');
+    Route::post('/dataAkun/store', 'store')->name('user.store');
+    Route::get('/dataAkun/destroy/{user}', 'destroy')->name('user.destroy');
 });

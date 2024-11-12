@@ -335,7 +335,7 @@ main .time span{
 .main-tabel{
     background-color: var(--color-white);
     border-radius: 0.8rem;
-    max-height: 38rem;
+    /* max-height: 38rem; */
     /* height: 38rem; */
     box-shadow: var(--box-shadow);
     padding: 1.5rem;
