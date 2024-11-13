@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/ADMstyle/editData.css">
     <link rel="stylesheet" href="/styles/ADMstyle/biodataPage.css">
     <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
 
@@ -43,13 +44,13 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa" class="active">
+                                        <a href="dataSiswa">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="dataGuru"  class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
@@ -145,7 +146,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Siswa</p>
+                <p class="main-title">Edit Data Guru</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -178,7 +179,7 @@
                 </div>
             </div>
             <div class="main-content">
-                <div class="main-fitur">
+                {{-- <div class="main-fitur">
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
@@ -191,204 +192,96 @@
                             Siswa
                         </button>
                     </div>
-                </div>
+                </div> --}}
                 <div class="main-tabel">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>NIS</th>
-                                <th>NISN</th>
-                                <th>TTL</th>
-                                <th>Jenis Kelamin</th>
-                                <th>No Telp</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
+                    <div class="isi-main">
+                        <div class="main-input">
+                            <p>Nama Guru</p>
+                            <input type="text">
+                        </div>
+                        <div class="main-input">
+                            <p>NIK</p>
+                            <input type="number" max="9999999999" min="0">
+                        </div>
+                        <div class="main-input">
+                            <p>NUPTK</p>
+                            <input type="number" max="9999999999" min="0">
+                        </div>
+                        <div class="main-input">
+                            <p>NPY</p>
+                            <input type="text">
+                        </div>
+                        <div class="main-input">
+                            <p>Tempat Lahir</p>
+                            <input type="text">
+                        </div>
+                        <div class="main-input">
+                            <p>Tanggal Lahir</p>
+                            <input type="date">
+                        </div>
+                        <div class="main-input">
+                            <p>Jenis Kelamin</p>
+                            <select name="kelamin" id="kelamin">
+                                <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                                <option value="L">L</option>
+                                <option value="P">P</option>
+                            </select>
+                        </div>
+                        <div class="main-input">
+                            <p>Agama</p>
+                            <select name="agama" id="agama">
+                                <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
+                            </select>
+                        </div>
+                        <div class="main-input">
+                            <p>Studi Terakhir</p>
+                            <select name="studi" id="studi">
+                                <option value="" disabled selected class="lol">--Pilih Studi Terakhir--</option>
+                                <option value="S3">S3</option>
+                                <option value="S2">S2</option>
+                                <option value="S1">S1</option>
+                                <option value="D4">D4</option>
+                                <option value="D3">D3</option>
+                                <option value="SMK">SMK/MAK</option>
+                                <option value="SMA">SMA/MA</option>
+                            </select>
+                        </div>
+                        <div class="main-input">
+                            <p>Tahun Gabung</p>
+                            <input type="number" max="9999" min="0">
+                        </div>
+                        <div class="main-input">
+                            <p>Alamat</p>
+                            <Textarea></Textarea>
+                        </div>
+                        <div class="main-input">
+                            <p>No Telp</p>
+                            <input type="number" max="9999999999999" min="0" placeholder="08----------">
+                        </div>
+                        <div class="main-input">
+                            <p>Email</p>
+                            <input type="text" placeholder="zzz@gmail.com">
+                        </div>
+                        <div class="main-input">
+                            <p>Password</p>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <button><a href="dataSiswa">Kembali</a></button>
+                        <button class="simpan">Simpan</button>
+                        {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
+                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                     </div>
                 </div>
             </div>
         </main>
         <!--End of main--> 
-    </div>
-    {{-- modal tambah --}}
-    <div class="wrapper" id="wrapper">
-        <div class="modal">
-            <h3>Tambah Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L (Laki-Laki)</option>
-                            <option value="P">P (Perempuan)</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------" readonly></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <a href="editDataSiswa" class="edit">Edit</a>
-                {{-- <button class="edit"><a href="editDataSiswa">Edit</a></button> --}}
-            </div>
-        </div>
-    </div>
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin ingin menghapus data ini ?</p>
-            <div class="modal-button">
-                <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery -->
@@ -398,7 +291,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

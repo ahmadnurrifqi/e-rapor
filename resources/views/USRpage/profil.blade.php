@@ -28,76 +28,49 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="dashboard">
+                                <a href="USRdashboard">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
                             <li>
+                                <a href="nilaiPelajaran">
+                                    <span class="material-symbols-outlined">checkbook</span>
+                                    <p>Input Nilai Pelajaran</p>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#">
-                                    <span class="material-symbols-outlined">groups</span>
-                                    <p>Biodata</p>
+                                    <span class="material-symbols-outlined">checkbook</span>
+                                    <p>Nilai Wali Kelas</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="spiritual">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Siswa</p>
+                                            <p>Input Nilai Spiritual</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="kehadiran">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Guru</p>
+                                            <p>Input Kehadiran</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun">
+                                        <a href="catatan">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Akun</p>
+                                            <p>Input Catatan</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="nilaiEkskul">
                                     <span class="material-symbols-outlined">checkbook</span>
-                                    <p>Data Pembelajaran</p>
-                                    <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                                    <p>Input Nilai Ekskul</p>
                                 </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="#">
-                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Tahun Ajaran</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Kelas</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Mapel</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Ekstrakurikuler</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Data Prestasi</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -105,15 +78,9 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="nilaiAkhirUSR">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="material-symbols-outlined">print</span>
-                                    <p>Cetak Rapor</p>
                                 </a>
                             </li>
                         </ul>
@@ -122,13 +89,13 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="#"  class="active">
+                                <a href="profil"  class="active">
                                     <span class="material-symbols-outlined">person_outline</span>
                                     <p>User</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="tentangUSR">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
@@ -220,28 +187,26 @@
                             <td>admin01@gmail.com</td>
                         </tr>
                         <tr>
-                            <td>Username</td>
-                            <td>:</td>
-                            <td>admin01</td>
-                        </tr>
-                        <tr>
                             <td>Password</td>
                             <td>:</td>
                             <td>
                                 <div class="password">
-                                    <input type="password" value="admin 123" id="pass">
+                                    <input type="password" value="admin 123" id="pass" readonly>
                                     {{-- admin123 --}}
-                                    <span class="material-symbols-outlined active" id="visible">visibility</span>
-                                    <span class="material-symbols-outlined" id="visible-off">visibility_off</span>
+                                    <span class="material-symbols-outlined eyepass1" id="visible">visibility</span>
+                                    <span class="material-symbols-outlined eyepass2" id="visible-off">visibility_off</span>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="but_change">
-                    <p>*Jika data anda tidak benar atau ingin mengubahnya silahkan hubungi admin</p>
+                    <p>*Jika ada yang ingin ditanyakan lebih detail silahkan hubungi admin</p>
                     <div class="input_field button">
-                        <input type="button" value="Ubah Data" class="ButtonLog">
+                        <button id="edit" class="ButtonLog">
+                            Ubah Data
+                        </button>
+                        {{-- <input type="button" value="Ubah Data" class="ButtonLog"> --}}
                     </div>
                 </div>
             </div>
@@ -283,7 +248,7 @@
             <!-- End of Nav -->
 
             <div class="user-profile">
-                <a href="#">
+                <a href="tentangUSR">
                     <div class="logo">
                         <img src="assets/logo.png">
                         <h3>SMK Nusantara</h3>
@@ -305,9 +270,8 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna</small>
+                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
                         </div>
-                        <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
                 </div>
 
@@ -317,18 +281,116 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
                         </div>
-                        <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="notification add-reminder">
-                    <div>
-                        <span class="material-symbols-outlined">add</span>
-                        <h5>Tambah Catatan</h5>
-                    </div>
-                </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Ubah Profil</h3>
+            <table>
+                <tr>
+                    <td>Nama Guru</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>NIK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NUPTK</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>NPY</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999999999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><select name="kelamin" id="kelamin">
+                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                            <option value="L">L (Laki-Laki)</option>
+                            <option value="P">P (Perempuan)</option>
+                        </select>
+                </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>:</td>
+                    <td><select name="agama" id="agama">
+                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Studi Terakhir</td>
+                    <td>:</td>
+                    <td><select name="studi" id="studi">
+                            <option value="" disabled selected class="lol">--Pilih Studi Terakhir--</option>
+                            <option value="S3">S3</option>
+                            <option value="S2">S2</option>
+                            <option value="S1">S1</option>
+                            <option value="D4">D4</option>
+                            <option value="D3">D3</option>
+                            <option value="SMK">SMK/MAK</option>
+                            <option value="SMA">SMA/MA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tahun Gabung</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>No Telp</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="zzz@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <button class="tambah">Simpan Edit</button>
             </div>
         </div>
     </div>
