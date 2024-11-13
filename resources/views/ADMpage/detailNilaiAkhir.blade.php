@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/USRstyle/biodataPage.css">
+    <link rel="stylesheet" href="/styles/ADMstyle/biodataPage.css">
     <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
-
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -30,49 +29,76 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="USRdashboard">
+                                <a href="ADMdashboard">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="nilaiPelajaran" class="active">
-                                    <span class="material-symbols-outlined">checkbook</span>
-                                    <p>Input Nilai Pelajaran</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="#">
-                                    <span class="material-symbols-outlined">checkbook</span>
-                                    <p>Nilai Wali Kelas</p>
+                                    <span class="material-symbols-outlined">groups</span>
+                                    <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="spiritual">
+                                        <a href="dataSiswa">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Input Nilai Spiritual</p>
+                                            <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="kehadiran">
+                                        <a href="dataGuru">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Input Kehadiran</p>
+                                            <p>Data Guru</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="catatan">
+                                        <a href="dataAkun">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
-                                            <p>Input Catatan</p>
+                                            <p>Data Akun</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="nilaiEkskul">
+                                <a href="#">
                                     <span class="material-symbols-outlined">checkbook</span>
-                                    <p>Input Nilai Ekskul</p>
+                                    <p>Data Pembelajaran</p>
+                                    <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="dataTahunAjaran">
+                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
+                                            <p>Data Tahun Ajaran</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dataKelas">
+                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
+                                            <p>Data Kelas</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dataMapel">
+                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
+                                            <p>Data Mapel</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dataEkstrakurikuler">
+                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
+                                            <p>Data Ekstrakurikuler</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dataPrestasi">
+                                            <span class="subicon material-symbols-outlined">radio_button_checked</span>
+                                            <p>Data Prestasi</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -80,9 +106,15 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirUSR">
+                                <a href="nilaiAkhirADM" class="active">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cetakRapor">
+                                    <span class="material-symbols-outlined">print</span>
+                                    <p>Cetak Rapor</p>
                                 </a>
                             </li>
                         </ul>
@@ -91,13 +123,7 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="profil">
-                                    <span class="material-symbols-outlined">person_outline</span>
-                                    <p>User</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tentangUSR">
+                                <a href="tentang">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
@@ -118,7 +144,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Input Nilai Pelajaran</p>
+                <p class="main-title">Data Nilai Akhir</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -153,93 +179,30 @@
             <div class="main-content">
                 <div class="main-fitur">
                     <div class="left-fitur">
-                        <input type="text" placeholder="Ubah KKM Pengetahuan(C3)" id="" maxlength="3">
+                        <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
-                            <p>80</p>
-                        </div>
-                        <input type="text" placeholder="Ubah KKM Keterampilan(C4)" id="" axlength="3">
-                        <div class="drop-limit">
-                            <p>80</p>
+                            <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
-                    <div class="right-fitur">
-                        <button id="open">
+                    {{-- <div class="right-fitur">
+                        <a href="">
                             <span class="material-symbols-outlined">add</span>
-                            Simpan Data
-                        </button>
-                    </div>
+                            siswa
+                        </a>
+                    </div> --}}
                 </div>
                 <div class="main-tabel">
                     <table>
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>NISN</th>
-                                <th>Pengetahuan(C3)</th>
-                                <th>Predikat(C3)</th>
-                                <th>Deskripsi(C3)</th>
-                                <th>Keterampilan(C4)</th>
-                                <th>Predikat(C4)</th>
-                                <th>Deskripsi(C4)</th>
+                                <th>Nama Kelas</th>
+                                <th>Wali Kelas</th>
+                                <th>Tahun Pelajaran</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Azizah Renata Ningrum</td>
-                                <td>209874398214</td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Indra Mahendra Bekkam</td>
-                                <td>209873762344</td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                     <div class="slide-data">
                         <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
@@ -251,6 +214,17 @@
         <!--End of main--> 
     </div>
 
+    {{-- modal hapus --}}
+    <div class="wrapper3" id="wrapper3">
+        <div class="modal">
+            <p>Apakah anda yakin ingin menghapus data ini ?</p>
+            <div class="modal-button">
+                <button id="close3" class="close">Kembali</button>
+                <button class="hapus">Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -258,7 +232,7 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
+    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

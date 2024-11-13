@@ -140,7 +140,7 @@ main .time span{
 }
 
 .main-fitur .left-fitur .drop-limit{
-    width: 2rem;
+    /* width: 2rem; */
     margin: 0 2rem 0 -0.3rem;
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -148,7 +148,7 @@ main .time span{
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
     transition: all 0.3s ease;
@@ -395,14 +395,14 @@ main .main-tabel table{
 }
 .main-tabel table tbody td textarea{
     /* height: 4rem; */
-    min-width: 15rem;
-    max-width: 15rem;
+    min-width: 10rem;
+    max-width: 10rem;
     min-height: 3rem;
     max-height: 3rem;
     border: 2px solid var(--color-light);
     color: var(--color-dark-variant);
     font-size: 10px;
-    padding: 0 5px;
+    padding: 2px 5px;
 }
 
 .main-tabel .slide-data{

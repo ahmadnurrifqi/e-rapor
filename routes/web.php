@@ -52,6 +52,9 @@ Route::get('dataPrestasi', function () {
 Route::get('nilaiAkhirADM', function () {
     return view('/ADMpage/nilaiAkhir',["title" => "E-Rapor | SMK Nusantara"]);
 });
+Route::get('detailNilaiAkhir', function () {
+    return view('/ADMpage/detailNilaiAkhir',["title" => "E-Rapor | SMK Nusantara"]);
+});
 Route::get('cetakRapor', function () {
     return view('/ADMpage/cetakRapor',["title" => "E-Rapor | SMK Nusantara"]);
 });
@@ -95,6 +98,9 @@ Route::get('catatan', function () {
 });
 Route::get('nilaiEkskul', function () {
     return view('/USRpage/nilaiEkskul',["title" => "E-Rapor | SMK Nusantara"]);
+});
+Route::get('detailEkskul', function () {
+    return view('/USRpage/detailEkskul',["title" => "E-Rapor | SMK Nusantara"]);
 });
 Route::get('nilaiAkhirUSR', function () {
     return view('/USRpage/nilaiAkhir',["title" => "E-Rapor | SMK Nusantara"]);
