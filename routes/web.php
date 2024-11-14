@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -98,4 +100,16 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/dataAkun', 'index')->name('user.index');
     Route::post('/dataAkun/store', 'store')->name('user.store');
     Route::get('/dataAkun/destroy/{user}', 'destroy')->name('user.destroy');
+});
+
+Route::controller(TahunAjaranController::class)->group(function () {
+    Route::get('/dataTahunAjaran', 'index')->name('tahun-ajaran.index');
+    Route::post('/dataTahunAjaran/store', 'store')->name('tahun-ajaran.store');
+    Route::get('/dataTahunAjaran/destroy/{tahunAjaran}', 'destroy')->name('tahun-ajaran.destroy');
+});
+
+Route::controller(KelasController::class)->group(function () {
+    Route::get('/dataKelas', 'index')->name('kelas.index');
+    Route::post('/dataKelas/store', 'store')->name('kelas.store');
+    Route::get('/dataKelas/destroy/{kelas}', 'destroy')->name('kelas.destroy');
 });
