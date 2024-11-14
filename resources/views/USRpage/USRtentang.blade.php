@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/USRstyle/USRdashboard.css">
-    <link rel="stylesheet" href="/styles/USRstyle/USRsidebar.css">
+    <link rel="stylesheet" href="/styles/ADMstyle/ADMtentang.css">
+    {{-- <link rel="stylesheet" href="/styles/ADMstyle/ADMdashboard.css">
+    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css"> --}}
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="USRdashboard" class="active">
+                                <a href="USRdashboard">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
@@ -96,7 +97,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="tentangUSR">
+                                <a href="tentangUSR" class="active">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
@@ -116,60 +117,69 @@
         
         <!-- main content -->
         <main>
-            <p class="main-title">Dashboard</p>
+            <p class="main-title">Tentang Kami</p>
             <!--Analysis-->
-            <div class="analyse">
-                <div class="info-total">
-                    <div class="status">
-                        <h2>116</h2>
-                        <h3>Total Guru</h3>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">person</span>
+            <div class="users">
+                <div class="column">
+                    <img src="assets/logo.png" alt="">
+                    <table>
+                        <tr>
+                            <td>Nama Sekolah</td>
+                            <td>:</td>
+                            <td>SMK Nusantara Mandiri Bontang</td>
+                        </tr>
+                        <tr>
+                            <td>Kepala Sekolah</td>
+                            <td>:</td>
+                            <td>Ir. Bahrun Amin, S.T., IPM</td>
+                        </tr>
+                        <tr>
+                            <td>Tempat Sekolah</td>
+                            <td>:</td>
+                            <td>Bontang</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td>Jl. Banjarmasin No. 29 Kel. Gn. Telihan Kec. Bontang Barat</td>
+                        </tr>
+                        <tr>
+                            <td>Tahun terbentuk</td>
+                            <td>:</td>
+                            <td>1999-09-09</td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan Keahlian</td>
+                            <td>:</td>
+                            <td>1. Teknik Alat Berat</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>2. Teknik Mekanik Industri</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>3. Desain Pemodelan dan Informasi Bangunan</td>
+                        </tr>
+                        <tr>
+                            <td>No Telp</td>
+                            <td>:</td>
+                            <td>082404248666</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>admin01@gmail.com</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="info-total">
-                    <div class="status">
-                        <h2>187</h2>
-                        <h3>Total Siswa</h3>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">school</span>
+                <div class="but_change">
+                    <p>*Jika data ada yang tidak benar atau belum diperbaharui silahkan hubungi admin</p>
                 </div>
-                <div class="info-total">
-                    <div class="status">
-                        <div class="info">
-                            <h2>116</h2>
-                            <h3>Total Kelas</h3>
-                        </div>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">apartment</span>
-                </div>
-                <div class="info-total">
-                    <div class="status">
-                        <div class="info">
-                            <h2>187</h2>
-                            <h3>Total Mapel</h3>
-                        </div>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">menu_book</span>
-                </div>
-                <div class="info-total">
-                    <div class="status">
-                        <div class="info">
-                            <h2>0</h2>
-                            <h3>segera</h3>
-                        </div>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">bookmark</span>
-                </div>
-                <div class="info-total">
-                    <div class="status">
-                        <div class="info">
-                            <h2>0</h2>
-                            <h3>segera</h3>
-                        </div>
-                    </div>
-                    <span class="iconstatus material-symbols-outlined">bookmark</span>
-                </div>
-            </div>    
+            </div>
+              
         </main>
         <!--End of main-->
 
@@ -208,7 +218,7 @@
             <!-- End of Nav -->
 
             <div class="user-profile">
-                <a href="tentangUSR">
+                <a href="#">
                     <div class="logo">
                         <img src="assets/logo.png">
                         <h3>SMK Nusantara</h3>
@@ -245,7 +255,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -1,0 +1,99 @@
+
+.main-tabel:hover{
+    /* box-shadow: none; */
+    box-shadow: var(--box-shadow) !important;
+}
+.main-tabel .submit{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    /* padding-right: 3rem; */
+    align-items: center;
+    gap: 1rem;
+}
+.main-tabel .submit button a{
+    color: var(--color-white);
+}
+.main-tabel .submit .simpan{
+    background-color: var(--color-success);
+}
+.main-tabel .submit button{
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #6C9BCF;
+    color: var(--color-white);
+    border-radius: 5px;
+    opacity: 0.9;
+}
+.main-tabel .submit button:hover{
+    opacity: 1;
+}
+
+/* .main-tabel{
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: black !important;
+} */
+.isi-main{
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* background-color: black !important; */
+}
+
+.main-input{
+    /* background-color: #6C9BCF; */
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main-input p{
+    color: var(--color-dark-variant);
+    text-transform: capitalize;
+    margin-bottom: 0.3rem;
+    font-size: 12px;
+}
+
+.main-input input{
+    height: 1.7rem;
+    color: var(--color-dark-variant);
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 0.1px solid var(--color-info-dark);
+    width: 70%;
+}
+.main-input select{
+    height: 1.7rem;
+    color: var(--color-dark-variant);
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 0.1px solid var(--color-info-dark);
+    width: 70%;
+}
+.main-input textarea{
+    min-width: 70%;
+    max-width: 70%;
+    height: 1.7rem;
+    min-height: 1.7rem;
+    max-height: 3rem;
+    color: var(--color-dark-variant);
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 0.1px solid var(--color-info-dark);
+}

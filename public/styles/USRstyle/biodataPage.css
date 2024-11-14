@@ -122,7 +122,7 @@ main .time span{
     border-radius: 0.5rem;
     background-color: var(--color-white);
     color: var(--color-info-dark);
-    padding: 0 10px;
+    padding: 5px 10px;
     font-size: 12px;
     border: 0.1px solid var(--color-info-dark);
     box-shadow: var(--box-shadow);
@@ -140,23 +140,24 @@ main .time span{
 }
 
 .main-fitur .left-fitur .drop-limit{
+    /* width: 2rem; */
+    margin: 0 2rem 0 -0.3rem;
     background-color: var(--color-primary);
     color: var(--color-white);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
     transition: all 0.3s ease;
     opacity: 1;
-    cursor: pointer;
 }
 
-.left-fitur .drop-limit span{
+/* .left-fitur .drop-limit span{
     font-size: 20px;
-}
+} */
 
 .main-fitur .left-fitur .drop-limit:hover{
     box-shadow: none;
@@ -297,27 +298,6 @@ main .time span{
     width: 100%;
 }
 
-.modal-button .edit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    width: 20%;
-    border-radius: 5px;
-    font-size: 13px;
-    background-color: var(--color-primary);
-    color: #fff;
-    cursor: pointer;
-    box-shadow: var(--box-shadow);
-    transition: all 0.3s ease;
-    opacity: 1;
-}
-
-.modal-button .edit:hover{
-    box-shadow: none;
-    opacity: 0.9;
-}
-
 .modal-button button{
     height: 2rem;
     width: 20%;
@@ -356,7 +336,7 @@ main .time span{
 .main-tabel{
     background-color: var(--color-white);
     border-radius: 0.8rem;
-    /* max-height: 38rem; */
+    max-height: 38rem;
     /* height: 38rem; */
     box-shadow: var(--box-shadow);
     padding: 1.5rem;
@@ -375,9 +355,10 @@ main .main-tabel table{
 
 .main-tabel table thead{
     width: 100%;
-    height: 3rem;
+    height: 2.5rem;
     color: var(--color-dark);
     font-size: 13px;
+    /* background-color: #1B9C85; */
 }
 
 .main-tabel table tbody tr:hover{
@@ -389,10 +370,39 @@ main .main-tabel table{
 }
 
 .main-tabel table tbody td{
+    /* width:fit-content ; */
     height: 1.8rem;
     border-top: 1px solid var(--color-light);
     color: var(--color-dark-variant);
     font-size: 10px;
+    padding: 5px 0;
+}
+.main-tabel table tbody td input{
+    height: 1.8rem;
+    border: 2px solid var(--color-light);
+    color: var(--color-dark-variant);
+    font-size: 10px;
+    padding: 0 5px;
+    text-align: center;
+}
+.main-tabel table tbody td select{
+    height: 1.8rem;
+    border: 2px solid var(--color-light);
+    color: var(--color-dark-variant);
+    font-size: 10px;
+    padding: 0 5px;
+    text-align: center;
+}
+.main-tabel table tbody td textarea{
+    /* height: 4rem; */
+    min-width: 10rem;
+    max-width: 10rem;
+    min-height: 3rem;
+    max-height: 3rem;
+    border: 2px solid var(--color-light);
+    color: var(--color-dark-variant);
+    font-size: 10px;
+    padding: 2px 5px;
 }
 
 .main-tabel .slide-data{
