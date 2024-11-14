@@ -213,7 +213,11 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>Role</td>
-                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="primary">
+                                        <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
                                     <td class="danger">
                                         <span delete-url="{{ route('user.destroy', ['user' => $user->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>

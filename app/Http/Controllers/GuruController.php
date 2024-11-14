@@ -74,7 +74,10 @@ class GuruController extends Controller
      */
     public function edit(Guru $guru)
     {
-        //
+        return view('/ADMpage/editDataGuru', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "guru" => $guru,
+        ]);
     }
 
     /**
@@ -82,7 +85,32 @@ class GuruController extends Controller
      */
     public function update(Request $request, Guru $guru)
     {
-        //
+        $guru->user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        $guru->update([
+            "nik" => $request->nik,
+            "nuptk" => $request->nuptk,
+            "npy" => $request->npy,
+            "tempat_lahir" => $request->tempat_lahir,
+            "tanggal_lahir" => $request->tanggal_lahir,
+            "jenis_kelamin" => $request->jenis_kelamin,
+            "agama" => $request->agama,
+            "studi_terakhir" => $request->studi_terakhir,
+            "tahun_gabung" => $request->tahun_gabung,
+            "alamat" => $request->alamat,
+            "no_telp" => $request->no_telp,
+        ]);
+
+        if ($request->password) {
+            $guru->user->update([
+                'password' => $request->password,
+            ]);
+        }
+
+        return redirect()->route('guru.index');
     }
 
     /**

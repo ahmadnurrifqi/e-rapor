@@ -53,17 +53,31 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return view('/ADMpage/editDataAkun', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "user" => $user,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        if ($request->password) {
+            $user->update([
+                'password' => $request->password,
+            ]);
+        }
+
+        return redirect()->route('user.index');
     }
 
     /**

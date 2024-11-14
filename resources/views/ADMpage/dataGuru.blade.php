@@ -215,7 +215,11 @@
                                     <td>{{ $guru->npy }}</td>
                                     <td>{{ $guru->tempat_lahir }}, {{ $guru->tanggal_lahir }}</td>
                                     <td>{{ $guru->no_telp }}</td>
-                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="primary">
+                                        <a href="{{ route('guru.edit', ['guru' => $guru->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
                                     <td class="danger">
                                         <span delete-url="{{ route('guru.destroy', ['guru' => $guru->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>

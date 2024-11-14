@@ -122,18 +122,24 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::controller(SiswaController::class)->group(function () {
     Route::get('/dataSiswa', 'index')->name('siswa.index');
     Route::post('/dataSiswa/store', 'store')->name('siswa.store');
+    Route::get('/editDataSiswa/{siswa}', 'edit')->name('siswa.edit');
+    Route::post('/editDataSiswa/{siswa}/update', 'update')->name('siswa.update');
     Route::get('/dataSiswa/destroy/{siswa}', 'destroy')->name('siswa.destroy');
 });
 
 Route::controller(GuruController::class)->group(function () {
     Route::get('/dataGuru', 'index')->name('guru.index');
     Route::post('/dataGuru/store', 'store')->name('guru.store');
+    Route::get('/editDataGuru/{guru}', 'edit')->name('guru.edit');
+    Route::post('/editDataGuru/{guru}/update', 'update')->name('guru.update');
     Route::get('/dataGuru/destroy/{guru}', 'destroy')->name('guru.destroy');
 });
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/dataAkun', 'index')->name('user.index');
     Route::post('/dataAkun/store', 'store')->name('user.store');
+    Route::get('/editDataAkun/{user}', 'edit')->name('user.edit');
+    Route::post('/editDataAkun/{user}/update', 'update')->name('user.update');
     Route::get('/dataAkun/destroy/{user}', 'destroy')->name('user.destroy');
 });
 

@@ -216,7 +216,11 @@
                                     <td>{{ $siswa->tempat_lahir }}, {{ $siswa->tanggal_lahir }}</td>
                                     <td>{{ $siswa->jenis_kelamin }}</td>
                                     <td>{{ $siswa->no_telp }}</td>
-                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="primary">
+                                        <a href="{{ route('siswa.edit', ['siswa' => $siswa->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
                                     <td class="danger">
                                         <span delete-url="{{ route('siswa.destroy', ['siswa' => $siswa->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>
@@ -327,12 +331,12 @@
                 <tr>
                     <td>NIS</td>
                     <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
                 </tr>
                 <tr>
                     <td>NISN</td>
                     <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
                 </tr>
                 <tr>
                     <td>Tempat Lahir</td>
