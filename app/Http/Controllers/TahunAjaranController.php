@@ -54,17 +54,27 @@ class TahunAjaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(TahunAjaran $tahunAjaran)
     {
-        //
+        return view('/ADMpage/editDataTahunAjaran', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "tahunAjaran" => $tahunAjaran,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, TahunAjaran $tahunAjaran)
     {
-        //
+        $tahunAjaran->update([
+            'tahun' => $request->tahun,
+            'semester' => $request->semester,
+            'tempat_pembagian' => $request->tempat_pembagian,
+            'tanggal_pembagian' => $request->tanggal_pembagian,
+        ]);
+
+        return redirect()->route('tahun-ajaran.index');
     }
 
     /**

@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/ADMstyle/editData.css">
     <link rel="stylesheet" href="/styles/ADMstyle/biodataPage.css">
     <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -35,14 +37,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="dataSiswa" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
@@ -62,7 +64,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -87,7 +89,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataEkstrakurikuler" class="active">
+                                        <a href="dataEkstrakurikuler">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Ekstrakurikuler</p>
                                         </a>
@@ -144,7 +146,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Ekstrakurikuler</p>
+                <p class="main-title">Edit Data Siswa</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -177,7 +179,7 @@
                 </div>
             </div>
             <div class="main-content">
-                <div class="main-fitur">
+                {{-- <div class="main-fitur">
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
@@ -187,139 +189,51 @@
                     <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            Ekstrakurikuler
+                            Siswa
                         </button>
                     </div>
-                </div>
-                <div class="main-tabel">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Ekstrakurikuler</th>
-                                <th>Pembina</th>
-                                <th>Tahun Ajaran</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($ekskuls as $i => $ekskul)
-                                <tr>
-                                    <td>{{ $ekskuls->firstItem() + $i }}</td>
-                                    <td>{{ $ekskul->nama }}</td>
-                                    <td>{{ $ekskul->guru->user->name }}</td>
-                                    <td>{{ $ekskul->tahunAjaran->tahun }}</td>
-                                    <td class="primary">
-                                        <a href="{{ route('ekskul.edit', ['ekskul' => $ekskul->id]) }}">
-                                            <button id="edit">Details</button>
-                                        </a>
-                                    </td>
-                                    <td class="danger">
-                                        <span delete-url="{{ route('ekskul.destroy', ['ekskul' => $ekskul->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{ $ekskuls->links('pagination.default') }}
-                </div>
+                </div> --}}
+                <form action="{{ route('mapel.update', ['mapel' => $mapel->id]) }}" method="POST">
+                    @csrf
+                    <div class="main-tabel">
+                        <div class="isi-main">
+                            <div class="main-input">
+                                <p>Nama Kelas</p>
+                                <input type="text" placeholder="Matematika" name="nama" required value="{{ $mapel->nama }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Singkatan</p>
+                                <input type="text" placeholder="MTK" name="singkatan" required value="{{ $mapel->singkatan }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Kelompok</p>
+                                <select name="kelompok" id="kelompok" required>
+                                    <option value="" disabled selected class="lol">--Pilih Kelompok Muatan--</option>
+                                    <option {{ ($mapel->kelompok == 'Muatan Nasional') ? 'selected' : ''}} value="Muatan Nasional">Muatan Nasional</option>
+                                    <option {{ ($mapel->kelompok == 'Muatan Kejuruan') ? 'selected' : ''}} value="Muatan Kejuruan">Muatan Kejuruan</option>
+                                </select>
+                            </div>
+                            <div class="main-input">
+                                <p>Pengajar</p>
+                                <select name="guru_id" id="walikelas" required>
+                                    <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
+                                    @foreach ($teachers as $teacher)
+                                        <option {{ ($mapel->guru_id == $teacher->id) ? 'selected' : '' }} value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="submit">
+                            <button><a href="{{ route('tahun-ajaran.index') }}">Kembali</a></button>
+                            <button class="simpan">Simpan</button>
+                            {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
+                            <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
+                        </div>
+                    </div>
+                </form>
             </div>
         </main>
         <!--End of main--> 
-    </div>
-
-    {{-- modal tambah --}}
-    <div class="wrapper" id="wrapper">
-        <div class="modal">
-            <form action="{{ route('ekskul.store') }}" method="POST">
-                @csrf
-                <h3>Tambah Data Ekstrakurikuler</h3>
-                <table>
-                    <tr>
-                        <td>Nama Ekstrakurikuler</td>
-                        <td>:</td>
-                        <td><input type="text" name="nama" required></td>
-                    </tr>
-                    <tr>
-                        <td>Pembina</td>
-                        <td>:</td>
-                        <td>
-                            <select name="guru_id" id="pembina" required>
-                                <option value="" disabled selected class="lol">--Pilih Pembina--</option>
-                                @foreach ($teachers as $teacher)
-                                    <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tahun Ajaran</td>
-                        <td>:</td>
-                        <td>
-                            <select name="tahun_ajaran_id" id="ajaran">
-                                <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                                @foreach ($tahunAjarans as $tahunAjaran)
-                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <div class="modal-button">
-                    <button id="close" class="close">Kembali</button>
-                    <button class="tambah">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Ekstrakurikuler</h3>
-            <table>
-                <tr>
-                    <td>Nama Ekstrakurikuler</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Pembina</td>
-                    <td>:</td>
-                    <td><select name="pembina" id="pembina">
-                            <option value="" disabled selected class="lol">--Pilih Pembina--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
-        </div>
-    </div>
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin ingin menghapus data ini ?</p>
-            <div class="modal-button">
-                <button id="close3" class="close">Kembali</button>
-                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery -->

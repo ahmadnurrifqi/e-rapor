@@ -211,7 +211,11 @@
                                     <td>{{ $class->tingkat_kelas }}</td>
                                     <td>{{ $class->guru->user->name }}</td>
                                     <td>{{ $class->tahunAjaran->tahun }}</td>
-                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="primary">
+                                        <a href="{{ route('kelas.edit', ['kelas' => $class->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
                                     <td class="danger">
                                         <span delete-url="{{ route('kelas.destroy', ['kelas' => $class->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>
@@ -241,18 +245,20 @@
                     <tr>
                         <td>Tingkat Kelas</td>
                         <td>:</td>
-                        <td><select name="tingkat_kelas" id="tingkat" required>
+                        <td>
+                            <select name="tingkat_kelas" id="tingkat" required>
                                 <option value="" disabled selected class="lol">--Pilih Tingkat Kelas--</option>
                                 <option value="X (Sepuluh)">X (Sepuluh)</option>
                                 <option value="XI (Sebelas)">XI (Sebelas)</option>
-                                <option value="XII(Duabelas)">XII (Duabelas)</option>
+                                <option value="XII (Duabelas)">XII (Duabelas)</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>Wali Kelas</td>
                         <td>:</td>
-                        <td><select name="guru_id" id="walikelas" required>
+                        <td>
+                            <select name="guru_id" id="walikelas" required>
                                 <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
                                 @foreach ($teachers as $teacher)
                                     <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
@@ -263,7 +269,8 @@
                     <tr>
                         <td>Tahun Ajaran</td>
                         <td>:</td>
-                        <td><select name="tahun_ajaran_id" id="ajaran">
+                        <td>
+                            <select name="tahun_ajaran_id" id="ajaran">
                                 <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
                                 @foreach ($tahunAjarans as $tahunAjaran)
                                     <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>

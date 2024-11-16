@@ -200,16 +200,30 @@
                                 <th>Singkatan</th>
                                 <th>Kelompok</th>
                                 <th>Pengajar</th>
-                                <th>Tahun Ajaran</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($mapels as $i => $mapel)
+                                <tr>
+                                    <td>{{ $mapels->firstItem() + $i }}</td>
+                                    <td>{{ $mapel->nama }}</td>
+                                    <td>{{ $mapel->singkatan }}</td>
+                                    <td>{{ $mapel->kelompok }}</td>
+                                    <td>{{ $mapel->guru->user->name }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('mapel.edit', ['mapel' => $mapel->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('mapel.destroy', ['mapel' => $mapel->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $mapels->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -219,55 +233,49 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Data Mata Pelajaran</h3>
-            <table>
-                <tr>
-                    <td>Nama Mapel</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="Matematika"></td>
-                </tr>
-                <tr>
-                    <td>Singkatan</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="MTK"></td>
-                </tr>
-                <tr>
-                    <td>Kelompok</td>
-                    <td>:</td>
-                    <td><select name="kelompok" id="kelompok">
-                            <option value="" disabled selected class="lol">--Pilih Kelompok Muatan--</option>
-                            <option value="Muatan Nasional">Muatan Nasional</option>
-                            <option value="Muatan Kejuruan">Muatan Kejuruan</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pengajar</td>
-                    <td>:</td>
-                    <td><select name="pengajar" id="pengajar">
-                            <option value="" disabled selected class="lol">--Pilih Pengajar--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('mapel.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Data Mata Pelajaran</h3>
+                <table>
+                    <tr>
+                        <td>Nama Mapel</td>
+                        <td>:</td>
+                        <td><input type="text" placeholder="Matematika" name="nama" required></td>
+                    </tr>
+                    <tr>
+                        <td>Singkatan</td>
+                        <td>:</td>
+                        <td><input type="text" placeholder="MTK" name="singkatan" required></td>
+                    </tr>
+                    <tr>
+                        <td>Kelompok</td>
+                        <td>:</td>
+                        <td>
+                            <select name="kelompok" id="kelompok" required>
+                                <option value="" disabled selected class="lol">--Pilih Kelompok Muatan--</option>
+                                <option value="Muatan Nasional">Muatan Nasional</option>
+                                <option value="Muatan Kejuruan">Muatan Kejuruan</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pengajar</td>
+                        <td>:</td>
+                        <td>
+                            <select name="guru_id" id="walikelas" required>
+                                <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
+                                @foreach ($teachers as $teacher)
+                                    <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit --}}
@@ -330,7 +338,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -342,7 +350,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

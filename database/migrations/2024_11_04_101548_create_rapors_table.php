@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('siswa_id')->constrained()->onDelete('cascade');
             $table->foreignId('tahun_ajaran_id')->constrained()->onDelete('cascade');
-            $table->text('sikap_spiritual');
-            $table->integer('total_nilai');
-            $table->integer('rata_rata');
-            $table->integer('peringkat');
-            $table->text('catatan_wali_kelas');
-            $table->integer('sakit');
-            $table->integer('izin');
-            $table->integer('tanpa_keterangan');
+            $table->text('sikap_spiritual')->nullable();
+            $table->integer('total_nilai')->nullable();
+            $table->integer('rata_rata')->nullable();
+            $table->integer('peringkat')->nullable();
+            $table->text('catatan_wali_kelas')->nullable();
+            $table->integer('sakit')->nullable();
+            $table->integer('izin')->nullable();
+            $table->integer('tanpa_keterangan')->nullable();
             $table->timestamps();
         });
     }

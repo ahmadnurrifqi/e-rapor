@@ -199,17 +199,35 @@
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
                                 <th>Uraian Prestasi</th>
-                                <th>Tahun Ajaran</th>
+                                <th>Keterangan</th>
                                 <th>Jenis Prestasi</th>
+                                <th>Tahun Ajaran</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($prestasis as $i => $prestasi)
+                                <tr>
+                                    <td>{{ $prestasis->firstItem() + $i }}</td>
+                                    <td>{{ $prestasi->rapor->siswa->nama }}</td>
+                                    <td>{{ ($prestasi->rapor->siswa->kelas) ? $prestasi->rapor->siswa->kelas->tingkat_kelas : '-' }}</td>
+                                    <td>{{ $prestasi->uraian_prestasi }}</td>
+                                    <td>{{ $prestasi->keterangan }}</td>
+                                    <td>{{ $prestasi->jenis_prestasi }}</td>
+                                    <td>{{ $prestasi->rapor->tahunAjaran->tahun }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('prestasi.edit', ['prestasi' => $prestasi->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('prestasi.destroy', ['prestasi' => $prestasi->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $prestasis->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -219,66 +237,61 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Data Prestasi</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><select name="siswa" id="siswa">
-                            <option value="" disabled selected class="lol">--Pilih Siswa--</option>
-                            <option value="">ambil dari tabel siswa 1</option>
-                            <option value="">ambil dari tabel siswa 2</option>
-                            <option value="">ambil dari tabel siswa 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kelas</td>
-                    <td>:</td>
-                    <td><select name="kelas" id="kelas">
-                            <option value="" disabled selected class="lol">--Pilih Kelas--</option>
-                            <option value="">ambil dari tabel Kelas 1</option>
-                            <option value="">ambil dari tabel Kelas 2</option>
-                            <option value="">ambil dari tabel Kelas 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Uraian Prestasi</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Keterangan</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Prestasi</td>
-                    <td>:</td>
-                    <td><select name="jenisprestasi" id="jenisprestasi">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Prestasi--</option>
-                            <option value="Akademik">Akademik</option>
-                            <option value="Non Akademik">Non Akademik</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('prestasi.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Data Prestasi</h3>
+                <table>
+                    <tr>
+                        <td>Nama Siswa</td>
+                        <td>:</td>
+                        <td>
+                            <select name="siswa_id" id="siswa" required>
+                                <option value="" disabled selected class="lol">--Pilih Siswa--</option>
+                                @foreach ($siswas as $siswa)
+                                    <option value="{{ $siswa->id }}">{{ $siswa->nama }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Uraian Prestasi</td>
+                        <td>:</td>
+                        <td><input type="text" name="uraian_prestasi" required></td>
+                    </tr>
+                    <tr>
+                        <td>Keterangan</td>
+                        <td>:</td>
+                        <td><input type="text" name="keterangan" required></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Prestasi</td>
+                        <td>:</td>
+                        <td>
+                            <select name="jenis_prestasi" id="jenisprestasi" required>
+                                <option value="" disabled selected class="lol">--Pilih Jenis Prestasi--</option>
+                                <option value="Akademik">Akademik</option>
+                                <option value="Non Akademik">Non Akademik</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tahun Ajaran</td>
+                        <td>:</td>
+                        <td>
+                            <select name="tahun_ajaran_id" id="ajaran" required>
+                                <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                                @foreach ($tahunAjarans as $tahunAjaran)
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit gapake --}}
@@ -288,7 +301,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -300,7 +313,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

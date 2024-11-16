@@ -211,7 +211,11 @@
                                     <td>{{ $tahunAjaran->semester }}</td>
                                     <td>{{ $tahunAjaran->tempat_pembagian }}</td>
                                     <td>{{ $tahunAjaran->tanggal_pembagian }}</td>
-                                    <td class="primary"><button id="edit">Details</button></td>
+                                    <td class="primary">
+                                        <a href="{{ route('tahun-ajaran.edit', ['tahunAjaran' => $tahunAjaran->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
                                     <td class="danger">
                                         <span delete-url="{{ route('tahun-ajaran.destroy', ['tahunAjaran' => $tahunAjaran->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>

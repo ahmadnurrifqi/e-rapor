@@ -66,7 +66,18 @@ class KelasController extends Controller
      */
     public function edit(Kelas $kelas)
     {
-        //
+        $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
+        return view('/ADMpage/editDataKelas', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "class" => $kelas,
+            "teachers" => $teachers,
+            "tahunAjarans" => $tahunAjarans,
+        ]);
     }
 
     /**
@@ -74,7 +85,14 @@ class KelasController extends Controller
      */
     public function update(Request $request, Kelas $kelas)
     {
-        //
+        $kelas->update([
+            'guru_id' => $request->guru_id,
+            'tahun_ajaran_id' => $request->tahun_ajaran_id,
+            'nama_kelas' => $request->nama_kelas,
+            'tingkat_kelas' => $request->tingkat_kelas,
+        ]);
+
+        return redirect()->route('kelas.index');
     }
 
     /**

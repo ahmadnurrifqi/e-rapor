@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\EkstrakurikularController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MapelController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\UserController;
@@ -146,11 +149,39 @@ Route::controller(UserController::class)->group(function () {
 Route::controller(TahunAjaranController::class)->group(function () {
     Route::get('/dataTahunAjaran', 'index')->name('tahun-ajaran.index');
     Route::post('/dataTahunAjaran/store', 'store')->name('tahun-ajaran.store');
+    Route::get('/editTahunAjaran/{tahunAjaran}', 'edit')->name('tahun-ajaran.edit');
+    Route::post('/editTahunAjaran/{tahunAjaran}/update', 'update')->name('tahun-ajaran.update');
     Route::get('/dataTahunAjaran/destroy/{tahunAjaran}', 'destroy')->name('tahun-ajaran.destroy');
 });
 
 Route::controller(KelasController::class)->group(function () {
     Route::get('/dataKelas', 'index')->name('kelas.index');
     Route::post('/dataKelas/store', 'store')->name('kelas.store');
+    Route::get('/editDataKelas/{kelas}', 'edit')->name('kelas.edit');
+    Route::post('/editDataKelas/{kelas}/update', 'update')->name('kelas.update');
     Route::get('/dataKelas/destroy/{kelas}', 'destroy')->name('kelas.destroy');
+});
+
+Route::controller(MapelController::class)->group(function () {
+    Route::get('/dataMapel', 'index')->name('mapel.index');
+    Route::post('/dataMapel/store', 'store')->name('mapel.store');
+    Route::get('/editDataMapel/{mapel}', 'edit')->name('mapel.edit');
+    Route::post('/editDataMapel/{mapel}/update', 'update')->name('mapel.update');
+    Route::get('/dataMapel/destroy/{mapel}', 'destroy')->name('mapel.destroy');
+});
+
+Route::controller(EkstrakurikularController::class)->group(function () {
+    Route::get('/dataEkstrakurikuler', 'index')->name('ekskul.index');
+    Route::post('/dataEkstrakurikuler/store', 'store')->name('ekskul.store');
+    Route::get('/editDataEkstrakurikuler/{ekskul}', 'edit')->name('ekskul.edit');
+    Route::post('/editDataEkstrakurikuler/{ekskul}/update', 'update')->name('ekskul.update');
+    Route::get('/dataEkstrakurikuler/destroy/{ekskul}', 'destroy')->name('ekskul.destroy');
+});
+
+Route::controller(PrestasiController::class)->group(function () {
+    Route::get('/dataPrestasi', 'index')->name('prestasi.index');
+    Route::post('/dataPrestasi/store', 'store')->name('prestasi.store');
+    Route::get('/editDataPrestasi/{prestasi}', 'edit')->name('prestasi.edit');
+    Route::post('/editDataPrestasi/{prestasi}/update', 'update')->name('prestasi.update');
+    Route::get('/dataPrestasi/destroy/{prestasi}', 'destroy')->name('prestasi.destroy');
 });
