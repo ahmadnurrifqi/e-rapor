@@ -202,12 +202,26 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($ekskuls as $i => $ekskul)
+                                <tr>
+                                    <td>{{ $ekskuls->firstItem() + $i }}</td>
+                                    <td>{{ $ekskul->nama }}</td>
+                                    <td>{{ $ekskul->guru->user->name }}</td>
+                                    <td>{{ $ekskul->tahunAjaran->tahun }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('ekskul.edit', ['ekskul' => $ekskul->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('ekskul.destroy', ['ekskul' => $ekskul->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $ekskuls->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -217,40 +231,45 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Data Ekstrakurikuler</h3>
-            <table>
-                <tr>
-                    <td>Nama Ekstrakurikuler</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Pembina</td>
-                    <td>:</td>
-                    <td><select name="pembina" id="pembina">
-                            <option value="" disabled selected class="lol">--Pilih Pembina--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('ekskul.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Data Ekstrakurikuler</h3>
+                <table>
+                    <tr>
+                        <td>Nama Ekstrakurikuler</td>
+                        <td>:</td>
+                        <td><input type="text" name="nama" required></td>
+                    </tr>
+                    <tr>
+                        <td>Pembina</td>
+                        <td>:</td>
+                        <td>
+                            <select name="guru_id" id="pembina" required>
+                                <option value="" disabled selected class="lol">--Pilih Pembina--</option>
+                                @foreach ($teachers as $teacher)
+                                    <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tahun Ajaran</td>
+                        <td>:</td>
+                        <td>
+                            <select name="tahun_ajaran_id" id="ajaran">
+                                <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                                @foreach ($tahunAjarans as $tahunAjaran)
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit --}}
@@ -298,7 +317,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -310,7 +329,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

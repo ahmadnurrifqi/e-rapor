@@ -18,8 +18,18 @@ close.addEventListener('click', () => {
     wrapper.classList.remove('active');
 });
 //hapus
-hapus.addEventListener('click', () => {
-    wrapper3.classList.add('active');
+// hapus.addEventListener('click', () => {
+//     wrapper3.classList.add('active');
+// });
+const elements = document.getElementsByClassName("btn-hapus")
+Array.from(elements).forEach(element => {
+    element.addEventListener("click", (e) => {
+        wrapper3.classList.add("active");
+
+        const hrefHapus = document.getElementById("href-hapus");
+        
+        hrefHapus.href = e.target.getAttribute("delete-url");
+    });
 });
 close3.addEventListener('click', () => {
     wrapper3.classList.remove('active');

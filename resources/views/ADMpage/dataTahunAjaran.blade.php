@@ -197,17 +197,33 @@
                             <tr>
                                 <th>No</th>
                                 <th>Tahun Ajaran</th>
+                                <th>Semester</th>
                                 <th>Tempat Pembagian</th>
                                 <th>Tanggal Pembagian</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($tahunAjarans as $i => $tahunAjaran)
+                                <tr>
+                                    <td>{{ $tahunAjarans->firstItem() + $i }}</td>
+                                    <td>{{ $tahunAjaran->tahun }}</td>
+                                    <td>{{ $tahunAjaran->semester }}</td>
+                                    <td>{{ $tahunAjaran->tempat_pembagian }}</td>
+                                    <td>{{ $tahunAjaran->tanggal_pembagian }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('tahun-ajaran.edit', ['tahunAjaran' => $tahunAjaran->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('tahun-ajaran.destroy', ['tahunAjaran' => $tahunAjaran->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $tahunAjarans->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -217,38 +233,42 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Data Tahun Ajaran</h3>
-            <table>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="2020/2021"></td>
-                </tr>
-                <tr>
-                    <td>Semester</td>
-                    <td>:</td>
-                    <td><select name="semester" id="semester">
-                            <option value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
-                            <option value="Ganjil">Ganjil</option>
-                            <option value="Genap">Genap</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tempat Pembagian</td>
-                    <td>:</td>
-                    <td><input type="text" value="Bontang"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Pembagian</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('tahun-ajaran.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Data Tahun Ajaran</h3>
+                <table>
+                    <tr>
+                        <td>Tahun Ajaran</td>
+                        <td>:</td>
+                        <td><input type="text" placeholder="2020/2021" name="tahun" required></td>
+                    </tr>
+                    <tr>
+                        <td>Semester</td>
+                        <td>:</td>
+                        <td>
+                            <select name="semester" id="semester" required>
+                                <option value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
+                                <option value="Ganjil">Ganjil</option>
+                                <option value="Genap">Genap</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tempat Pembagian</td>
+                        <td>:</td>
+                        <td><input type="text" value="Bontang" name="tempat_pembagian" required></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Pembagian</td>
+                        <td>:</td>
+                        <td><input type="date" name="tanggal_pembagian" required></td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit --}}
@@ -294,7 +314,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -306,7 +326,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

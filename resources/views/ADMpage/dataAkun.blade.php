@@ -40,7 +40,11 @@
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
-                                <ul class="sub-menu">
+                                <ul class="sub-menu"
+                                    @if (request()->is('dataAkun') || request()->is('dataAkun/*'))
+                                        style="display: block;"   
+                                    @endif
+                                >
                                     <li>
                                         <a href="dataSiswa">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
@@ -198,17 +202,30 @@
                                 <th>No</th>
                                 <th>Nama Pemilik Akun</th>
                                 <th>Email</th>
-                                <th>Password</th>
                                 <th>Role</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($users as $i => $user)
+                                <tr>
+                                    <td>{{ $users->firstItem() + $i }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>Role</td>
+                                    <td class="primary">
+                                        <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('user.destroy', ['user' => $user->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $users->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -217,38 +234,40 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Akun</h3>
-            <table>
-                <tr>
-                    <td>Nama Pemilik Akun</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="zzz@gmail.com"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Role</td>
-                    <td>:</td>
-                    <td><select name="role" id="role">
-                            <option value="" disabled selected class="lol">--Pilih Role--</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Guru">Guru</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('user.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Akun</h3>
+                <table>
+                    <tr>
+                        <td>Nama Pemilik Akun</td>
+                        <td>:</td>
+                        <td><input type="text" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td><input type="text" placeholder="zzz@gmail.com" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>:</td>
+                        <td><input type="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <td>Role</td>
+                        <td>:</td>
+                        <td>
+                            <select name="role" id="role">
+                                <option value="Admin" disabled selected>Admin</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button type="submit" class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit --}}
@@ -294,7 +313,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -306,7 +325,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

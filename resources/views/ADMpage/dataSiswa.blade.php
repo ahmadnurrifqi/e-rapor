@@ -206,12 +206,29 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($siswas as $i => $siswa)
+                                <tr>
+                                    <td>{{ $siswas->firstItem() + $i }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ $siswa->nis }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>{{ $siswa->tempat_lahir }}, {{ $siswa->tanggal_lahir }}</td>
+                                    <td>{{ $siswa->jenis_kelamin }}</td>
+                                    <td>{{ $siswa->no_telp }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('siswa.edit', ['siswa' => $siswa->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span delete-url="{{ route('siswa.destroy', ['siswa' => $siswa->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $siswas->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -220,82 +237,85 @@
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <h3>Tambah Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L (Laki-Laki)</option>
-                            <option value="P">P (Perempuan)</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
+            <form action="{{ route('siswa.store') }}" method="POST">
+                @csrf
+                <h3>Tambah Data Siswa</h3>
+                <table>
+                    <tr>
+                        <td>Nama Siswa</td>
+                        <td>:</td>
+                        <td><input type="text" name="nama" required></td>
+                    </tr>
+                    <tr>
+                        <td>NIS</td>
+                        <td>:</td>
+                        <td><input type="number" max="9999999999" min="0" name="nis" required></td>
+                    </tr>
+                    <tr>
+                        <td>NISN</td>
+                        <td>:</td>
+                        <td><input type="number" max="9999999999" min="0" name="nisn" required></td>
+                    </tr>
+                    <tr>
+                        <td>Tempat Lahir</td>
+                        <td>:</td>
+                        <td><input type="text" name="tempat_lahir" required></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Lahir</td>
+                        <td>:</td>
+                        <td><input type="date" name="tanggal_lahir" required></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td><select name="jenis_kelamin" required id="kelamin">
+                                <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                                <option value="Laki-laki">L (Laki-laki)</option>
+                                <option value="Perempuan">P (Perempuan)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Agama</td>
+                        <td>:</td>
+                        <td><select name="agama" required id="agama">
+                                <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td><input type="text" name="alamat" required></td>
+                    </tr>
+                    <tr>
+                        <td>No Telp</td>
+                        <td>:</td>
+                        <td><input type="number" max="9999999999999" min="0" placeholder="08----------" name="no_telp" required></td>
+                    </tr>
+                    <tr>
+                        <td>Konsentrasi Keahlian</td>
+                        <td>:</td>
+                        <td><select name="konsentrasi_keahlian" required id="keahlian">
+                                <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
+                                <option value="TAB">Teknik Alat Berat</option>
+                                <option value="TMI">Teknik Mekanik Industri</option>
+                                <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-button">
+                    <button id="close" class="close">Kembali</button>
+                    <button class="tambah">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- modal edit --}}
@@ -311,12 +331,12 @@
                 <tr>
                     <td>NIS</td>
                     <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
                 </tr>
                 <tr>
                     <td>NISN</td>
                     <td>:</td>
-                    <td><input type="number" max="9999999999" min="0" readonly></td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
                 </tr>
                 <tr>
                     <td>Tempat Lahir</td>
@@ -386,7 +406,7 @@
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
                 <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
+                <button class="hapus"><a id="href-hapus" href="#" style="color: unset;">Hapus</a></button>
             </div>
         </div>
     </div>
@@ -398,7 +418,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

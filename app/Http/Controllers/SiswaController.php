@@ -12,7 +12,12 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //
+        $siswas = Siswa::orderBy('nama')->paginate(10);
+
+        return view('/ADMpage/dataSiswa', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "siswas" => $siswas,
+        ]);
     }
 
     /**
@@ -28,7 +33,20 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Siswa::create([
+            "nama" => $request->nama,
+            "nis" => $request->nis,
+            "nisn" => $request->nisn,
+            "tempat_lahir" => $request->tempat_lahir,
+            "tanggal_lahir" => $request->tanggal_lahir,
+            "jenis_kelamin" => $request->jenis_kelamin,
+            "agama" => $request->agama,
+            "alamat" => $request->alamat,
+            "no_telp" => $request->no_telp,
+            "konsentrasi_keahlian" => $request->konsentrasi_keahlian,
+        ]);
+
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -44,7 +62,10 @@ class SiswaController extends Controller
      */
     public function edit(Siswa $siswa)
     {
-        //
+        return view('/ADMpage/editDataSiswa', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "siswa" => $siswa,
+        ]);
     }
 
     /**
@@ -52,7 +73,20 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $siswa)
     {
-        //
+        $siswa->update([
+            "nama" => $request->nama,
+            "nis" => $request->nis,
+            "nisn" => $request->nisn,
+            "tempat_lahir" => $request->tempat_lahir,
+            "tanggal_lahir" => $request->tanggal_lahir,
+            "jenis_kelamin" => $request->jenis_kelamin,
+            "agama" => $request->agama,
+            "alamat" => $request->alamat,
+            "no_telp" => $request->no_telp,
+            "konsentrasi_keahlian" => $request->konsentrasi_keahlian,
+        ]);
+
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -60,6 +94,8 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
-        //
+        $siswa->delete();
+
+        return redirect()->route('siswa.index');
     }
 }

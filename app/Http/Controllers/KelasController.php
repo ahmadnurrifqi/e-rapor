@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Kelas;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -12,7 +14,20 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $classes = Kelas::orderBy('nama_kelas')->paginate(10);
+
+        $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
+        return view('/ADMpage/dataKelas',[
+            "title" => "E-Rapor | SMK Nusantara",
+            "classes" => $classes,
+            "teachers" => $teachers,
+            "tahunAjarans" => $tahunAjarans,
+        ]);
     }
 
     /**
@@ -28,7 +43,14 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kelas::create([
+            'guru_id' => $request->guru_id,
+            'tahun_ajaran_id' => $request->tahun_ajaran_id,
+            'nama_kelas' => $request->nama_kelas,
+            'tingkat_kelas' => $request->tingkat_kelas,
+        ]);
+
+        return redirect()->route('kelas.index');
     }
 
     /**
@@ -44,7 +66,18 @@ class KelasController extends Controller
      */
     public function edit(Kelas $kelas)
     {
-        //
+        $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
+        return view('/ADMpage/editDataKelas', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "class" => $kelas,
+            "teachers" => $teachers,
+            "tahunAjarans" => $tahunAjarans,
+        ]);
     }
 
     /**
@@ -52,7 +85,14 @@ class KelasController extends Controller
      */
     public function update(Request $request, Kelas $kelas)
     {
-        //
+        $kelas->update([
+            'guru_id' => $request->guru_id,
+            'tahun_ajaran_id' => $request->tahun_ajaran_id,
+            'nama_kelas' => $request->nama_kelas,
+            'tingkat_kelas' => $request->tingkat_kelas,
+        ]);
+
+        return redirect()->route('kelas.index');
     }
 
     /**
@@ -60,6 +100,8 @@ class KelasController extends Controller
      */
     public function destroy(Kelas $kelas)
     {
-        //
+        $kelas->delete();
+
+        return redirect()->route('kelas.index');
     }
 }

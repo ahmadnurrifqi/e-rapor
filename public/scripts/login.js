@@ -49,7 +49,7 @@ const submitBtnClick = () => {
 }
 
 //add event listener for the refresh captchaInputBox
-submitButton.addEventListener("click",submitBtnClick);
+// submitButton.addEventListener("click",submitBtnClick);
 
 //generate a captcha when the page loads
 generateCaptcha();

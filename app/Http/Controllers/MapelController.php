@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,17 @@ class MapelController extends Controller
      */
     public function index()
     {
-        //
+        $mapels = Mapel::orderBy('nama')->paginate(10);
+
+        $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
+        return view('/ADMpage/dataMapel', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "mapels" => $mapels,
+            "teachers" => $teachers,
+        ]);
     }
 
     /**
@@ -28,7 +39,14 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mapel::create([
+            'guru_id' => $request->guru_id,
+            'nama' => $request->nama,
+            'singkatan' => $request->singkatan,
+            'kelompok' => $request->kelompok,
+        ]);
+
+        return redirect()->route('mapel.index');
     }
 
     /**
@@ -44,7 +62,15 @@ class MapelController extends Controller
      */
     public function edit(Mapel $mapel)
     {
-        //
+        $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
+        return view('/ADMpage/editDataMapel', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "mapel" => $mapel,
+            "teachers" => $teachers,
+        ]);
     }
 
     /**
@@ -52,7 +78,14 @@ class MapelController extends Controller
      */
     public function update(Request $request, Mapel $mapel)
     {
-        //
+        $mapel->update([
+            'guru_id' => $request->guru_id,
+            'nama' => $request->nama,
+            'singkatan' => $request->singkatan,
+            'kelompok' => $request->kelompok,
+        ]);
+
+        return redirect()->route('mapel.index');
     }
 
     /**
@@ -60,6 +93,8 @@ class MapelController extends Controller
      */
     public function destroy(Mapel $mapel)
     {
-        //
+        $mapel->delete();
+
+        return redirect()->route('mapel.index');
     }
 }

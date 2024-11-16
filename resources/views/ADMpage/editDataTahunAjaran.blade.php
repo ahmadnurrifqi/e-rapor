@@ -44,13 +44,13 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="dataSiswa" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru"  class="active">
+                                        <a href="dataGuru">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
@@ -146,7 +146,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Edit Data Guru</p>
+                <p class="main-title">Edit Data Siswa</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -193,95 +193,39 @@
                         </button>
                     </div>
                 </div> --}}
-                <div class="main-tabel">
-                    <form action="{{ route('guru.update', ['guru' => $guru->id]) }}" method="POST">
-                        @csrf
+                <form action="{{ route('tahun-ajaran.update', ['tahunAjaran' => $tahunAjaran->id]) }}" method="POST">
+                @csrf
+                    <div class="main-tabel">
                         <div class="isi-main">
                             <div class="main-input">
-                                <p>Nama Guru</p>
-                                <input type="text" name="name" required value="{{ $guru->user->name }}">
+                                <p>Tahun Ajaran</p>
+                                <input type="text" placeholder="2020/2021" name="tahun" required value="{{ $tahunAjaran->tahun }}">
                             </div>
                             <div class="main-input">
-                                <p>NIK</p>
-                                <input type="number" max="99999999999999999" min="0" name="nik" required value="{{ $guru->nik }}">
-                            </div>
-                            <div class="main-input">
-                                <p>NUPTK</p>
-                                <input type="number" max="99999999999999999" min="0" name="nuptk" required value="{{ $guru->nuptk }}">
-                            </div>
-                            <div class="main-input">
-                                <p>NPY</p>
-                                <input type="number" max="9999999999999999999" min="0" name="npy" required value="{{ $guru->npy }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Tempat Lahir</p>
-                                <input type="text" name="tempat_lahir" required value="{{ $guru->tempat_lahir }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Tanggal Lahir</p>
-                                <input type="date" name="tanggal_lahir" required value="{{ $guru->tanggal_lahir }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Jenis Kelamin</p>
-                                <select name="jenis_kelamin" required id="kelamin">
-                                    <option value="" disabled class="lol">--Pilih Jenis Kelamin--</option>
-                                    <option {{ ($guru->jenis_kelamin == 'Laki-laki') ? 'selected' : '' }} value="Laki-laki">L (Laki-laki)</option>
-                                    <option {{ ($guru->jenis_kelamin == 'Perempuan') ? 'selected' : '' }} value="Perempuan">P (Perempuan)</option>
+                                <p>Semester</p>
+                                <select name="semester" id="semester" required>
+                                    <option  value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
+                                    <option {{ ($tahunAjaran->semester == 'Ganjil') ? 'selected' : '' }} value="Ganjil">Ganjil</option>
+                                    <option {{ ($tahunAjaran->semester == 'Genap') ? 'selected' : '' }} value="Genap">Genap</option>
                                 </select>
                             </div>
                             <div class="main-input">
-                                <p>Agama</p>
-                                <select name="agama" required id="agama">
-                                    <option value="" disabled class="lol">--Pilih Agama--</option>
-                                    <option {{ ($guru->agama == 'Islam') ? 'selected' : '' }} value="Islam">Islam</option>
-                                    <option {{ ($guru->agama == 'Kristen') ? 'selected' : '' }} value="Kristen">Kristen</option>
-                                    <option {{ ($guru->agama == 'Katolik') ? 'selected' : '' }} value="Katolik">Katolik</option>
-                                    <option {{ ($guru->agama == 'Hindu') ? 'selected' : '' }} value="Hindu">Hindu</option>
-                                    <option {{ ($guru->agama == 'Budha') ? 'selected' : '' }} value="Budha">Budha</option>
-                                </select>
+                                <p>Tempat Pembagian</p>
+                                <input type="text" name="tempat_pembagian" required value="{{ $tahunAjaran->tempat_pembagian }}">
                             </div>
                             <div class="main-input">
-                                <p>Studi Terakhir</p>
-                                <select name="studi_terakhir" id="studi" required>
-                                    <option value="" disabled class="lol">--Studi Terakhir--</option>
-                                    <option {{ ($guru->studi_terakhir == 'S3') ? 'selected' : '' }} value="S3">S3</option>
-                                    <option {{ ($guru->studi_terakhir == 'S2') ? 'selected' : '' }} value="S2">S2</option>
-                                    <option {{ ($guru->studi_terakhir == 'S1') ? 'selected' : '' }} value="S1">S1</option>
-                                    <option {{ ($guru->studi_terakhir == 'D4') ? 'selected' : '' }} value="D4">D4</option>
-                                    <option {{ ($guru->studi_terakhir == 'D3') ? 'selected' : '' }} value="D3">D3</option>
-                                    <option {{ ($guru->studi_terakhir == 'SMK') ? 'selected' : '' }} value="SMK">SMK/MAK</option>
-                                    <option {{ ($guru->studi_terakhir == 'SMA') ? 'selected' : '' }} value="SMA">SMA/MA</option>
-                                </select>
-                            </div>
-                            <div class="main-input">
-                                <p>Tahun Gabung</p>
-                                <input type="date" name="tahun_gabung" required value="{{ $guru->tahun_gabung }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Alamat</p>
-                                <textarea name="alamat" required>{{ $guru->alamat }}</textarea>
-                            </div>
-                            <div class="main-input">
-                                <p>No Telp</p>
-                                <input type="number" max="9999999999999" min="0" placeholder="08----------" name="no_telp" required value="{{ $guru->no_telp }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Email</p>
-                                <input type="text" placeholder="zzz@gmail.com" name="email" required value="{{ $guru->user->email }}">
-                            </div>
-                            <div class="main-input">
-                                <p>Password</p>
-                                <input type="password" name="password">
+                                <p>Tanggal Pembagian</p>
+                                <input type="date" name="tanggal_pembagian" required value="{{ $tahunAjaran->tanggal_pembagian }}">
                             </div>
                         </div>
                         <div class="submit">
-                            <button><a href="{{ route('guru.index') }}">Kembali</a></button>
+                            <button><a href="{{ route('tahun-ajaran.index') }}">Kembali</a></button>
                             <button class="simpan">Simpan</button>
                             {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
                             <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </main>
         <!--End of main--> 

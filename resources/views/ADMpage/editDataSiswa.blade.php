@@ -193,72 +193,75 @@
                         </button>
                     </div>
                 </div> --}}
-                <div class="main-tabel">
-                    <div class="isi-main">
-                        <div class="main-input">
-                            <p>Nama Siswa</p>
-                            <input type="text">
+                <form action="{{ route('siswa.update', ['siswa' => $siswa->id]) }}" method="POST">
+                @csrf
+                    <div class="main-tabel">
+                        <div class="isi-main">
+                            <div class="main-input">
+                                <p>Nama Siswa</p>
+                                <input type="text" name="nama" required value="{{ $siswa->nama }}">
+                            </div>
+                            <div class="main-input">
+                                <p>NIS</p>
+                                <input type="number" max="99999999999" min="0" name="nis" required value="{{ $siswa->nis }}">
+                            </div>
+                            <div class="main-input">
+                                <p>NISN</p>
+                                <input type="number" max="99999999999" min="0" name="nisn" required value="{{ $siswa->nisn }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Tempat Lahir</p>
+                                <input type="text" name="tempat_lahir" required value="{{ $siswa->tempat_lahir }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Tanggal Lahir</p>
+                                <input type="date" name="tanggal_lahir" required value="{{ $siswa->tanggal_lahir }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Jenis Kelamin</p>
+                                <select name="jenis_kelamin" required id="kelamin">
+                                    <option value="" disabled class="lol">--Pilih Jenis Kelamin--</option>
+                                    <option {{ ($siswa->jenis_kelamin == 'Laki-laki') ? 'selected' : '' }} value="Laki-laki">L (Laki-laki)</option>
+                                    <option {{ ($siswa->jenis_kelamin == 'Perempuan') ? 'selected' : '' }} value="Perempuan">P (Perempuan)</option>
+                                </select>
+                            </div>
+                            <div class="main-input">
+                                <p>Agama</p>
+                                <select name="agama" required id="agama">
+                                    <option value="" disabled class="lol">--Pilih Agama--</option>
+                                    <option {{ ($siswa->agama == 'Islam') ? 'selected' : '' }} value="Islam">Islam</option>
+                                    <option {{ ($siswa->agama == 'Kristen') ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                    <option {{ ($siswa->agama == 'Katolik') ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                    <option {{ ($siswa->agama == 'Hindu') ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                    <option {{ ($siswa->agama == 'Budha') ? 'selected' : '' }} value="Budha">Budha</option>
+                                </select>
+                            </div>
+                            <div class="main-input">
+                                <p>Alamat</p>
+                                <Textarea name="alamat" required>{{ $siswa->alamat }}</Textarea>
+                            </div>
+                            <div class="main-input">
+                                <p>No Telp</p>
+                                <input type="number" max="9999999999999" min="0" placeholder="08----------" name="no_telp" required value="{{ $siswa->no_telp }}">
+                            </div>
+                            <div class="main-input">
+                                <p>Konsentrasi Keahlian</p>
+                                <select name="konsentrasi_keahlian" required id="keahlian">
+                                    <option value="" disabled class="lol">--Pilih Konsentrasi Keahlian--</option>
+                                    <option {{ ($siswa->konsentrasi_keahlian == 'TAB') ? 'selected' : '' }} value="TAB">Teknik Alat Berat</option>
+                                    <option {{ ($siswa->konsentrasi_keahlian == 'TMI') ? 'selected' : '' }} value="TMI">Teknik Mekanik Industri</option>
+                                    <option {{ ($siswa->konsentrasi_keahlian == 'DPIB') ? 'selected' : '' }} value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="main-input">
-                            <p>NIS</p>
-                            <input type="number" max="9999999999" min="0">
-                        </div>
-                        <div class="main-input">
-                            <p>NISN</p>
-                            <input type="number" max="9999999999" min="0">
-                        </div>
-                        <div class="main-input">
-                            <p>Tempat Lahir</p>
-                            <input type="text">
-                        </div>
-                        <div class="main-input">
-                            <p>Tanggal Lahir</p>
-                            <input type="date">
-                        </div>
-                        <div class="main-input">
-                            <p>Jenis Kelamin</p>
-                            <select name="kelamin" id="kelamin">
-                                <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                                <option value="L">L</option>
-                                <option value="P">P</option>
-                            </select>
-                        </div>
-                        <div class="main-input">
-                            <p>Agama</p>
-                            <select name="agama" id="agama">
-                                <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Katolik">Katolik</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Budha">Budha</option>
-                            </select>
-                        </div>
-                        <div class="main-input">
-                            <p>Alamat</p>
-                            <Textarea></Textarea>
-                        </div>
-                        <div class="main-input">
-                            <p>No Telp</p>
-                            <input type="number" max="9999999999999" min="0" placeholder="08----------">
-                        </div>
-                        <div class="main-input">
-                            <p>Konsentrasi Keahlian</p>
-                            <select name="keahlian" id="keahlian">
-                                <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                                <option value="TAB">Teknik Alat Berat</option>
-                                <option value="TMI">Teknik Mekanik Industri</option>
-                                <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                            </select>
+                        <div class="submit">
+                            <button><a href="{{ route('siswa.index') }}">Kembali</a></button>
+                            <button class="simpan">Simpan</button>
+                            {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
+                            <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                         </div>
                     </div>
-                    <div class="submit">
-                        <button><a href="dataSiswa">Kembali</a></button>
-                        <button class="simpan">Simpan</button>
-                        {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
-                    </div>
-                </div>
+                </form>
             </div>
         </main>
         <!--End of main--> 
