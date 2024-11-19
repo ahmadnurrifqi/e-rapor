@@ -154,12 +154,18 @@
                 <div class="main-fitur">
                     <div class="left-fitur">
                         <div class="drop-limit">
-                            <p>KELAS-</p>
-                            <p>XII (Duabelas)</p>
+                            @if ($kelas)
+                                <p>KELAS-</p>
+                                <p>{{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</p>
+                            @else
+                                <p>TIDAK ADA KELAS</p>
+                            @endif
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <button id="open">
+                        <button id="open" onclick="document.getElementById('updateForm').submit()"
+                            {{ ($kelas) ? '' : 'style=cursor:not-allowed' }}
+                        >
                             <span class="material-symbols-outlined">add</span>
                             Simpan Data
                         </button>
@@ -179,30 +185,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Yosafat jeselin Boro</td>
-                                <td>20210201414</td>
-                                <td>P</td>
-                                <td><input type="text" maxlength="5"></td>
-                                <td><input type="text" maxlength="5"></td>
-                                <td><input type="text" maxlength="5"></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Abdel Mahendra</td>
-                                <td>20989201414</td>
-                                <td>L</td>
-                                <td><input type="text" maxlength="5"></td>
-                                <td><input type="text" maxlength="5"></td>
-                                <td><input type="text" maxlength="5"></td>
-                            </tr>
+                            <form id="updateForm" action="{{ route('kehadiran.update', ['kelas' => $kelas->id]) }}" method="POST">
+                                @csrf
+                                @foreach ($siswas as $i => $siswa)
+                                    <tr>
+                                        <td>{{ $siswas->firstItem() + $i }}</td>
+                                        <td>{{ $siswa->nama }}</td>
+                                        <td>{{ $siswa->nis }}</td>
+                                        <td>{{ $siswa->jenis_kelamin }}</td>
+                                        <td><input type="number" maxlength="5" name="sakit[]" value="{{ $siswa->rapor->first()->sakit }}"></td>
+                                        <td><input type="number" maxlength="5" name="izin[]" value="{{ $siswa->rapor->first()->izin }}"></td>
+                                        <td><input type="number" maxlength="5" name="tanpa_keterangan[]" value="{{ $siswa->rapor->first()->tanpa_keterangan }}"></td>
+                                        <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
+                                    </tr>
+                                @endforeach
+                            </form>
                         </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    @if ($siswas)
+                        {{ $siswas->links('pagination.default') }}
+                    @endif
                 </div>
             </div>
         </main>

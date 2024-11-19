@@ -33,11 +33,16 @@ class TahunAjaranController extends Controller
      */
     public function store(Request $request)
     {
+        TahunAjaran::where('is_active', true)->update([
+            'is_active' => false,
+        ]);
+
         TahunAjaran::create([
             'tahun' => $request->tahun,
             'semester' => $request->semester,
             'tempat_pembagian' => $request->tempat_pembagian,
             'tanggal_pembagian' => $request->tanggal_pembagian,
+            'is_active' => true,
         ]);
 
         return redirect()->route('tahun-ajaran.index');
