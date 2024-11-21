@@ -12,7 +12,7 @@ class TahunAjaranController extends Controller
      */
     public function index()
     {
-        $tahunAjarans = TahunAjaran::orderBy('tahun')->paginate(10);
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->paginate(15);
 
         return view('/ADMpage/dataTahunAjaran',[
             "title" => "E-Rapor | SMK Nusantara",

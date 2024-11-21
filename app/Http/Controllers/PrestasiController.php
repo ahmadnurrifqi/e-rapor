@@ -19,7 +19,7 @@ class PrestasiController extends Controller
             ->join('siswas', 'rapors.siswa_id', '=', 'siswas.id')
             ->orderBy('siswas.nama')
             ->select('prestasis.*')
-            ->paginate(10);
+            ->paginate(15);
 
         $siswas = Siswa::orderBy('nama')->get();
 

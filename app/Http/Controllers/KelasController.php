@@ -14,7 +14,7 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $classes = Kelas::orderBy('nama_kelas')->paginate(10);
+        $classes = Kelas::orderBy('nama_kelas')->paginate(15);
 
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
