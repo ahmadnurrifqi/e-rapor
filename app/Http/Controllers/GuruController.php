@@ -18,6 +18,13 @@ class GuruController extends Controller
             ->orderBy('users.name')
             ->paginate(15);
 
+        if (request()->cari) {
+            $gurus = Guru::join('users', 'gurus.user_id', '=', 'users.id')
+                ->where('users.name', 'LIKE', '%' . request()->cari . '%')
+                ->orderBy('users.name')
+                ->paginate(15);
+        }
+
         return view('/ADMpage/dataGuru',[
             "title" => "E-Rapor | SMK Nusantara", 
             "gurus" => $gurus

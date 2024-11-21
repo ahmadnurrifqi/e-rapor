@@ -15,7 +15,13 @@ class EkstrakurikularController extends Controller
     public function index()
     {
         $ekskuls = Ekstrakurikular::orderBy('nama')->paginate(15);
-        
+
+        if (request()->cari) {
+            $ekskuls = Ekstrakurikular::orderBy('nama')
+                ->where('nama', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
+
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
             ->get();

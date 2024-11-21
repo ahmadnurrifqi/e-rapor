@@ -16,6 +16,12 @@ class KelasController extends Controller
     {
         $classes = Kelas::orderBy('nama_kelas')->paginate(15);
 
+        if (request()->cari) {
+            $classes = Kelas::orderBy('nama_kelas')
+                ->where('nama_kelas', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
+
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
             ->get();

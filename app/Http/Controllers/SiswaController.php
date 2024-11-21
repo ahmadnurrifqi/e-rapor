@@ -14,6 +14,12 @@ class SiswaController extends Controller
     {
         $siswas = Siswa::orderBy('nama')->paginate(15);
 
+        if (request()->cari) {
+            $siswas = Siswa::orderBy('nama')
+                ->where('nama', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
+
         return view('/ADMpage/dataSiswa', [
             "title" => "E-Rapor | SMK Nusantara",
             "siswas" => $siswas,

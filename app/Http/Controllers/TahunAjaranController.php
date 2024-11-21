@@ -14,6 +14,12 @@ class TahunAjaranController extends Controller
     {
         $tahunAjarans = TahunAjaran::orderBy('tahun')->paginate(15);
 
+        if (request()->cari) {
+            $tahunAjarans = TahunAjaran::orderBy('tahun')
+                ->where('tahun', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
+
         return view('/ADMpage/dataTahunAjaran',[
             "title" => "E-Rapor | SMK Nusantara",
             "tahunAjarans" => $tahunAjarans,
