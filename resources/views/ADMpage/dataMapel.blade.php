@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -200,6 +200,7 @@
                                 <th>Singkatan</th>
                                 <th>Kelompok</th>
                                 <th>Pengajar</th>
+                                <th>Tahun Ajaran</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -211,6 +212,7 @@
                                     <td>{{ $mapel->singkatan }}</td>
                                     <td>{{ $mapel->kelompok }}</td>
                                     <td>{{ $mapel->guru->user->name }}</td>
+                                    <td>2024/2025 - Ganjil</td>
                                     <td class="primary">
                                         <a href="{{ route('mapel.edit', ['mapel' => $mapel->id]) }}">
                                             <button id="edit">Details</button>
@@ -270,66 +272,23 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td>Tahun Ajaran</td>
+                        <td>:</td>
+                        <td><select name="ajaran" id="ajaran">
+                                <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
+                                <option value="">ambil dari tabel tahun ajaran</option>
+                                <option value="">format (tahun ajaran - semester)</option>
+                                <option value="">contoh: 2024/2025 - Ganjil</option>
+                            </select>
+                        </td>
+                    </tr>
                 </table>
                 <div class="modal-button">
                     <button id="close" class="close">Kembali</button>
                     <button class="tambah">Simpan</button>
                 </div>
             </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Mata Pelajaran</h3>
-            <table>
-                <tr>
-                    <td>Nama Mapel</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="Matematika"></td>
-                </tr>
-                <tr>
-                    <td>Singkatan</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="MTK"></td>
-                </tr>
-                <tr>
-                    <td>Kelompok</td>
-                    <td>:</td>
-                    <td><select name="kelompok" id="kelompok">
-                            <option value="" disabled selected class="lol">--Pilih Kelompok Muatan--</option>
-                            <option value="Muatan Nasional">Muatan Nasional</option>
-                            <option value="Muatan Kejuruan">Muatan Kejuruan</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pengajar</td>
-                    <td>:</td>
-                    <td><select name="pengajar" id="pengajar">
-                            <option value="" disabled selected class="lol">--Pilih Pengajar--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
         </div>
     </div>
     {{-- modal hapus --}}

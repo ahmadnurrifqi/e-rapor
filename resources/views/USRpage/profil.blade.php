@@ -7,6 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="/styles/USRstyle/profil.css">
+    <link rel="stylesheet" href="/styles/USRstyle/USRsidebar.css">
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -119,7 +120,7 @@
             <!--Profil-->
             <div class="users">
                 <div class="column">
-                    <img src="assets/Mahasiswa.jpg" alt="">
+                    <img src="assets/profil.jpg" alt="">
                     <table>
                         <tr>
                             <td>Nama</td>

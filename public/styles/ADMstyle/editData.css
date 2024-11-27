@@ -17,6 +17,10 @@
 .main-tabel .submit .simpan{
     background-color: var(--color-success);
 }
+.main-tabel .submit .dataKelas{
+    background-color: var(--color-primary);
+    width: 7rem;
+}
 .main-tabel .submit button{
     height: 2rem;
     width: 5rem;
@@ -96,4 +100,235 @@
     font-size: 12px;
     padding: 2px 5px;
     border: 0.1px solid var(--color-info-dark);
+}
+
+.isi-main2{
+    max-height: 300px;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    /* background-color: black !important; */
+}
+
+.isi-main2 .cari{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.1rem;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: -1rem;
+    /* margin-bottom: -1rem; */
+}
+
+.isi-main2 .cari p{
+    font-size: 12px;
+}
+
+.isi-main2 .cari .right-cari{
+    display: flex;
+    justify-content: end;
+    gap: 0.1rem;
+    height: 1.5rem;
+    padding: 0 0.6rem;
+    /* margin-top: -0.5rem;
+    margin-bottom: -1rem; */
+    /* margin-bottom: -1rem; */
+}
+
+.isi-main2 .cari input{
+    /* margin-top: -0.5rem; */
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--color-white);
+    color: var(--color-info-dark);
+    padding: 0 10px;
+    font-size: 11px;
+    border: 0.1px solid var(--color-info-dark);
+}
+
+.isi-main2 .cari .but-cari{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.isi-main2 .cari .but-cari:hover{
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.isi-main2 .cari .but-cari span{
+    font-size: 20px;
+}
+
+.main-input2{
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+.main-input2 table thead{
+    height: 2rem !important;
+    font-size: 12px !important;
+}
+
+.main-input2 table tbody td{
+    height: 1.7rem !important;
+    font-size: 10px;
+}
+
+.printRapor{
+    margin: 3px;
+    border-radius: 5px;
+    background-color: var(--color-success);
+    padding: 5px ;
+}
+.printRapor a{
+    color: var(--color-white);
+    /* background-color: darkblue; */
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.printRapor span{
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+.main-fitur .left-fitur .drop-limit2{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+.main-fitur .left-fitur .drop-limit22{
+    background-color: var(--color-white);
+    color: var(--color-info-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+.main-fitur .left-fitur .drop-limit2:hover{
+    box-shadow: none;
+    opacity: 0.9;
+}
+.main-fitur .left-fitur .drop-limit22:hover{
+    box-shadow: none;
+    opacity: 0.9;
+}
+ .drop-limit2 a{
+    color: var(--color-white);
+ }
+
+ .main-fitur .right-fitur2{
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.main-fitur .right-fitur2 button{
+    background-color: var(--color-success);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 0.5rem;
+    margin-right: 1rem;
+    padding: 5px 7px 5px 7px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.main-tabel2{
+    background-color: var(--color-white);
+    border-radius: 0.8rem;
+    /* height: 38rem; */
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.main-tabel2:hover{
+    box-shadow: none;
+}
+
+main .main-tabel2 table{
+    max-height: 42rem;
+    overflow: auto;
+    width: 100%;
+    text-align: center;
+    /* gap: 2rem; */
+}
+
+.main-tabel2 table thead{
+    width: 100%;
+    height: 3rem;
+    color: var(--color-dark);
+    font-size: 13px;
+}
+
+.main-tabel2 table tbody tr:hover{
+    background-color: var(--color-background);
+}
+
+.main-tabel2 table tbody tr:last-child td{
+    border-bottom: 1px solid var(--color-light);
+}
+
+.main-tabel2 table tbody td{
+    height: 1.8rem;
+    border-top: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+    font-size: 10px;
+}
+
+.main-tabel2 .slide-data{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-tabel2 .slide-data button{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #6C9BCF;
+    border-radius: 20%;
+    opacity: 0.9;
+}
+
+.main-tabel2 .slide-data button:hover{
+    opacity: 1;
+}
+
+.main-tabel2 .slide-data .arrow{
+    color: var(--color-white);
+    font-size: 25px;
 }

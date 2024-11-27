@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMtentang.css">
-    {{-- <link rel="stylesheet" href="/styles/ADMstyle/ADMdashboard.css">
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css"> --}}
+    <link rel="stylesheet" href="/styles/USRstyle/USRtentang.css">
+    <link rel="stylesheet" href="/styles/USRstyle/USRsidebar.css">
+    {{-- <link rel="stylesheet" href="/styles/ADMstyle/ADMdashboard.css"> --}}
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -240,7 +240,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -218,7 +218,7 @@
                                     <td>{{ $siswa->no_telp }}</td>
                                     <td class="primary">
                                         <a href="{{ route('siswa.edit', ['siswa' => $siswa->id]) }}">
-                                            <button id="edit">Details</button>
+                                            <button>Details</button>
                                         </a>
                                     </td>
                                     <td class="danger">
@@ -318,88 +318,7 @@
             </form>
         </div>
     </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999" min="0" readonly></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999" min="0" readonly></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text" readonly></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------" readonly></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <a href="editDataSiswa" class="edit">Edit</a>
-                {{-- <button class="edit"><a href="editDataSiswa">Edit</a></button> --}}
-            </div>
-        </div>
-    </div>
+    
     {{-- modal hapus --}}
     <div class="wrapper3" id="wrapper3">
         <div class="modal">

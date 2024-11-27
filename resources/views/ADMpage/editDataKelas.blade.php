@@ -18,7 +18,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -31,32 +31,32 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="ADMdashboard">
+                                <a href="">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa" class="active">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -64,38 +64,38 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataTahunAjaran">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Tahun Ajaran</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataKelas">
+                                        <a href="" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Kelas</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataMapel">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Mapel</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataEkstrakurikuler">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Ekstrakurikuler</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataPrestasi">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Prestasi</p>
                                         </a>
@@ -108,13 +108,13 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirADM">
+                                <a href="">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="cetakRapor">
+                                <a href="">
                                     <span class="material-symbols-outlined">print</span>
                                     <p>Cetak Rapor</p>
                                 </a>
@@ -125,13 +125,13 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="tentang">
+                                <a href="">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
+                                <a href="">
                                     <span class="material-symbols-outlined">logout</span>
                                     <p>Logout</p>
                                 </a>
@@ -146,7 +146,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Edit Data Siswa</p>
+                <p class="main-title">Edit Data Kelas</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -179,20 +179,6 @@
                 </div>
             </div>
             <div class="main-content">
-                {{-- <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
-                            <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Siswa
-                        </button>
-                    </div>
-                </div> --}}
                 <form action="{{ route('kelas.update', ['kelas' => $class->id]) }}" method="POST">
                     @csrf
                     <div class="main-tabel">
@@ -230,13 +216,313 @@
                             </div>
                         </div>
                         <div class="submit">
-                            <button><a href="{{ route('tahun-ajaran.index') }}">Kembali</a></button>
+                            <button><a href="{{ route('kelas.index') }}">Kembali</a></button>
                             <button class="simpan">Simpan</button>
-                            {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                            <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                         </div>
                     </div>
                 </form>
+
+                <div class="main-content">
+                    <div class="main-tabel">
+                        <div class="isi-main2">
+                            <div class="cari">
+                                <p>>Daftar Siswa</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="">
+                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="cari">
+                                <p>>Tambah Siswa</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="">
+                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="main-input2">
+                                <table class="scroll">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Siswa</th>
+                                            <th>NIS</th>
+                                            <th>NISN</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="main-input2">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Siswa</th>
+                                            <th>NIS</th>
+                                            <th>NISN</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Ahmad Nur</td>
+                                            <td>123456987021</td>
+                                            <td>0987654321</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="main-tabel">
+                        <div class="isi-main2">
+                            <div class="cari">
+                                <p>>Daftar Mapel</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="">
+                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="cari">
+                                <p>>Tambah Mapel</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="">
+                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="main-input2">
+                                <table class="scroll">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Mapel</th>
+                                            <th>Tahun Ajaran</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Matematika</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Bahasa Indonesia</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Agama</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>KK1</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>KK2</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>KK3</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>KK4</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>KK5</td>
+                                            <td>2024/2025</td>
+                                            <td class="danger">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="main-input2">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Mapel</th>
+                                            <th>Tahun Ajaran</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>KK1</td>
+                                            <td>2024/2025</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>KK2</td>
+                                            <td>2024/2025</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>KK3</td>
+                                            <td>2024/2025</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>KK4</td>
+                                            <td>2024/2025</td>
+                                            <td class="add">
+                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <!--End of main--> 
@@ -249,7 +535,6 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

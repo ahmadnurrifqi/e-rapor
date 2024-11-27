@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -215,7 +215,7 @@
                                     <td>Role</td>
                                     <td class="primary">
                                         <a href="{{ route('user.edit', ['user' => $user->id]) }}">
-                                            <button id="edit">Details</button>
+                                            <button>Details</button>
                                         </a>
                                     </td>
                                     <td class="danger">
@@ -268,43 +268,6 @@
                     <button type="submit" class="tambah">Simpan</button>
                 </div>
             </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Akun</h3>
-            <table>
-                <tr>
-                    <td>Nama Pemilik Akun</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="zzz@gmail.com"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Role</td>
-                    <td>:</td>
-                    <td><select name="role" id="role">
-                            <option value="" disabled selected class="lol">--Pilih Role--</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Guru">Guru</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
         </div>
     </div>
     {{-- modal hapus --}}

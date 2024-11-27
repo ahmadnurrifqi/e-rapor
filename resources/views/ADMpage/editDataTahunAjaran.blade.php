@@ -18,7 +18,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -31,32 +31,32 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="ADMdashboard">
+                                <a href="">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa" class="active">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -64,38 +64,38 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataTahunAjaran">
+                                        <a href="" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Tahun Ajaran</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataKelas">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Kelas</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataMapel">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Mapel</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataEkstrakurikuler">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Ekstrakurikuler</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataPrestasi">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Prestasi</p>
                                         </a>
@@ -108,13 +108,13 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirADM">
+                                <a href="">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="cetakRapor">
+                                <a href="">
                                     <span class="material-symbols-outlined">print</span>
                                     <p>Cetak Rapor</p>
                                 </a>
@@ -125,13 +125,13 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="tentang">
+                                <a href="">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
+                                <a href="">
                                     <span class="material-symbols-outlined">logout</span>
                                     <p>Logout</p>
                                 </a>
@@ -146,7 +146,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Edit Data Siswa</p>
+                <p class="main-title">Edit Data Tahun Ajaran</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>

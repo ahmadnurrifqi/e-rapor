@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/ADMstyle/biodataPage.css">
     <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+    <link rel="stylesheet" href="/styles/nilaiAkhir.css">
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -144,7 +144,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Nilai Akhir</p>
+                <p class="main-title">Data Nilai Akhir - Kelas IX B</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -177,52 +177,200 @@
                 </div>
             </div>
             <div class="main-content">
-                <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
-                            <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    {{-- <div class="right-fitur">
-                        <a href="">
-                            <span class="material-symbols-outlined">add</span>
-                            siswa
-                        </a>
-                    </div> --}}
-                </div>
                 <div class="main-tabel">
-                    <table>
+                    <table class="scroll" id="nilaiAkhir">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama Kelas</th>
-                                <th>Wali Kelas</th>
-                                <th>Tahun Pelajaran</th>
-                                <th></th>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2" class="nama2">Nama</th>
+                                <th rowspan="2">NIS</th>
+                                <th rowspan="2">NISN</th>
+                                <th rowspan="2">L/P</th>
+                                <th colspan="20" class="nilai">Nilai</th>
+                                <th rowspan="2">Jumlah Nilai</th>
+                                <th rowspan="2">Rata-Rata</th>
+                                <th rowspan="2">Peringkat</th>
+                            </tr>
+                            <tr>
+                                <th>Agama</th>
+                                <th>Keterampilan</th>
+                                <th>PKN</th>
+                                <th>Keterampilan</th>
+                                <th>B.Indo</th>
+                                <th>Keterampilan</th>
+                                <th>MTK</th>
+                                <th>Keterampilan</th>
+                                <th>B.Asing</th>
+                                <th>Keterampilan</th>
+                                <th>KK1</th>
+                                <th>Keterampilan</th>
+                                <th>KK2</th>
+                                <th>Keterampilan</th>
+                                <th>KK3</th>
+                                <th>Keterampilan</th>
+                                <th>KK4</th>
+                                <th>Keterampilan</th>
+                                <th>KK5</th>
+                                <th>Keterampilan</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>ahmad</td>
+                                <td>1234567890</td>
+                                <td>0987654321</td>
+                                <td>L</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>1650</td>
+                                <td>82.5</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>ahmad nur rifqi</td>
+                                <td>0987654321</td>
+                                <td>1234567890</td>
+                                <td>L</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>1650</td>
+                                <td>82.5</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ahmad nur rifqi</td>
+                                <td>0987654321</td>
+                                <td>1234567890</td>
+                                <td>L</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>1650</td>
+                                <td>82.5</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>ahmad nur rifqi</td>
+                                <td>0987654321</td>
+                                <td>1234567890</td>
+                                <td>L</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>1650</td>
+                                <td>82.5</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>ahmad nur rifqi</td>
+                                <td>0987654321</td>
+                                <td>1234567890</td>
+                                <td>L</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>85</td>
+                                <td>1650</td>
+                                <td>82.5</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
                 </div>
             </div>
         </main>
         <!--End of main--> 
-    </div>
-
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin ingin menghapus data ini ?</p>
-            <div class="modal-button">
-                <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery -->
@@ -232,8 +380,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
-    <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

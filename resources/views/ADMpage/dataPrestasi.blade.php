@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -197,7 +197,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Siswa</th>
-                                <th>Kelas</th>
                                 <th>Uraian Prestasi</th>
                                 <th>Keterangan</th>
                                 <th>Jenis Prestasi</th>
@@ -210,11 +209,11 @@
                                 <tr>
                                     <td>{{ $prestasis->firstItem() + $i }}</td>
                                     <td>{{ $prestasi->rapor->siswa->nama }}</td>
-                                    <td>{{ ($prestasi->rapor->siswa->kelas) ? $prestasi->rapor->siswa->kelas->tingkat_kelas : '-' }}</td>
+                                    {{-- <td>{{ ($prestasi->rapor->siswa->kelas) ? $prestasi->rapor->siswa->kelas->tingkat_kelas : '-' }}</td> --}}
                                     <td>{{ $prestasi->uraian_prestasi }}</td>
                                     <td>{{ $prestasi->keterangan }}</td>
                                     <td>{{ $prestasi->jenis_prestasi }}</td>
-                                    <td>{{ $prestasi->rapor->tahunAjaran->tahun }}</td>
+                                    <td>{{ $prestasi->rapor->tahunAjaran->tahun }} - {{ $prestasi->rapor->tahunAjaran->semester }}</td>
                                     <td class="primary">
                                         <a href="{{ route('prestasi.edit', ['prestasi' => $prestasi->id]) }}">
                                             <button id="edit">Details</button>
@@ -281,7 +280,7 @@
                             <select name="tahun_ajaran_id" id="ajaran" required>
                                 <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
                                 @foreach ($tahunAjarans as $tahunAjaran)
-                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }} - {{ $tahunAjaran->semester }}</option>
                                 @endforeach
                             </select>
                         </td>

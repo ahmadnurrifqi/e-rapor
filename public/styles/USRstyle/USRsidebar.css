@@ -89,12 +89,12 @@ aside .sidebar:hover{
 }
 
 .menu-head p {
-    font-size: 11px;
+    font-size: 9px;
     color: var(--color-dark);
 }
 .menu-head span {
-    text-transform: uppercase;
-    font-size: 12px;
+    text-transform:uppercase;
+    font-size: 10px;
     font-weight: 500;
 }
 

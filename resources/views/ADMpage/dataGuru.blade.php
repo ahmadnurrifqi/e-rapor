@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -217,7 +217,7 @@
                                     <td>{{ $guru->no_telp }}</td>
                                     <td class="primary">
                                         <a href="{{ route('guru.edit', ['guru' => $guru->id]) }}">
-                                            <button id="edit">Details</button>
+                                            <button>Details</button>
                                         </a>
                                     </td>
                                     <td class="danger">
@@ -338,107 +338,6 @@
                     <button class="tambah">Simpan</button>
                 </div>
             </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Guru</h3>
-            <table>
-                <tr>
-                    <td>Nama Guru</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIK</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NUPTK</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NPY</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L (Laki-Laki)</option>
-                            <option value="P">P (Perempuan)</option>
-                        </select>
-                </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Studi Terakhir</td>
-                    <td>:</td>
-                    <td><select name="studi" id="studi">
-                            <option value="" disabled selected class="lol">--Pilih Studi Terakhir--</option>
-                            <option value="S3">S3</option>
-                            <option value="S2">S2</option>
-                            <option value="S1">S1</option>
-                            <option value="D4">D4</option>
-                            <option value="D3">D3</option>
-                            <option value="SMK">SMK/MAK</option>
-                            <option value="SMA">SMA/MA</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Gabung</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="zzz@gmail.com"></td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <a href="editDataGuru" class="edit">Edit</a>
-                {{-- <button class="tambah">Simpan Edit</button> --}}
-            </div>
         </div>
     </div>
     {{-- modal hapus --}}

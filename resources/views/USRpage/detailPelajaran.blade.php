@@ -7,7 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="/styles/USRstyle/biodataPage.css">
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+    <link rel="stylesheet" href="/styles/USRstyle/USRsidebar.css">
 
     <title>{{ $title }}</title>
 </head>
@@ -17,7 +17,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>

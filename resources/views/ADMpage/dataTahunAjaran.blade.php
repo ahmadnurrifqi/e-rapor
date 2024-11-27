@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -269,43 +269,6 @@
                     <button class="tambah">Simpan</button>
                 </div>
             </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Tahun Ajaran</h3>
-            <table>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="2020/2021"></td>
-                </tr>
-                <tr>
-                    <td>Semester</td>
-                    <td>:</td>
-                    <td><select name="semester" id="semester">
-                        <option value="" disabled selected class="lol">--Pilih Golongan Semester--</option>
-                            <option value="Ganjil">Ganjil</option>
-                            <option value="Genap">Genap</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tempat Pembagian</td>
-                    <td>:</td>
-                    <td><input type="text" value="Bontang"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Pembagian</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
         </div>
     </div>
     {{-- modal hapus --}}

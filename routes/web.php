@@ -66,6 +66,9 @@ Route::get('detailNilaiAkhir', function () {
 Route::get('cetakRapor', function () {
     return view('/ADMpage/cetakRapor',["title" => "E-Rapor | SMK Nusantara"]);
 });
+Route::get('detailRapor', function () {
+    return view('/ADMpage/detailRapor',["title" => "E-Rapor | SMK Nusantara"]);
+});
 //route page tambahan
 Route::get('tentang', function () {
     return view('/ADMpage/ADMtentang',["title" => "E-Rapor | SMK Nusantara"]);

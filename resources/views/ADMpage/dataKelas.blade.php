@@ -16,7 +16,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/mahasiswa.jpg" alt="">
+                    <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -210,7 +210,7 @@
                                     <td>{{ $class->nama_kelas }}</td>
                                     <td>{{ $class->tingkat_kelas }}</td>
                                     <td>{{ $class->guru->user->name }}</td>
-                                    <td>{{ $class->tahunAjaran->tahun }}</td>
+                                    <td>{{ $class->tahunAjaran->tahun }} - {{ $class->tahunAjaran->semester }}</td>
                                     <td class="primary">
                                         <a href="{{ route('kelas.edit', ['kelas' => $class->id]) }}">
                                             <button id="edit">Details</button>
@@ -273,7 +273,7 @@
                             <select name="tahun_ajaran_id" id="ajaran">
                                 <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
                                 @foreach ($tahunAjarans as $tahunAjaran)
-                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }} - {{ $tahunAjaran->semester }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -284,56 +284,6 @@
                     <button class="tambah">Simpan</button>
                 </div>
             </form>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Kelas</h3>
-            <table>
-                <tr>
-                    <td>Nama Kelas</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="Pending (null)"></td>
-                </tr>
-                <tr>
-                    <td>Tingkat Kelas</td>
-                    <td>:</td>
-                    <td><select name="tingkat" id="tingkat">
-                            <option value="" disabled selected class="lol">--Pilih Tingkat Kelas--</option>
-                            <option value="X (Sepuluh)">X (Sepuluh)</option>
-                            <option value="XI (Sebelas)">XI (Sebelas)</option>
-                            <option value="XII(Duabelas)">XII (Duabelas)</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Wali Kelas</td>
-                    <td>:</td>
-                    <td><select name="walikelas" id="walikelas">
-                            <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
         </div>
     </div>
     {{-- modal hapus --}}
