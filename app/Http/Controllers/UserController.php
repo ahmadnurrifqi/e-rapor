@@ -12,7 +12,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('name')->paginate(10);
+        $users = User::orderBy('name')->paginate(15);
+
+        if (request()->cari) {
+            $users = User::orderBy('name')
+                ->where('name', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
 
         return view('ADMpage.dataAkun', [
             "title" => "E-Rapor | SMK Nusantara",

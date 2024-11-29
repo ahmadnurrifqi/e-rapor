@@ -178,12 +178,12 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
+                    <form class="left-fitur" action="{{ route('prestasi.index') }}" method="GET">
+                        <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
+                        <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                     <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>

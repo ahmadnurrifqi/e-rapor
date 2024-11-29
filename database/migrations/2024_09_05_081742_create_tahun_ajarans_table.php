@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('semester');
             $table->string('tempat_pembagian');
             $table->date('tanggal_pembagian');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
