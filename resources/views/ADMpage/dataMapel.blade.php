@@ -277,9 +277,9 @@
                         <td>:</td>
                         <td><select name="ajaran" id="ajaran">
                                 <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                                <option value="">ambil dari tabel tahun ajaran</option>
-                                <option value="">format (tahun ajaran - semester)</option>
-                                <option value="">contoh: 2024/2025 - Ganjil</option>
+                                @foreach ($tahunAjarans as $tahunAjaran)
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>

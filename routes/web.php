@@ -164,6 +164,12 @@ Route::controller(KelasController::class)->group(function () {
     Route::get('/editDataKelas/{kelas}', 'edit')->name('kelas.edit');
     Route::post('/editDataKelas/{kelas}/update', 'update')->name('kelas.update');
     Route::get('/dataKelas/destroy/{kelas}', 'destroy')->name('kelas.destroy');
+
+    Route::get('/dataKelas/{kelas}/add/{siswa}', 'addSiswa')->name('kelas.addSiswa');
+    Route::get('/dataKelas/{kelas}/delete/{siswa}', 'deleteSiswa')->name('kelas.deleteSiswa');
+
+    Route::get('/dataKelas/{kelas}/add/mapel/{mapel}', 'addMapel')->name('kelas.addMapel');
+    Route::get('/dataKelas/{kelas}/delete/mapel/{kelasAjaran}', 'deleteMapel')->name('kelas.deleteMapel');
 });
 
 Route::controller(MapelController::class)->group(function () {

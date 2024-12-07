@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\Mapel;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -25,10 +26,13 @@ class MapelController extends Controller
             ->orderBy('users.name')
             ->get();
 
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
         return view('/ADMpage/dataMapel', [
             "title" => "E-Rapor | SMK Nusantara",
             "mapels" => $mapels,
             "teachers" => $teachers,
+            "tahunAjarans" => $tahunAjarans,
         ]);
     }
 
@@ -46,6 +50,7 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         Mapel::create([
+            'tahun_ajaran_id' => $request->ajaran,
             'guru_id' => $request->guru_id,
             'nama' => $request->nama,
             'singkatan' => $request->singkatan,

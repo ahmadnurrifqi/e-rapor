@@ -222,21 +222,22 @@
                     </div>
                 </form>
 
+                <form method="GET" action="{{ route('kelas.edit', ['kelas' => $class->id]) }}">
                 <div class="main-content">
                     <div class="main-tabel">
                         <div class="isi-main2">
                             <div class="cari">
                                 <p>>Daftar Siswa</p>
                                 <div class="right-cari">
-                                    <input type="text" placeholder="cari..." id="">
-                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                    <input type="text" placeholder="cari..." id="" name="listSiswa" value="{{ request()->get('listSiswa') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
                                 </div>
                             </div>
                             <div class="cari">
                                 <p>>Tambah Siswa</p>
                                 <div class="right-cari">
-                                    <input type="text" placeholder="cari..." id="">
-                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                    <input type="text" placeholder="cari..." id="" name="unlistedSiswa" value="{{ request()->get('unlistedSiswa') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
                                 </div>
                             </div>
                             <div class="main-input2">
@@ -251,78 +252,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
+                                        @foreach ($daftarSiswas as $i => $daftarSiswa)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $daftarSiswa->nama }}</td>
+                                                <td>{{ $daftarSiswa->nis }}</td>
+                                                <td>{{ $daftarSiswa->nisn }}</td>
+                                                <td class="danger">
+                                                    <a href="{{ route('kelas.deleteSiswa', ['kelas' => $class->id, 'siswa' => $daftarSiswa->id]) }}">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -338,42 +280,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Ahmad Nur</td>
-                                            <td>123456987021</td>
-                                            <td>0987654321</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
+                                        @foreach ($tambahSiswas as $i => $tambahSiswa)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $tambahSiswa->nama }}</td>
+                                                <td>{{ $tambahSiswa->nis }}</td>
+                                                <td>{{ $tambahSiswa->nisn }}</td>
+                                                <td class="add">
+                                                    <a href="{{ route('kelas.addSiswa', ['kelas' => $class->id, 'siswa' => $tambahSiswa->id]) }}">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -386,15 +305,15 @@
                             <div class="cari">
                                 <p>>Daftar Mapel</p>
                                 <div class="right-cari">
-                                    <input type="text" placeholder="cari..." id="">
-                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                    <input type="text" placeholder="cari..." id="" name="listMapel" value="{{ request()->get('listMapel') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
                                 </div>
                             </div>
                             <div class="cari">
                                 <p>>Tambah Mapel</p>
                                 <div class="right-cari">
-                                    <input type="text" placeholder="cari..." id="">
-                                    <button class="but-cari"><span class="material-symbols-outlined">search</span></button>
+                                    <input type="text" placeholder="cari..." id="" name="unlistedMapel" value="{{ request()->get('unlistedMapel') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
                                 </div>
                             </div>
                             <div class="main-input2">
@@ -408,69 +327,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Matematika</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Bahasa Indonesia</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Agama</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>KK1</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>KK2</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>KK3</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>KK4</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>KK5</td>
-                                            <td>2024/2025</td>
-                                            <td class="danger">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
-                                            </td>
+                                        @foreach ($daftarMapels as $i => $daftarMapel)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $daftarMapel->mapel->nama }}</td>
+                                                <td>{{ $daftarMapel->mapel->tahunAjaran->tahun }}</td>
+                                                <td class="danger">
+                                                    <a href="{{ route('kelas.deleteMapel', ['kelas' => $class->id, 'kelasAjaran' => $daftarMapel->id]) }}">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -485,44 +353,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>KK1</td>
-                                            <td>2024/2025</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>KK2</td>
-                                            <td>2024/2025</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>KK3</td>
-                                            <td>2024/2025</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>KK4</td>
-                                            <td>2024/2025</td>
-                                            <td class="add">
-                                                <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
-                                            </td>
-                                        </tr>
+                                        @foreach ($tambahMapels as $i => $tambahMapel)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $tambahMapel->nama }}</td>
+                                                <td>{{ $tambahMapel->tahunAjaran->tahun }}</td>
+                                                <td class="add">
+                                                    <a href="{{ route('kelas.addMapel', ['kelas' => $class->id, 'mapel' => $tambahMapel->id]) }}">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </main>
         <!--End of main--> 
