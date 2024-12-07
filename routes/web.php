@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\RaporController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\UserController;
@@ -163,6 +164,12 @@ Route::controller(KelasController::class)->group(function () {
     Route::get('/editDataKelas/{kelas}', 'edit')->name('kelas.edit');
     Route::post('/editDataKelas/{kelas}/update', 'update')->name('kelas.update');
     Route::get('/dataKelas/destroy/{kelas}', 'destroy')->name('kelas.destroy');
+
+    Route::get('/dataKelas/{kelas}/add/{siswa}', 'addSiswa')->name('kelas.addSiswa');
+    Route::get('/dataKelas/{kelas}/delete/{siswa}', 'deleteSiswa')->name('kelas.deleteSiswa');
+
+    Route::get('/dataKelas/{kelas}/add/mapel/{mapel}', 'addMapel')->name('kelas.addMapel');
+    Route::get('/dataKelas/{kelas}/delete/mapel/{kelasAjaran}', 'deleteMapel')->name('kelas.deleteMapel');
 });
 
 Route::controller(MapelController::class)->group(function () {
@@ -187,4 +194,13 @@ Route::controller(PrestasiController::class)->group(function () {
     Route::get('/editDataPrestasi/{prestasi}', 'edit')->name('prestasi.edit');
     Route::post('/editDataPrestasi/{prestasi}/update', 'update')->name('prestasi.update');
     Route::get('/dataPrestasi/destroy/{prestasi}', 'destroy')->name('prestasi.destroy');
+});
+
+Route::controller(RaporController::class)->group(function () {
+    Route::get('/spiritual', 'raporEdit')->name('spiritual.edit');
+    Route::post('/spiritual/{kelas}/update', 'raporUpdate')->name('spiritual.update');
+    Route::get('/kehadiran', 'raporEdit')->name('kehadiran.edit');
+    Route::post('/kehadiran/{kelas}/update', 'raporUpdate')->name('kehadiran.update');
+    Route::get('/catatan', 'raporEdit')->name('catatan.edit');
+    Route::post('/catatan/{kelas}/update', 'raporUpdate')->name('catatan.update');
 });

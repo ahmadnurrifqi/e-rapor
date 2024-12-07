@@ -178,12 +178,12 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
+                    <form class="left-fitur" action="{{ route('mapel.index') }}" method="GET">
+                        <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
+                        <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                     <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>
@@ -277,9 +277,9 @@
                         <td>:</td>
                         <td><select name="ajaran" id="ajaran">
                                 <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                                <option value="">ambil dari tabel tahun ajaran</option>
-                                <option value="">format (tahun ajaran - semester)</option>
-                                <option value="">contoh: 2024/2025 - Ganjil</option>
+                                @foreach ($tahunAjarans as $tahunAjaran)
+                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>

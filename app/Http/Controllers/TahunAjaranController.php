@@ -12,7 +12,13 @@ class TahunAjaranController extends Controller
      */
     public function index()
     {
-        $tahunAjarans = TahunAjaran::orderBy('tahun')->paginate(10);
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->paginate(15);
+
+        if (request()->cari) {
+            $tahunAjarans = TahunAjaran::orderBy('tahun')
+                ->where('tahun', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
 
         return view('/ADMpage/dataTahunAjaran',[
             "title" => "E-Rapor | SMK Nusantara",
@@ -33,11 +39,16 @@ class TahunAjaranController extends Controller
      */
     public function store(Request $request)
     {
+        TahunAjaran::where('is_active', true)->update([
+            'is_active' => false,
+        ]);
+
         TahunAjaran::create([
             'tahun' => $request->tahun,
             'semester' => $request->semester,
             'tempat_pembagian' => $request->tempat_pembagian,
             'tanggal_pembagian' => $request->tanggal_pembagian,
+            'is_active' => true,
         ]);
 
         return redirect()->route('tahun-ajaran.index');
