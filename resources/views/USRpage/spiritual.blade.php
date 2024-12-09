@@ -193,7 +193,7 @@
                                             <td>{{ $siswa->nis }}</td>
                                             <td>{{ $siswa->jenis_kelamin }}</td>
                                             <td>
-                                                <textarea name="spiritual[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->sikap_spiritual }}</textarea>
+                                                <textarea name="spiritual[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->sikap_spiritual ?? null }}</textarea>
                                             </td>
                                             <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
                                         </tr>

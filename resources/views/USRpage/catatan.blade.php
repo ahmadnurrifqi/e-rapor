@@ -192,7 +192,7 @@
                                             <td>{{ $siswa->nama }}</td>
                                             <td>{{ $siswa->nis }}</td>
                                             <td>{{ $siswa->jenis_kelamin }}</td>
-                                            <td><textarea name="catatan[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->catatan_wali_kelas }}</textarea></td>
+                                            <td><textarea name="catatan[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->catatan_wali_kelas ?? null }}</textarea></td>
                                             <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
                                         </tr>
                                     @endforeach

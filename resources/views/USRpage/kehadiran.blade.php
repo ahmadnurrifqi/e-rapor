@@ -194,9 +194,9 @@
                                             <td>{{ $siswa->nama }}</td>
                                             <td>{{ $siswa->nis }}</td>
                                             <td>{{ $siswa->jenis_kelamin }}</td>
-                                            <td><input type="number" maxlength="5" name="sakit[]" value="{{ $siswa->rapor->first()->sakit }}"></td>
-                                            <td><input type="number" maxlength="5" name="izin[]" value="{{ $siswa->rapor->first()->izin }}"></td>
-                                            <td><input type="number" maxlength="5" name="tanpa_keterangan[]" value="{{ $siswa->rapor->first()->tanpa_keterangan }}"></td>
+                                            <td><input type="number" maxlength="5" name="sakit[]" value="{{ $siswa->rapor->first()->sakit ?? null }}"></td>
+                                            <td><input type="number" maxlength="5" name="izin[]" value="{{ $siswa->rapor->first()->izin ?? null }}"></td>
+                                            <td><input type="number" maxlength="5" name="tanpa_keterangan[]" value="{{ $siswa->rapor->first()->tanpa_keterangan ?? null }}"></td>
                                             <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
                                         </tr>
                                     @endforeach
