@@ -171,41 +171,43 @@
                         </button>
                     </div>
                 </div>
-                <div class="main-tabel">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Siswa</th>
-                                <th>NIS</th>
-                                <th>L/P</th>
-                                <th>Sakit(H)</th>
-                                <th>Izin(H)</th>
-                                <th>Tanpa Keterangan(H)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form id="updateForm" action="{{ route('kehadiran.update', ['kelas' => $kelas->id]) }}" method="POST">
-                                @csrf
-                                @foreach ($siswas as $i => $siswa)
-                                    <tr>
-                                        <td>{{ $siswas->firstItem() + $i }}</td>
-                                        <td>{{ $siswa->nama }}</td>
-                                        <td>{{ $siswa->nis }}</td>
-                                        <td>{{ $siswa->jenis_kelamin }}</td>
-                                        <td><input type="number" maxlength="5" name="sakit[]" value="{{ $siswa->rapor->first()->sakit }}"></td>
-                                        <td><input type="number" maxlength="5" name="izin[]" value="{{ $siswa->rapor->first()->izin }}"></td>
-                                        <td><input type="number" maxlength="5" name="tanpa_keterangan[]" value="{{ $siswa->rapor->first()->tanpa_keterangan }}"></td>
-                                        <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
-                                    </tr>
-                                @endforeach
-                            </form>
-                        </tbody>
-                    </table>
-                    @if ($siswas)
-                        {{ $siswas->links('pagination.default') }}
-                    @endif
-                </div>
+                @if ($kelas)
+                    <div class="main-tabel">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Siswa</th>
+                                    <th>NIS</th>
+                                    <th>L/P</th>
+                                    <th>Sakit(H)</th>
+                                    <th>Izin(H)</th>
+                                    <th>Tanpa Keterangan(H)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form id="updateForm" action="{{ route('kehadiran.update', ['kelas' => $kelas->id]) }}" method="POST">
+                                    @csrf
+                                    @foreach ($siswas as $i => $siswa)
+                                        <tr>
+                                            <td>{{ $siswas->firstItem() + $i }}</td>
+                                            <td>{{ $siswa->nama }}</td>
+                                            <td>{{ $siswa->nis }}</td>
+                                            <td>{{ $siswa->jenis_kelamin }}</td>
+                                            <td><input type="number" maxlength="5" name="sakit[]" value="{{ $siswa->rapor->first()->sakit }}"></td>
+                                            <td><input type="number" maxlength="5" name="izin[]" value="{{ $siswa->rapor->first()->izin }}"></td>
+                                            <td><input type="number" maxlength="5" name="tanpa_keterangan[]" value="{{ $siswa->rapor->first()->tanpa_keterangan }}"></td>
+                                            <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
+                                        </tr>
+                                    @endforeach
+                                </form>
+                            </tbody>
+                        </table>
+                        @if ($siswas)
+                            {{ $siswas->links('pagination.default') }}
+                        @endif
+                    </div>
+                @endif
             </div>
         </main>
         <!--End of main--> 

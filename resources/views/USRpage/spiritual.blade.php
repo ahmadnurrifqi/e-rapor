@@ -171,39 +171,41 @@
                         </button>
                     </div>
                 </div>
-                <div class="main-tabel">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Siswa</th>
-                                <th>NIS</th>
-                                <th>L/P</th>
-                                <th>Deskripsi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form id="updateForm" action="{{ route('spiritual.update', ['kelas' => $kelas->id]) }}" method="POST">
-                                @csrf
-                                @foreach ($siswas as $i => $siswa)
-                                    <tr>
-                                        <td>{{ $siswas->firstItem() + $i }}</td>
-                                        <td>{{ $siswa->nama }}</td>
-                                        <td>{{ $siswa->nis }}</td>
-                                        <td>{{ $siswa->jenis_kelamin }}</td>
-                                        <td>
-                                            <textarea name="spiritual[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->sikap_spiritual }}</textarea>
-                                        </td>
-                                        <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
-                                    </tr>
-                                @endforeach
-                            </form>
-                        </tbody>
-                    </table>
-                    @if ($siswas)
-                        {{ $siswas->links('pagination.default') }}
-                    @endif
-                </div>
+                @if ($kelas)
+                    <div class="main-tabel">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Siswa</th>
+                                    <th>NIS</th>
+                                    <th>L/P</th>
+                                    <th>Deskripsi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form id="updateForm" action="{{ route('spiritual.update', ['kelas' => $kelas->id]) }}" method="POST">
+                                    @csrf
+                                    @foreach ($siswas as $i => $siswa)
+                                        <tr>
+                                            <td>{{ $siswas->firstItem() + $i }}</td>
+                                            <td>{{ $siswa->nama }}</td>
+                                            <td>{{ $siswa->nis }}</td>
+                                            <td>{{ $siswa->jenis_kelamin }}</td>
+                                            <td>
+                                                <textarea name="spiritual[]" id="" cols="30" rows="1">{{ $siswa->rapor->first()->sikap_spiritual }}</textarea>
+                                            </td>
+                                            <input type="text" name="siswaId[]" value="{{ $siswa->id }}" hidden>
+                                        </tr>
+                                    @endforeach
+                                </form>
+                            </tbody>
+                        </table>
+                        @if ($siswas)
+                            {{ $siswas->links('pagination.default') }}
+                        @endif
+                    </div>
+                @endif
             </div>
         </main>
         <!--End of main--> 
