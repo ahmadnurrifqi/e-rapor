@@ -5,6 +5,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NilaiPelajaranController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\RaporController;
 use App\Http\Controllers\SiswaController;
@@ -196,6 +197,12 @@ Route::controller(PrestasiController::class)->group(function () {
     Route::get('/dataPrestasi/destroy/{prestasi}', 'destroy')->name('prestasi.destroy');
 });
 
+Route::controller(NilaiPelajaranController::class)->group(function () {
+    Route::get('/nilaiPelajaran', 'index')->name('nilai.pelajaran.index');
+    Route::get('/detailPelajaran/{kelasAjaran}', 'edit')->name('nilai.pelajaran.edit');
+    Route::post('/detailPelajaran/{kelasAjaran}/update', 'update')->name('nilai.pelajaran.update');
+});
+
 Route::controller(RaporController::class)->group(function () {
     Route::get('/spiritual', 'raporEdit')->name('spiritual.edit');
     Route::post('/spiritual/{kelas}/update', 'raporUpdate')->name('spiritual.update');
@@ -203,4 +210,6 @@ Route::controller(RaporController::class)->group(function () {
     Route::post('/kehadiran/{kelas}/update', 'raporUpdate')->name('kehadiran.update');
     Route::get('/catatan', 'raporEdit')->name('catatan.edit');
     Route::post('/catatan/{kelas}/update', 'raporUpdate')->name('catatan.update');
+
+    Route::get('/nilaiAkhirUSR', 'index')->name('nilai.akhir.index');
 });

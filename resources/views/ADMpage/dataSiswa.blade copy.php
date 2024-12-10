@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="/styles/ADMstyle/biodataPage.css">
     <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
         <aside>
             <div class="sidebar">
                 <div class="menu-head">
-                    <img src="/assets/profil.jpg" alt="">
+                    <img src="/assets/mahasiswa.jpg" alt="">
                     <p>Welcome,
                         <br><span>Ahmad Nur Rifqi</span>
                     </p>
@@ -35,14 +36,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="active">
                                     <span class="material-symbols-outlined">groups</span>
                                     <p>Biodata</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="dataSiswa" class="active">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
@@ -62,7 +63,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="active">
+                                <a href="#">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Data Pembelajaran</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
@@ -81,7 +82,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataMapel" class="active">
+                                        <a href="dataMapel">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Mapel</p>
                                         </a>
@@ -144,7 +145,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Mata pelajaran</p>
+                <p class="main-title">Data Siswa</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -178,7 +179,7 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <form class="left-fitur" action="{{ route('mapel.index') }}" method="GET">
+                    <form class="left-fitur" action="{{ route('siswa.index') }}" method="GET">
                         <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
                         <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
@@ -187,7 +188,7 @@
                     <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            Mata Pelajaran
+                            Siswa
                         </button>
                     </div>
                 </div>
@@ -196,90 +197,116 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Mapel</th>
-                                <th>Singkatan</th>
-                                <th>Kelompok</th>
-                                <th>Pengajar</th>
-                                <th>Tahun Ajaran</th>
+                                <th>Nama</th>
+                                <th>NIS</th>
+                                <th>NISN</th>
+                                <th>TTL</th>
+                                <th>Jenis Kelamin</th>
+                                <th>No Telp</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($mapels as $i => $mapel)
+                        <tbody id="dataResults">
+                            @foreach ($siswas as $i => $siswa)
                                 <tr>
-                                    <td>{{ $mapels->firstItem() + $i }}</td>
-                                    <td>{{ $mapel->nama }}</td>
-                                    <td>{{ $mapel->singkatan }}</td>
-                                    <td>{{ $mapel->kelompok }}</td>
-                                    <td>{{ $mapel->guru->user->name }}</td>
-                                    <td>{{ $mapel->tahunAjaran->tahun }} - {{ $mapel->tahunAjaran->semester }}</td>
+                                    <td>{{ $siswas->firstItem() + $i }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ $siswa->nis }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>{{ $siswa->tempat_lahir }}, {{ $siswa->tanggal_lahir }}</td>
+                                    <td>{{ $siswa->jenis_kelamin }}</td>
+                                    <td>{{ $siswa->no_telp }}</td>
                                     <td class="primary">
-                                        <a href="{{ route('mapel.edit', ['mapel' => $mapel->id]) }}">
+                                        <a href="{{ route('siswa.edit', ['siswa' => $siswa->id]) }}">
                                             <button id="edit">Details</button>
                                         </a>
                                     </td>
                                     <td class="danger">
-                                        <span delete-url="{{ route('mapel.destroy', ['mapel' => $mapel->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                        <span delete-url="{{ route('siswa.destroy', ['siswa' => $siswa->id]) }}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $mapels->links('pagination.default') }}
+                    {{ $siswas->links('pagination.default') }}
                 </div>
             </div>
         </main>
         <!--End of main--> 
     </div>
-
     {{-- modal tambah --}}
     <div class="wrapper" id="wrapper">
         <div class="modal">
-            <form action="{{ route('mapel.store') }}" method="POST">
+            <form action="{{ route('siswa.store') }}" method="POST">
                 @csrf
-                <h3>Tambah Data Mata Pelajaran</h3>
+                <h3>Tambah Data Siswa</h3>
                 <table>
                     <tr>
-                        <td>Nama Mapel</td>
+                        <td>Nama Siswa</td>
                         <td>:</td>
-                        <td><input type="text" placeholder="Matematika" name="nama" required></td>
+                        <td><input type="text" name="nama" required></td>
                     </tr>
                     <tr>
-                        <td>Singkatan</td>
+                        <td>NIS</td>
                         <td>:</td>
-                        <td><input type="text" placeholder="MTK" name="singkatan" required></td>
+                        <td><input type="number" max="9999999999" min="0" name="nis" required></td>
                     </tr>
                     <tr>
-                        <td>Kelompok</td>
+                        <td>NISN</td>
                         <td>:</td>
-                        <td>
-                            <select name="kelompok" id="kelompok" required>
-                                <option value="" disabled selected class="lol">--Pilih Kelompok Muatan--</option>
-                                <option value="Muatan Nasional">Muatan Nasional</option>
-                                <option value="Muatan Kejuruan">Muatan Kejuruan</option>
+                        <td><input type="number" max="9999999999" min="0" name="nisn" required></td>
+                    </tr>
+                    <tr>
+                        <td>Tempat Lahir</td>
+                        <td>:</td>
+                        <td><input type="text" name="tempat_lahir" required></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Lahir</td>
+                        <td>:</td>
+                        <td><input type="date" name="tanggal_lahir" required></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td><select name="jenis_kelamin" required id="kelamin">
+                                <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                                <option value="Laki-laki">L (Laki-laki)</option>
+                                <option value="Perempuan">P (Perempuan)</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td>Pengajar</td>
+                        <td>Agama</td>
                         <td>:</td>
-                        <td>
-                            <select name="guru_id" id="walikelas" required>
-                                <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
-                                @foreach ($teachers as $teacher)
-                                    <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
-                                @endforeach
+                        <td><select name="agama" required id="agama">
+                                <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td>Tahun Ajaran</td>
+                        <td>Alamat</td>
                         <td>:</td>
-                        <td><select name="ajaran" id="ajaran">
-                                <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                                @foreach ($tahunAjarans as $tahunAjaran)
-                                    <option value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }} - ({{ $tahunAjaran->semester }})</option>
-                                @endforeach
+                        <td><input type="text" name="alamat" required></td>
+                    </tr>
+                    <tr>
+                        <td>No Telp</td>
+                        <td>:</td>
+                        <td><input type="number" max="9999999999999" min="0" placeholder="08----------" name="no_telp" required></td>
+                    </tr>
+                    <tr>
+                        <td>Konsentrasi Keahlian</td>
+                        <td>:</td>
+                        <td><select name="konsentrasi_keahlian" required id="keahlian">
+                                <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
+                                <option value="TAB">Teknik Alat Berat</option>
+                                <option value="TMI">Teknik Mekanik Industri</option>
+                                <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
                             </select>
                         </td>
                     </tr>
@@ -289,6 +316,88 @@
                     <button class="tambah">Simpan</button>
                 </div>
             </form>
+        </div>
+    </div>
+    {{-- modal edit --}}
+    <div class="wrapper2" id="wrapper2">
+        <div class="modal">
+            <h3>Info Data Siswa</h3>
+            <table>
+                <tr>
+                    <td>Nama Siswa</td>
+                    <td>:</td>
+                    <td><input type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td>NIS</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>NISN</td>
+                    <td>:</td>
+                    <td><input type="number" max="99999999999" min="0" readonly></td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir</td>
+                    <td>:</td>
+                    <td><input type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><select name="kelamin" id="kelamin">
+                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
+                            <option value="L">L</option>
+                            <option value="P">P</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>:</td>
+                    <td><select name="agama" id="agama">
+                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><input type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td>No Telp</td>
+                    <td>:</td>
+                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------" readonly></td>
+                </tr>
+                <tr>
+                    <td>Konsentrasi Keahlian</td>
+                    <td>:</td>
+                    <td><select name="keahlian" id="keahlian">
+                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
+                            <option value="TAB">Teknik Alat Berat</option>
+                            <option value="TMI">Teknik Mekanik Industri</option>
+                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-button">
+                <button id="close2" class="close">Kembali</button>
+                <a href="editDataSiswa" class="edit">Edit</a>
+                {{-- <button class="edit"><a href="editDataSiswa">Edit</a></button> --}}
+            </div>
         </div>
     </div>
     {{-- modal hapus --}}
@@ -308,6 +417,60 @@
       integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
       crossorigin="anonymous"
     ></script>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            let search = this.value;
+            if (search.length > 1) {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const results = JSON.parse(xhr.responseText);
+                        
+                        console.log(results);
+
+                        const dataResults = document.getElementById("dataResults");
+                        dataResults.innerHTML = "";
+
+                        results.forEach((result, i) => {
+                            const rowItem = document.createElement("tr");
+                            rowItem.innerHTML = `
+                                <td>${i + 1}</td>
+                                <td>${result.nama}</td>
+                                <td>${result.nis}</td>
+                                <td>${result.nisn}</td>
+                                <td>${result.tempat_lahir}, ${result.tanggal_lahir}</td>
+                                <td>${result.jenis_kelamin}</td>
+                                <td>${result.no_telp}</td>
+                                <td class="primary">
+                                    <a href="{!! route('siswa.edit', ['siswa' => $siswa->id]) !!}">
+                                        <button id="edit">Details</button>
+                                    </a>
+                                </td>
+                                <td class="danger">
+                                    <span delete-url="/dataSiswa/destroy/${result.id}" class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                </td>
+                            `;
+                            dataResults.appendChild(rowItem);
+                        });
+
+                        const elements = document.getElementsByClassName("btn-hapus")
+                        Array.from(elements).forEach(element => {
+                            element.addEventListener("click", (e) => {
+                                wrapper3.classList.add("active");
+
+                                const hrefHapus = document.getElementById("href-hapus");
+                                
+                                hrefHapus.href = e.target.getAttribute("delete-url");
+                            });
+                        });
+                    }
+                };
+                xhr.open('GET', "/dataSiswa?cari=" + search, true);
+                xhr.send();
+            }
+        });
+    </script>
 
     {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>

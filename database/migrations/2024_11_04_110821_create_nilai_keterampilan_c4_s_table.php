@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('nilai_keterampilan_c4_s', function (Blueprint $table) {
             $table->id();
-            $table->integer('nilai');
-            $table->integer('kkm');
-            $table->char('predikat');
-            $table->text('deskripsi');
+            $table->integer('nilai')->nullable();
+            $table->integer('kkm')->nullable();
+            $table->char('predikat')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

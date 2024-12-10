@@ -226,9 +226,9 @@
                                 <p>Tahun Ajaran</p>
                                 <select name="ajaran" id="ajaran">
                                     <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                                    <option value="">ambil dari tabel tahun ajaran</option>
-                                    <option value="">format (tahun ajaran - semester)</option>
-                                    <option value="">contoh: 2024/2025 - Ganjil</option>
+                                    @foreach ($tahunAjarans as $tahunAjaran)
+                                        <option value="{{ $tahunAjaran->id }}" @selected($mapel->tahun_ajaran_id == $tahunAjaran->id)>{{ $tahunAjaran->tahun }} - ({{ $tahunAjaran->semester }})</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

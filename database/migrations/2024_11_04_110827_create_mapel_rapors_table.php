@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('rapor_id')->constrained()->onDelete('cascade');
             $table->foreignId('mapel_id')->constrained()->onDelete('cascade');
-            $table->foreignId('nilai_pengetahuan_c3_s_id')->constrained()->onDelete('cascade');
-            $table->foreignId('nilai_keterampilan_c4_s_id')->constrained()->onDelete('cascade');
+            $table->foreignId('nilai_pengetahuan_c3_s_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('nilai_keterampilan_c4_s_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

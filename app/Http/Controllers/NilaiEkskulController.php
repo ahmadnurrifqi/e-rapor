@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NilaiPengetahuanC3;
 use Illuminate\Http\Request;
 
-class NilaiPengetahuanC3Controller extends Controller
+class NilaiEkskulController extends Controller
 {
     /**
      * Display a listing of the resource.

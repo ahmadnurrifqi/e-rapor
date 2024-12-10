@@ -77,10 +77,13 @@ class MapelController extends Controller
             ->orderBy('users.name')
             ->get();
 
+        $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
         return view('/ADMpage/editDataMapel', [
             "title" => "E-Rapor | SMK Nusantara",
             "mapel" => $mapel,
             "teachers" => $teachers,
+            "tahunAjarans" => $tahunAjarans,
         ]);
     }
 
@@ -90,6 +93,7 @@ class MapelController extends Controller
     public function update(Request $request, Mapel $mapel)
     {
         $mapel->update([
+            'tahun_ajaran_id' => $request->ajaran,
             'guru_id' => $request->guru_id,
             'nama' => $request->nama,
             'singkatan' => $request->singkatan,

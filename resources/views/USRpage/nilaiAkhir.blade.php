@@ -165,6 +165,9 @@
                                 <th rowspan="2">Peringkat</th>
                             </tr>
                             <tr>
+                                @foreach ($kelasAjarans as $kelasAjaran)
+                                    <th>{{ $kelasAjaran->mapel->nama }}</th>
+                                @endforeach
                                 <th>Agama</th>
                                 <th>Keterampilan</th>
                                 <th>PKN</th>
@@ -188,6 +191,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($kelas->siswa as $i => $siswa)
+                                <tr>
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ $siswa->nis }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>{{ ($siswa->jenis_kelamin == 'Perempuan') ? 'P' : 'L' }}</td>
+                                </tr>
+                            @endforeach
                             <tr>
                                 <td>1</td>
                                 <td>ahmad</td>

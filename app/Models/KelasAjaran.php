@@ -12,8 +12,13 @@ class KelasAjaran extends Model
 
     protected $guarded = [];
 
-    public function mapel():BelongsTo
+    public function mapel(): BelongsTo
     {
         return $this->belongsTo(Mapel::class);
+    }
+
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class);
     }
 }

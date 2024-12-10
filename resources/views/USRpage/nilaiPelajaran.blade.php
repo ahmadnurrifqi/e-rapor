@@ -177,7 +177,22 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($kelasAjarans as $i => $kelasAjaran)
+                                <tr>
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $kelasAjaran->mapel->nama }}</td>
+                                    <td>{{ $kelasAjaran->kelas->tingkat_kelas }} - {{ $kelasAjaran->kelas->nama_kelas }}</td>
+                                    <td>{{ $kelasAjaran->mapel->guru->user->name }}</td>
+                                    <td>{{ $kelasAjaran->mapel->tahunAjaran->tahun }} - {{ $kelasAjaran->mapel->tahunAjaran->semester }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('nilai.pelajaran.edit', ['kelasAjaran' => $kelasAjaran->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                     <div class="slide-data">
                         <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
@@ -196,7 +211,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

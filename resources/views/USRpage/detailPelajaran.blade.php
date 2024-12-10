@@ -150,7 +150,8 @@
     
                 </div>
             </div>
-            <div class="main-content">
+            <form class="main-content" action="{{ route("nilai.pelajaran.update", ['kelasAjaran' => $kelasAjaran->id]) }}" method="POST">
+                @csrf
                 <div class="main-fitur">
                     <div class="left-fitur">
                         <input type="text" placeholder="Ubah KKM Pengetahuan(C3)" id="" maxlength="3">
@@ -163,7 +164,7 @@
                         </div>
                     </div>
                     <div class="right-fitur">
-                        <button id="open">
+                        <button id="open" type="submit">
                             <span class="material-symbols-outlined">add</span>
                             Simpan Data
                         </button>
@@ -185,68 +186,54 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Azizah Renata Ningrum</td>
-                                <td>209874398214</td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Indra Mahendra Bekkam</td>
-                                <td>209873762344</td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                                <td><input type="text" size="5" maxlength="5"></td>
-                                <td><select name="predikat" id="predikat">
-                                    <option value="" disabled selected class="lol">--</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
-                                </select></td>
-                                <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-                            </tr>
+                            @foreach ($siswas as $i => $siswa)
+                                @php
+                                    try {
+                                        $nilaiC3 = App\Models\NilaiPengetahuanC3::where('id', $siswa->rapor[0]->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)[0]->nilai_pengetahuan_c3_s_id)->first();
+                                        $nilaiC4 = App\Models\NilaiKeterampilanC4::where('id', $siswa->rapor[0]->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)[0]->nilai_keterampilan_c4_s_id)->first();
+                                    } catch (\Throwable $th) {
+                                        $nilaiC3 = null;
+                                        $nilaiC4 = null;
+                                    }
+                                @endphp
+                                <tr>
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>
+                                        <input name="pengetahuanC3[]" type="text" size="5" maxlength="5" 
+                                            value="{{ $nilaiC3->nilai ?? 0 }}">
+                                    </td>
+                                    <td><select name="predikatC3[]" id="predikat">
+                                        <option value="" selected class="lol">--</option>
+                                        <option value="A" @selected(($nilaiC3) && $nilaiC3->predikat == 'A')>A</option>
+                                        <option value="B" @selected(($nilaiC3) && $nilaiC3->predikat == 'B')>B</option>
+                                        <option value="C" @selected(($nilaiC3) && $nilaiC3->predikat == 'C')>C</option>
+                                        <option value="D" @selected(($nilaiC3) && $nilaiC3->predikat == 'D')>D</option>
+                                        <option value="E" @selected(($nilaiC3) && $nilaiC3->predikat == 'E')>E</option>
+                                        <option value="F" @selected(($nilaiC3) && $nilaiC3->predikat == 'F')>F</option>
+                                    </select></td>
+                                    <td><textarea name="deskripsiC3[]" id="" cols="30" rows="1">{{ ($nilaiC3 && $nilaiC3->deskripsi) ? $nilaiC3->deskripsi : '' }}</textarea></td>
+                                    <td>
+                                        <input name="keterampilanC4[]" type="text" size="5" maxlength="5"
+                                            value="{{ $nilaiC4->nilai ?? 0 }}">
+                                    </td>
+                                    <td><select name="predikatC4[]" id="predikat">
+                                        <option value="" selected class="lol">--</option>
+                                        <option value="A" @selected(($nilaiC4) && $nilaiC4->predikat == 'A')>A</option>
+                                        <option value="B" @selected(($nilaiC4) && $nilaiC4->predikat == 'B')>B</option>
+                                        <option value="C" @selected(($nilaiC4) && $nilaiC4->predikat == 'C')>C</option>
+                                        <option value="D" @selected(($nilaiC4) && $nilaiC4->predikat == 'D')>D</option>
+                                        <option value="E" @selected(($nilaiC4) && $nilaiC4->predikat == 'E')>E</option>
+                                        <option value="F" @selected(($nilaiC4) && $nilaiC4->predikat == 'F')>F</option>
+                                    </select></td>
+                                    <td><textarea name="deskripsiC4[]" id="" cols="30" rows="1">{{ ($nilaiC4 && $nilaiC4->deskripsi) ? $nilaiC4->deskripsi : '' }}</textarea></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
                 </div>
-            </div>
+            </form>
         </main>
         <!--End of main--> 
     </div>
