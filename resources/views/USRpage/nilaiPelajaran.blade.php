@@ -194,10 +194,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $kelasAjarans->links('pagination.default') }}
                 </div>
             </div>
         </main>

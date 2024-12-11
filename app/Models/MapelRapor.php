@@ -14,11 +14,11 @@ class MapelRapor extends Model
 
     public function nilaiPengetahuanC3(): BelongsTo
     {
-        return $this->belongsTo(NilaiPengetahuanC3::class);
+        return $this->belongsTo(NilaiPengetahuanC3::class, 'nilai_pengetahuan_c3_s_id');
     }
 
     public function nilaiKeterampilanC4(): BelongsTo
     {
-        return $this->belongsTo(NilaiKeterampilanC4::class);
+        return $this->belongsTo(NilaiKeterampilanC4::class, 'nilai_keterampilan_c4_s_id');
     }
 }

@@ -210,7 +210,7 @@
                                 <select name="tahun_ajaran_id" id="ajaran">
                                     <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
                                     @foreach ($tahunAjarans as $tahunAjaran)
-                                        <option {{ ($class->tahun_ajaran_id  == $tahunAjaran->id) ? 'selected' : '' }} value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }}</option>
+                                        <option {{ ($class->tahun_ajaran_id  == $tahunAjaran->id) ? 'selected' : '' }} value="{{ $tahunAjaran->id }}">{{ $tahunAjaran->tahun }} - {{ $tahunAjaran->semester }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -331,7 +331,7 @@
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $daftarMapel->mapel->nama }}</td>
-                                                <td>{{ $daftarMapel->mapel->tahunAjaran->tahun }}</td>
+                                                <td>{{ $daftarMapel->mapel->tahunAjaran->tahun }} - {{ $daftarMapel->mapel->tahunAjaran->semester }}</td>
                                                 <td class="danger">
                                                     <a href="{{ route('kelas.deleteMapel', ['kelas' => $class->id, 'kelasAjaran' => $daftarMapel->id]) }}">
                                                         <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
@@ -357,7 +357,7 @@
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $tambahMapel->nama }}</td>
-                                                <td>{{ $tambahMapel->tahunAjaran->tahun }}</td>
+                                                <td>{{ $tambahMapel->tahunAjaran->tahun }} - {{ $daftarMapel->mapel->tahunAjaran->semester }}</td>
                                                 <td class="add">
                                                     <a href="{{ route('kelas.addMapel', ['kelas' => $class->id, 'mapel' => $tambahMapel->id]) }}">
                                                         <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>

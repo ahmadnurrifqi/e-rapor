@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\KelasAjaran;
-use App\Models\Mapel;
 use App\Models\MapelRapor;
 use App\Models\NilaiKeterampilanC4;
 use App\Models\NilaiPengetahuanC3;
 use App\Models\Rapor;
 use App\Models\Siswa;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class NilaiPelajaranController extends Controller
@@ -20,7 +20,7 @@ class NilaiPelajaranController extends Controller
     {
         $kelasAjarans = KelasAjaran::whereHas('mapel', function ($q) {
             $q->where('guru_id', auth()->user()->guru->id);
-        })->get();
+        })->paginate(15);
 
         return view('/USRpage/nilaiPelajaran', [
             "title" => "E-Rapor | SMK Nusantara",
@@ -136,6 +136,40 @@ class NilaiPelajaranController extends Controller
                     'nilai_keterampilan_c4_s_id' => $nilaiC3->id,
                 ]);
             }
+        }
+
+        $tahunAjaran = TahunAjaran::where('id', $kelasAjaran->kelas->tahun_ajaran_id)->first();
+
+        $siswas = Siswa::where('kelas_id', $kelasAjaran->kelas->id)
+            ->where('tahun_ajaran_id', $tahunAjaran->id)
+            ->join('rapors', 'siswas.id', 'rapors.siswa_id')
+            ->orderByDesc('rapors.total_nilai')
+            ->select('siswas.*')
+            ->get();
+
+        foreach ($siswas as $i => $siswa) {
+            $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->update([
+                'peringkat' => ++$i,
+            ]);
+
+            $jumlahNilaiSiswa = $siswa->rapor
+                ->where('tahun_ajaran_id', $tahunAjaran->id)
+                ->first()
+                ->mapelRapor()
+                ->join('nilai_pengetahuan_c3_s', 'mapel_rapors.nilai_pengetahuan_c3_s_id', 'nilai_pengetahuan_c3_s.id')
+                ->sum('nilai_pengetahuan_c3_s.nilai');
+
+            $rata2NilaiSiswa = $siswa->rapor
+                ->where('tahun_ajaran_id', $tahunAjaran->id)
+                ->first()
+                ->mapelRapor()
+                ->join('nilai_pengetahuan_c3_s', 'mapel_rapors.nilai_pengetahuan_c3_s_id', 'nilai_pengetahuan_c3_s.id')
+                ->avg('nilai_pengetahuan_c3_s.nilai');
+                
+            $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->update([
+                'total_nilai' => $jumlahNilaiSiswa,
+                'rata_rata' => $rata2NilaiSiswa,
+            ]);
         }
 
         return redirect()->route('nilai.pelajaran.edit', ['kelasAjaran' => $kelasAjaran->id]);

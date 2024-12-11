@@ -189,8 +189,8 @@
                             @foreach ($siswas as $i => $siswa)
                                 @php
                                     try {
-                                        $nilaiC3 = App\Models\NilaiPengetahuanC3::where('id', $siswa->rapor[0]->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)[0]->nilai_pengetahuan_c3_s_id)->first();
-                                        $nilaiC4 = App\Models\NilaiKeterampilanC4::where('id', $siswa->rapor[0]->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)[0]->nilai_keterampilan_c4_s_id)->first();
+                                        $nilaiC3 = $siswa->rapor->first()->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)->first()->nilaiPengetahuanC3;
+                                        $nilaiC4 = $siswa->rapor->first()->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)->first()->nilaiKeterampilanC4;
                                     } catch (\Throwable $th) {
                                         $nilaiC3 = null;
                                         $nilaiC4 = null;

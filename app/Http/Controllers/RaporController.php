@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
-use App\Models\KelasAjaran;
 use App\Models\Rapor;
 use App\Models\Siswa;
+use App\Models\KelasAjaran;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
@@ -20,13 +20,16 @@ class RaporController extends Controller
 
         $kelas = Kelas::where('guru_id', auth()->user()->guru->id)
             ->where('tahun_ajaran_id', $tahunAjaran->id)
+            ->with(['siswa' => function ($q) {
+                $q->orderBy('nama');
+            }])
             ->first();
 
         $kelasAjarans = KelasAjaran::where('kelas_id', $kelas->id)->get();
-        // dd($kelasAjarans);
 
         return view('/USRpage/nilaiAkhir',[
             "title" => "E-Rapor | SMK Nusantara",
+            'tahunAjaran' => $tahunAjaran,
             'kelas' => $kelas,
             'kelasAjarans' => $kelasAjarans,
         ]);

@@ -117,7 +117,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Nilai Akhir - Kelas IX B</p>
+                <p class="main-title">Data Nilai Akhir - Kelas {{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -154,12 +154,12 @@
                     <table class="scroll" id="nilaiAkhir">
                         <thead>
                             <tr>
-                                <th rowspan="2">No</th>
+                                <th style="width: fit-content;" rowspan="2">No</th>
                                 <th rowspan="2" class="nama2">Nama</th>
                                 <th rowspan="2">NIS</th>
                                 <th rowspan="2">NISN</th>
                                 <th rowspan="2">L/P</th>
-                                <th colspan="20" class="nilai">Nilai</th>
+                                <th colspan="{{ $kelasAjarans->count() }}" class="nilai">Nilai</th>
                                 <th rowspan="2">Jumlah Nilai</th>
                                 <th rowspan="2">Rata-Rata</th>
                                 <th rowspan="2">Peringkat</th>
@@ -168,188 +168,32 @@
                                 @foreach ($kelasAjarans as $kelasAjaran)
                                     <th>{{ $kelasAjaran->mapel->nama }}</th>
                                 @endforeach
-                                <th>Agama</th>
-                                <th>Keterampilan</th>
-                                <th>PKN</th>
-                                <th>Keterampilan</th>
-                                <th>B.Indo</th>
-                                <th>Keterampilan</th>
-                                <th>MTK</th>
-                                <th>Keterampilan</th>
-                                <th>B.Asing</th>
-                                <th>Keterampilan</th>
-                                <th>KK1</th>
-                                <th>Keterampilan</th>
-                                <th>KK2</th>
-                                <th>Keterampilan</th>
-                                <th>KK3</th>
-                                <th>Keterampilan</th>
-                                <th>KK4</th>
-                                <th>Keterampilan</th>
-                                <th>KK5</th>
-                                <th>Keterampilan</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($kelas->siswa as $i => $siswa)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
+                                    <td style="width: fit-content;">{{ ++$i }}</td>
                                     <td>{{ $siswa->nama }}</td>
                                     <td>{{ $siswa->nis }}</td>
                                     <td>{{ $siswa->nisn }}</td>
                                     <td>{{ ($siswa->jenis_kelamin == 'Perempuan') ? 'P' : 'L' }}</td>
+                                    @foreach ($kelasAjarans as $kelasAjaran)
+                                        <td>
+                                            {{ $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->mapelRapor->where("mapel_id", $kelasAjaran->mapel_id)->first()->nilaiPengetahuanC3->nilai ?? null }}
+                                        </td>
+                                    @endforeach
+                                    <td>
+                                        {{ $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->total_nilai }}
+                                    </td>
+                                    <td>
+                                        {{ (int) $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->rata_rata }}
+                                    </td>
+                                    <td>
+                                        {{ $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->peringkat }}
+                                    </td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td>1</td>
-                                <td>ahmad</td>
-                                <td>1234567890</td>
-                                <td>0987654321</td>
-                                <td>L</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>1650</td>
-                                <td>82.5</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>ahmad nur rifqi</td>
-                                <td>0987654321</td>
-                                <td>1234567890</td>
-                                <td>L</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>1650</td>
-                                <td>82.5</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>ahmad nur rifqi</td>
-                                <td>0987654321</td>
-                                <td>1234567890</td>
-                                <td>L</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>1650</td>
-                                <td>82.5</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>ahmad nur rifqi</td>
-                                <td>0987654321</td>
-                                <td>1234567890</td>
-                                <td>L</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>1650</td>
-                                <td>82.5</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>ahmad nur rifqi</td>
-                                <td>0987654321</td>
-                                <td>1234567890</td>
-                                <td>L</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>85</td>
-                                <td>1650</td>
-                                <td>82.5</td>
-                                <td>2</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
