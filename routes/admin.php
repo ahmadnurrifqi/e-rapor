@@ -5,6 +5,8 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TahunAjaranController;
+use App\Http\Controllers\EkstrakurikularController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,5 +68,21 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/editDataMapel/{mapel}', 'edit')->name('mapel.edit');
         Route::post('/editDataMapel/{mapel}/update', 'update')->name('mapel.update');
         Route::get('/dataMapel/destroy/{mapel}', 'destroy')->name('mapel.destroy');
+    });
+
+    Route::controller(EkstrakurikularController::class)->group(function () {
+        Route::get('/dataEkstrakurikuler', 'index')->name('ekskul.index');
+        Route::post('/dataEkstrakurikuler/store', 'store')->name('ekskul.store');
+        Route::get('/editDataEkstrakurikuler/{ekskul}', 'edit')->name('ekskul.edit');
+        Route::post('/editDataEkstrakurikuler/{ekskul}/update', 'update')->name('ekskul.update');
+        Route::get('/dataEkstrakurikuler/destroy/{ekskul}', 'destroy')->name('ekskul.destroy');
+    });
+    
+    Route::controller(PrestasiController::class)->group(function () {
+        Route::get('/dataPrestasi', 'index')->name('prestasi.index');
+        Route::post('/dataPrestasi/store', 'store')->name('prestasi.store');
+        Route::get('/editDataPrestasi/{prestasi}', 'edit')->name('prestasi.edit');
+        Route::post('/editDataPrestasi/{prestasi}/update', 'update')->name('prestasi.update');
+        Route::get('/dataPrestasi/destroy/{prestasi}', 'destroy')->name('prestasi.destroy');
     });
 });
