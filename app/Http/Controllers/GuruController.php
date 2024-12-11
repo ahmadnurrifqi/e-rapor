@@ -50,6 +50,8 @@ class GuruController extends Controller
             'password' => $request->password
         ]);
 
+        $user->assignRole('guru');
+
         Guru::create([
             "user_id" => $user->id,
             "nik" => $request->nik,

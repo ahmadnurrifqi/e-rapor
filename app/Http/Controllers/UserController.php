@@ -12,12 +12,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('name')->paginate(15);
+        $users = User::orderBy('name')->role('admin')->paginate(15);
 
         if (request()->cari) {
             $users = User::orderBy('name')
                 ->where('name', 'LIKE', '%' . request()->cari . '%')
-                ->paginate(15);
+                ->paginate(15)
+                ->hasRole('admin');
         }
 
         return view('ADMpage.dataAkun', [
@@ -39,11 +40,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
         ]);
+        
+        $user->assignRole('admin');
 
         return redirect()->route('user.index');
     }

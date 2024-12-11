@@ -133,7 +133,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
+                                <a href="/logout">
                                     <span class="material-symbols-outlined">logout</span>
                                     <p>Logout</p>
                                 </a>
@@ -212,7 +212,7 @@
                                     <td>{{ $users->firstItem() + $i }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>Role</td>
+                                    <td>Admin</td>
                                     <td class="primary">
                                         <a href="{{ route('user.edit', ['user' => $user->id]) }}">
                                             <button>Details</button>

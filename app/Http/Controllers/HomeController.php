@@ -26,4 +26,15 @@ class HomeController extends Controller
 
         return redirect('/')->with('error', 'Harap ulangi captha!');
     }
+
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }

@@ -768,6 +768,7 @@ class GuruSeeder extends Seeder
                 "email" => $teacher["ALAMA EMAIL"],
                 "password" => Hash::make("password"),
             ]);
+            $user->assignRole('guru');
 
             Guru::create([
                 "user_id" => $user->id,

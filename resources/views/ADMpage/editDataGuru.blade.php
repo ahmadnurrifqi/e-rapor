@@ -131,7 +131,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="/logout">
                                     <span class="material-symbols-outlined">logout</span>
                                     <p>Logout</p>
                                 </a>
