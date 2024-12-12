@@ -202,12 +202,23 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($kelases as $i => $kelas)
+                                <tr>
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</td>
+                                    <td>{{ $kelas->guru->user->name }}</td>
+                                    <td>{{ $kelas->tahunAjaran->tahun }} - {{ $kelas->tahunAjaran->semester }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('rapor.print.kelas', ['kelas' => $kelas->id]) }}">
+                                            <button>Cetak</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $kelases->links('pagination.default') }}
                 </div>
             </div>
         </main>
@@ -221,7 +232,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>

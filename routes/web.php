@@ -112,10 +112,6 @@ Route::get('tentangUSR', function () {
 });
 
 // route new rosyan
-Route::get('/rapor', function () {
-    return view('export.rapor');
-});
-
 Route::controller(HomeController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::get('/logout', 'logout')->name('logout');

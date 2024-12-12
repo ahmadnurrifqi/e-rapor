@@ -18,7 +18,10 @@ class HomeController extends Controller
             if (Auth::Attempt($data, true)) {
                 session()->flash('success', 'Berhasil login');
     
-                return redirect('ADMdashboard');
+                if (auth()->user()->hasRole('admin')) {
+                    return redirect('ADMdashboard');
+                }
+                return redirect('USRdashboard');
             } else {
                 return redirect('/')->with('error', 'Email atau password anda salah!');
             }

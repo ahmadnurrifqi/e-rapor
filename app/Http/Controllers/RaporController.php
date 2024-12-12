@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\KelasAjaran;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
+use Spatie\LaravelPdf\Facades\Pdf;
 
 class RaporController extends Controller
 {
@@ -148,5 +149,30 @@ class RaporController extends Controller
         }
 
         return redirect()->route($path . '.edit');
+    }
+
+    public function raporPrint()
+    {
+        $kelases = Kelas::paginate(15);
+
+        return view('/ADMpage/cetakRapor', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "kelases" => $kelases,
+        ]);
+    }
+
+    public function raporPrintKelas(Kelas $kelas)
+    {
+        Pdf::view('export.rapor', [
+            'kelas' => $kelas,
+        ])
+        ->format('a4')
+        ->save('rapor.pdf');
+
+        return redirect('/rapor.pdf');
+
+        // return view('export.rapor', [
+        //     'kelas' => $kelas,
+        // ]);
     }
 }

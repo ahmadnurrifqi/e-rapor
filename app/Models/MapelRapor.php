@@ -12,6 +12,11 @@ class MapelRapor extends Model
 
     protected $guarded = [];
 
+    public function mapel(): BelongsTo
+    {
+        return $this->belongsTo(Mapel::class);
+    }
+
     public function nilaiPengetahuanC3(): BelongsTo
     {
         return $this->belongsTo(NilaiPengetahuanC3::class, 'nilai_pengetahuan_c3_s_id');

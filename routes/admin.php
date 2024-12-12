@@ -7,6 +7,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\EkstrakurikularController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\RaporController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,5 +85,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/editDataPrestasi/{prestasi}', 'edit')->name('prestasi.edit');
         Route::post('/editDataPrestasi/{prestasi}/update', 'update')->name('prestasi.update');
         Route::get('/dataPrestasi/destroy/{prestasi}', 'destroy')->name('prestasi.destroy');
+    });
+
+    Route::controller(RaporController::class)->group(function () {
+        Route::get('/cetakRapor', 'raporPrint')->name('rapor.kelas');
+        Route::get('/cetakRapor/kelas/{kelas}', 'raporPrintKelas')->name('rapor.print.kelas');
     });
 });
