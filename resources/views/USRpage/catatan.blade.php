@@ -19,7 +19,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -155,7 +155,7 @@
                     <div class="left-fitur">
                         <div class="drop-limit">
                             @if ($kelas)
-                                <p>KELAS-</p>
+                                <p>KELAS -&nbsp</p>
                                 <p>{{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</p>
                             @else
                                 <p>TIDAK ADA KELAS</p>

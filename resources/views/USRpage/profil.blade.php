@@ -18,7 +18,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -192,12 +192,28 @@
                             <td>:</td>
                             <td>
                                 <div class="password">
-                                    <input type="password" value="admin 123" id="pass" readonly>
+                                    <input type="password" value="admin123" id="pass" readonly>
                                     {{-- admin123 --}}
-                                    <span class="material-symbols-outlined eyepass1" id="visible">visibility</span>
-                                    <span class="material-symbols-outlined eyepass2" id="visible-off">visibility_off</span>
+                                    <span class="material-symbols-outlined eyepass1" id="visible" onclick="myFunction()">visibility</span>
+                                    <span class="material-symbols-outlined eyepass2" id="visible-off" onclick="myFunction()">visibility_off</span>
                                 </div>
                             </td>
+                            <script>
+                                function myFunction() {
+                                    var x = document.getElementById("pass");
+                                    var eyeOpen = document.getElementById("visible");
+                                    var eyeClose = document.getElementById("visible-off");
+                                    if (x.type === "password") {
+                                        x.type = "text";
+                                        eyeOpen.style.display = 'none';
+                                        eyeClose.style.display = 'block';
+                                    } else {
+                                        x.type = "password";
+                                        eyeOpen.style.display = 'block';
+                                        eyeClose.style.display = 'none';
+                                    }
+                                }
+                            </script>
                         </tr>
                     </table>
                 </div>
@@ -205,7 +221,7 @@
                     <p>*Jika ada yang ingin ditanyakan lebih detail silahkan hubungi admin</p>
                     <div class="input_field button">
                         <button id="edit" class="ButtonLog">
-                            Ubah Data
+                            Ubah Data(soon)
                         </button>
                         {{-- <input type="button" value="Ubah Data" class="ButtonLog"> --}}
                     </div>
@@ -271,7 +287,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>
@@ -282,116 +298,10 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  -soon-</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Ubah Profil</h3>
-            <table>
-                <tr>
-                    <td>Nama Guru</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIK</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NUPTK</td>
-                    <td>:</td>
-                    <td><input type="number" max="99999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NPY</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L (Laki-Laki)</option>
-                            <option value="P">P (Perempuan)</option>
-                        </select>
-                </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Studi Terakhir</td>
-                    <td>:</td>
-                    <td><select name="studi" id="studi">
-                            <option value="" disabled selected class="lol">--Pilih Studi Terakhir--</option>
-                            <option value="S3">S3</option>
-                            <option value="S2">S2</option>
-                            <option value="S1">S1</option>
-                            <option value="D4">D4</option>
-                            <option value="D3">D3</option>
-                            <option value="SMK">SMK/MAK</option>
-                            <option value="SMA">SMA/MA</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Gabung</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td><input type="text" placeholder="zzz@gmail.com"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
             </div>
         </div>
     </div>
@@ -403,7 +313,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/USRscript/profil.js"></script>
+    {{-- <script src="/scripts/USRscript/profil.js"></script> --}}
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>

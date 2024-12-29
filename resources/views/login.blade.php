@@ -48,7 +48,7 @@
                         <p>Butuh Bantuan ? Hubungi Kami</p>
                         <div class="social-icons">
                             <a href="#" class="icon-email"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="#" class="icon-facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/smknusantaramandiri?igsh=MTBsN3l4YzJieHU5cQ==" class="icon-instagram"><i class="fa-brands fa-instagram"></i></i></a>
                             <a href="#" class="icon-phone"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>

@@ -19,7 +19,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -30,13 +30,13 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="USRdashboard">
+                                <a href="">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="nilaiPelajaran">
+                                <a href="">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Input Nilai Pelajaran</p>
                                 </a>
@@ -49,19 +49,19 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="spiritual">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Input Nilai Spiritual</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="kehadiran">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Input Kehadiran</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="catatan">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Input Catatan</p>
                                         </a>
@@ -69,7 +69,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="nilaiEkskul" class="active">
+                                <a href="" class="active">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Input Nilai Ekskul</p>
                                 </a>
@@ -80,7 +80,7 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirUSR">
+                                <a href="">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
@@ -91,13 +91,13 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="profil">
+                                <a href="">
                                     <span class="material-symbols-outlined">person_outline</span>
                                     <p>User</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="tentangUSR">
+                                <a href="">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
@@ -153,6 +153,9 @@
             <div class="main-content">
                 <div class="main-fitur">
                     <div class="left-fitur">
+                        <div class="drop-limit">
+                            <a href="nilaiEkskul">Kembali</a>
+                        </div>
                         <div class="drop-limit">
                             <p>Nama Ekskul</p>
                         </div>

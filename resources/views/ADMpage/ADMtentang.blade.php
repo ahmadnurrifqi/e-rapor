@@ -19,7 +19,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -173,7 +173,7 @@
                         <tr>
                             <td>Tahun terbentuk</td>
                             <td>:</td>
-                            <td>1999-09-09</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <td>Jurusan Keahlian</td>
@@ -193,12 +193,12 @@
                         <tr>
                             <td>No Telp</td>
                             <td>:</td>
-                            <td>082404248666</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>admin01@gmail.com</td>
+                            <td>-</td>
                         </tr>
                     </table>
                 </div>

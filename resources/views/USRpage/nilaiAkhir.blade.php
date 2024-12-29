@@ -18,7 +18,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -117,7 +117,7 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Nilai Akhir - Kelas {{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</p>
+                <p class="main-title">Nilai Akhir Kelas - {{ $kelas->tingkat_kelas }} {{ $kelas->nama_kelas }}</p>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>

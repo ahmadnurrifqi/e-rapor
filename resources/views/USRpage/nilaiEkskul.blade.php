@@ -19,7 +19,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -151,20 +151,20 @@
                 </div>
             </div>
             <div class="main-content">
-                {{-- <div class="main-fitur">
+                <div class="main-fitur">
                     <div class="left-fitur">
                         <input type="text" placeholder="cari..." id="">
                         <div class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
                         </div>
                     </div>
-                    <div class="right-fitur">
+                    {{-- <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>
                             Siswa
                         </button>
-                    </div>
-                </div> --}}
+                    </div> --}}
+                </div>
                 <div class="main-tabel">
                     <table>
                         <thead>

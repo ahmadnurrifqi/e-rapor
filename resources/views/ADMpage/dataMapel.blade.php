@@ -18,7 +18,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -199,6 +199,8 @@
                                 <th>Nama Mapel</th>
                                 <th>Singkatan</th>
                                 <th>Kelompok</th>
+                                <th>KKM C3</th>
+                                <th>KKM C4</th>
                                 <th>Pengajar</th>
                                 <th>Tahun Ajaran</th>
                                 <th></th>
@@ -211,6 +213,8 @@
                                     <td>{{ $mapel->nama }}</td>
                                     <td>{{ $mapel->singkatan }}</td>
                                     <td>{{ $mapel->kelompok }}</td>
+                                    <td></td>
+                                    <td></td>
                                     <td>{{ $mapel->guru->user->name }}</td>
                                     <td>{{ $mapel->tahunAjaran->tahun }} - {{ $mapel->tahunAjaran->semester }}</td>
                                     <td class="primary">
@@ -259,6 +263,16 @@
                                 <option value="Muatan Kejuruan">Muatan Kejuruan</option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>KKM C3</td>
+                        <td>:</td>
+                        <td><input type="text" name="kkmc3" size="5" maxlength="5" required></td>
+                    </tr>
+                    <tr>
+                        <td>KKM C4</td>
+                        <td>:</td>
+                        <td><input type="text" name="kkmc4" size="5" maxlength="5" required></td>
                     </tr>
                     <tr>
                         <td>Pengajar</td>

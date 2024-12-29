@@ -125,12 +125,18 @@ main table tbody td .password{
     justify-content: space-between;
 }
 
+main table tbody td .password #pass{
+    font-size: 11px;
+    color: var(--color-dark);
+}
+
 main table tbody td #visible{
     display: flex;
     justify-content: center;
     /* background-color: #F7D060; */
     font-size: 20px;
     display: block;
+    cursor: pointer;
 }
 main table tbody td #visible-off{
     display: flex;
@@ -138,13 +144,7 @@ main table tbody td #visible-off{
     /* background-color: #F7D060; */
     font-size: 20px;
     display: none;
-}
-
-main table tbody td #visible.active{
-    display: none;
-}
-main table tbody td #visible-off.active{
-    display: block;
+    cursor: pointer;
 }
 
 .users .but_change{

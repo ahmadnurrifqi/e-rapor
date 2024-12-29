@@ -20,7 +20,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -185,10 +185,7 @@
                             <a href="cetakRapor">Kembali</a>
                         </div>
                         <div class="drop-limit22">
-                            <p>C - XI(Sebelas)</p>
-                        </div>
-                        <div class="drop-limit22">
-                            <p>2024/2025 - Ganjil</p>
+                            <p>XI(Sebelas)C</p>
                         </div>
                     </div>
                     <div class="right-fitur2">

@@ -20,7 +20,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -214,13 +214,21 @@
                                 </select>
                             </div>
                             <div class="main-input">
+                                <p>KKM C3</p>
+                                <input type="text" name="kkmc3" size="5" maxlength="5" required>
+                            </div>
+                            <div class="main-input">
                                 <p>Pengajar</p>
                                 <select name="guru_id" id="walikelas" required>
                                     <option value="" disabled selected class="lol">--Pilih Wali Kelas--</option>
                                     @foreach ($teachers as $teacher)
-                                        <option {{ ($mapel->guru_id == $teacher->id) ? 'selected' : '' }} value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
+                                    <option {{ ($mapel->guru_id == $teacher->id) ? 'selected' : '' }} value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="main-input">
+                                <p>KKM C4</p>
+                                <input type="text" name="kkmc4" size="5" maxlength="5" required>
                             </div>
                             <div class="main-input">
                                 <p>Tahun Ajaran</p>

@@ -18,7 +18,7 @@
                 <div class="menu-head">
                     <img src="/assets/profil.jpg" alt="">
                     <p>Welcome,
-                        <br><span>Ahmad Nur Rifqi</span>
+                        <br><span>{{ auth()->user()->name }}</span>
                     </p>
                 </div>
                 <div class="close" id="close-btn">
@@ -148,14 +148,14 @@
             <div class="analyse">
                 <div class="info-total">
                     <div class="status">
-                        <h2>116</h2>
+                        <h2>31</h2>
                         <h3>Total Guru</h3>
                     </div>
                     <span class="iconstatus material-symbols-outlined">person</span>
                 </div>
                 <div class="info-total">
                     <div class="status">
-                        <h2>187</h2>
+                        <h2>270</h2>
                         <h3>Total Siswa</h3>
                     </div>
                     <span class="iconstatus material-symbols-outlined">school</span>
@@ -163,7 +163,7 @@
                 <div class="info-total">
                     <div class="status">
                         <div class="info">
-                            <h2>116</h2>
+                            <h2>8</h2>
                             <h3>Total Kelas</h3>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                 <div class="info-total">
                     <div class="status">
                         <div class="info">
-                            <h2>187</h2>
+                            <h2>30</h2>
                             <h3>Total Mapel</h3>
                         </div>
                     </div>

@@ -164,6 +164,10 @@ main .time span{
     opacity: 0.9;
 }
 
+.drop-limit a{
+    color: var(--color-white);
+ }
+
 .main-fitur .right-fitur{
     box-shadow: var(--box-shadow);
     transition: all 0.3s ease;
