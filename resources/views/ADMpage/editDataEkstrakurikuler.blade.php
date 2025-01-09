@@ -228,6 +228,79 @@
                         </div>
                     </div>
                 </form>
+
+                <div class="main-content">
+                    <div class="main-tabel">
+                        <div class="isi-main2">
+                            <div class="cari">
+                                <p>>Daftar Siswa</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="" name="listSiswa" value="{{ request()->get('listSiswa') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="cari">
+                                <p>>Tambah Siswa</p>
+                                <div class="right-cari">
+                                    <input type="text" placeholder="cari..." id="" name="unlistedSiswa" value="{{ request()->get('unlistedSiswa') }}">
+                                    <button class="but-cari" type="submit"><span class="material-symbols-outlined">search</span></button>
+                                </div>
+                            </div>
+                            <div class="main-input2">
+                                <table class="scroll">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Siswa</th>
+                                            <th>NIS</th>
+                                            <th>NISN</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>ahmad nur rifqi</td>
+                                                <td>1234567899</td>
+                                                <td>9876543210</td>
+                                                <td class="danger">
+                                                    <a href="">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">delete</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="main-input2">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Siswa</th>
+                                            <th>NIS</th>
+                                            <th>NISN</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>algojo</td>
+                                                <td>1234567899</td>
+                                                <td>9876543210</td>
+                                                <td class="add">
+                                                    <a href="">
+                                                        <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <!--End of main--> 
