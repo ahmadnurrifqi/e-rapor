@@ -185,14 +185,16 @@
                             <a href="cetakRapor">Kembali</a>
                         </div>
                         <div class="drop-limit22">
-                            <p>XI(Sebelas)C</p>
+                            <p>{{ $kelas->tingkat_kelas . ' ' . $kelas->nama_kelas }}</p>
                         </div>
                     </div>
                     <div class="right-fitur2">
-                        <button id="open">
-                            <span class="material-symbols-outlined">print</span>
-                            Cetak Semua
-                        </button>
+                        <a href="{{ route('rapor.print.kelas', ['kelas' => $kelas->id]) }}">
+                            <button id="open">
+                                <span class="material-symbols-outlined">print</span>
+                                Cetak Semua
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -208,26 +210,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Ali Hanan</td>
-                                <td>123456789101</td>
-                                <td>098765432199</td>
-                                <td>L</td>
-                                <td>
-                                    <button class="printRapor">
-                                        <a href="/rapor">
-                                            <span class="material-symbols-outlined">print</span>Cetak
-                                        </a>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach ($siswas as $siswa)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ $siswa->nis }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>{{ $siswa->jenis_kelamin }}</td>
+                                    <td>
+                                        <button class="printRapor">
+                                            <a href="{{ route('rapor.print.siswa', ['siswa' => $siswa->id]) }}">
+                                                <span class="material-symbols-outlined">print</span>Cetak
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{ $siswas->links('pagination.default') }}
                 </div>
             </div>
         </main>

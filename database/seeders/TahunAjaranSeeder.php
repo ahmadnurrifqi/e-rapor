@@ -19,14 +19,14 @@ class TahunAjaranSeeder extends Seeder
                 'semester' => 'Ganjil',
                 'tempat_pembagian' => 'Bontang',
                 'tanggal_pembagian' => '2024-12-12',
-                'is_active' => 0,
+                'is_active' => 1,
             ],
             [
                 'tahun' => '2024/2025',
                 'semester' => 'Genap',
                 'tempat_pembagian' => 'Bontang',
                 'tanggal_pembagian' => '2025-04-04',
-                'is_active' => 1,
+                'is_active' => 0,
             ],
         ];
 
@@ -36,6 +36,7 @@ class TahunAjaranSeeder extends Seeder
                 'semester' => $tahunAjaran['semester'],
                 'tempat_pembagian' => $tahunAjaran['tempat_pembagian'],
                 'tanggal_pembagian' => $tahunAjaran['tanggal_pembagian'],
+                'is_active' => $tahunAjaran['is_active'],
             ]);
         }
     }

@@ -22,6 +22,13 @@ class NilaiPelajaranController extends Controller
             $q->where('guru_id', auth()->user()->guru->id);
         })->paginate(15);
 
+        if (request()->get('cari')) {
+            $kelasAjarans = KelasAjaran::whereHas('mapel', function ($q) {
+                $q->where('guru_id', auth()->user()->guru->id)
+                ->where('nama', 'LIKE', '%' . request()->cari . '%');
+            })->paginate(15);
+        }
+
         return view('/USRpage/nilaiPelajaran', [
             "title" => "E-Rapor | SMK Nusantara",
             "kelasAjarans" => $kelasAjarans,
@@ -152,23 +159,37 @@ class NilaiPelajaranController extends Controller
                 'peringkat' => ++$i,
             ]);
 
-            $jumlahNilaiSiswa = $siswa->rapor
+            $jumlahNilaiSiswaC3 = $siswa->rapor
                 ->where('tahun_ajaran_id', $tahunAjaran->id)
                 ->first()
                 ->mapelRapor()
                 ->join('nilai_pengetahuan_c3_s', 'mapel_rapors.nilai_pengetahuan_c3_s_id', 'nilai_pengetahuan_c3_s.id')
                 ->sum('nilai_pengetahuan_c3_s.nilai');
 
-            $rata2NilaiSiswa = $siswa->rapor
+            $jumlahNilaiSiswaC4 = $siswa->rapor
+                ->where('tahun_ajaran_id', $tahunAjaran->id)
+                ->first()
+                ->mapelRapor()
+                ->join('nilai_keterampilan_c4_s', 'mapel_rapors.nilai_keterampilan_c4_s_id', 'nilai_keterampilan_c4_s.id')
+                ->sum('nilai_keterampilan_c4_s.nilai');
+
+            $rata2NilaiSiswaC3 = $siswa->rapor
                 ->where('tahun_ajaran_id', $tahunAjaran->id)
                 ->first()
                 ->mapelRapor()
                 ->join('nilai_pengetahuan_c3_s', 'mapel_rapors.nilai_pengetahuan_c3_s_id', 'nilai_pengetahuan_c3_s.id')
                 ->avg('nilai_pengetahuan_c3_s.nilai');
+
+            $rata2NilaiSiswaC4 = $siswa->rapor
+                ->where('tahun_ajaran_id', $tahunAjaran->id)
+                ->first()
+                ->mapelRapor()
+                ->join('nilai_keterampilan_c4_s', 'mapel_rapors.nilai_keterampilan_c4_s_id', 'nilai_keterampilan_c4_s.id')
+                ->avg('nilai_keterampilan_c4_s.nilai');
                 
             $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->update([
-                'total_nilai' => $jumlahNilaiSiswa,
-                'rata_rata' => $rata2NilaiSiswa,
+                'total_nilai' => $jumlahNilaiSiswaC3 + $jumlahNilaiSiswaC4,
+                'rata_rata' => array_sum([$rata2NilaiSiswaC3 + $rata2NilaiSiswaC4]) / 2,
             ]);
         }
 

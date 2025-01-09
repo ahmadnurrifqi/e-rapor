@@ -152,18 +152,18 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
+                    <form class="left-fitur" action="{{ route('nilai.pelajaran.index') }}" method="GET">
+                        <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
+                        <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    {{-- <div class="right-fitur">
+                        </button>
+                    </form>
+                    <div class="right-fitur">
                         <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            Siswa
+                            Kelas
                         </button>
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="main-tabel">
                     <table>

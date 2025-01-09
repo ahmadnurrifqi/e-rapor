@@ -159,12 +159,11 @@
                         </div>
                         <div class="drop-limit">
                             <p>KKM C3 -&nbsp;</p>
-                            <p>80</p>
+                            <p>{{ $kelasAjaran->mapel->kkm_c3 ?? 0 }}</p>
                         </div>
-                        {{-- <input type="text" placeholder="Ubah KKM Keterampilan(C4)" id="" axlength="3"> --}}
                         <div class="drop-limit">
                             <p>KKM C4 -&nbsp;</p>
-                            <p>80</p>
+                            <p>{{ $kelasAjaran->mapel->kkm_c4 ?? 0 }}</p>
                         </div>
                     </div>
                     <div class="right-fitur">

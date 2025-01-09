@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/nilaiAkhir.css">
-    <link rel="stylesheet" href="/styles/ADMstyle/ADMsidebar.css">
+    <link href="/styles/nilaiAkhir.css" rel="stylesheet">
+    <link href="/styles/ADMstyle/ADMsidebar.css" rel="stylesheet">
     <title>{{ $title }}</title>
 </head>
+
 <body>
     <div class="container">
         <!--SideBar-->
@@ -79,7 +81,7 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirUSR" class="active">
+                                <a class="active" href="nilaiAkhirUSR">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
@@ -113,7 +115,7 @@
             </div>
         </aside>
         <!-- End of Sidebar Section -->
-        
+
         <!-- main content -->
         <main>
             <div class="main-head">
@@ -127,10 +129,10 @@
                     <p id="menit"></p>
                     <p>:</p>
                     <p id="detik"></p>
-                    
+
                     <script>
                         window.setTimeout("waktu()", 1000);
-                     
+
                         function waktu() {
                             var waktu = new Date();
                             setTimeout("waktu()", 1000);
@@ -146,7 +148,7 @@
                         <span class="material-symbols-outlined active">light_mode</span>
                         <span class="material-symbols-outlined">dark_mode</span>
                     </div> --}}
-    
+
                 </div>
             </div>
             <div class="main-content">
@@ -155,11 +157,11 @@
                         <thead>
                             <tr>
                                 <th style="width: fit-content;" rowspan="2">No</th>
-                                <th rowspan="2" class="nama2">Nama</th>
+                                <th class="nama2" rowspan="2">Nama</th>
                                 <th rowspan="2">NIS</th>
                                 <th rowspan="2">NISN</th>
                                 <th rowspan="2">L/P</th>
-                                <th colspan="{{ $kelasAjarans->count() }}" class="nilai">Nilai</th>
+                                <th class="nilai" colspan="{{ $kelasAjarans->count() }}">Nilai</th>
                                 <th rowspan="2">Jumlah Nilai</th>
                                 <th rowspan="2">Rata-Rata</th>
                                 <th rowspan="2">Peringkat</th>
@@ -177,10 +179,10 @@
                                     <td>{{ $siswa->nama }}</td>
                                     <td>{{ $siswa->nis }}</td>
                                     <td>{{ $siswa->nisn }}</td>
-                                    <td>{{ ($siswa->jenis_kelamin == 'Perempuan') ? 'P' : 'L' }}</td>
+                                    <td>{{ $siswa->jenis_kelamin == 'Perempuan' ? 'P' : 'L' }}</td>
                                     @foreach ($kelasAjarans as $kelasAjaran)
                                         <td>
-                                            {{ $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->mapelRapor->where("mapel_id", $kelasAjaran->mapel_id)->first()->nilaiPengetahuanC3->nilai ?? null }}
+                                            {{ $siswa->rapor->where('tahun_ajaran_id', $tahunAjaran->id)->first()->mapelRapor->where('mapel_id', $kelasAjaran->mapel_id)->first()->nilaiPengetahuanC3->nilai ?? null }}
                                         </td>
                                     @endforeach
                                     <td>
@@ -199,17 +201,16 @@
                 </div>
             </div>
         </main>
-        <!--End of main--> 
+        <!--End of main-->
     </div>
 
     <!-- Jquery -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+        integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+        crossorigin="anonymous"></script>
 
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>
+
 </html>

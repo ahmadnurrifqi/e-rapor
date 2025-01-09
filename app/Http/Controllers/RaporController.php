@@ -21,14 +21,20 @@ class RaporController extends Controller
 
         $kelas = Kelas::where('guru_id', auth()->user()->guru->id)
             ->where('tahun_ajaran_id', $tahunAjaran->id)
-            ->with(['siswa' => function ($q) {
-                $q->orderBy('nama');
-            }])
+            ->with([
+                'siswa' => function ($q) {
+                    $q->orderBy('nama');
+                }
+            ])
             ->first();
+
+        if (!$kelas) {
+            abort(404);
+        }
 
         $kelasAjarans = KelasAjaran::where('kelas_id', $kelas->id)->get();
 
-        return view('/USRpage/nilaiAkhir',[
+        return view('/USRpage/nilaiAkhir', [
             "title" => "E-Rapor | SMK Nusantara",
             'tahunAjaran' => $tahunAjaran,
             'kelas' => $kelas,
@@ -97,9 +103,11 @@ class RaporController extends Controller
         if ($kelas) {
             $siswas = Siswa::where('kelas_id', $kelas->id)
                 ->orderBy('nama')
-                ->with(['rapor' => function ($q) use ($tahunAjaran) {
-                    $q->where('tahun_ajaran_id', $tahunAjaran->id)->get();
-                }])
+                ->with([
+                    'rapor' => function ($q) use ($tahunAjaran) {
+                        $q->where('tahun_ajaran_id', $tahunAjaran->id)->get();
+                    }
+                ])
                 ->paginate(15);
         }
 
@@ -153,7 +161,14 @@ class RaporController extends Controller
 
     public function raporPrint()
     {
-        $kelases = Kelas::paginate(15);
+        $kelases = Kelas::orderBy('nama_kelas')->paginate(15);
+        
+        if (request()->get('cari')) {
+            $kelases = Kelas::orderBy('nama_kelas')
+                ->where('tingkat_kelas', 'LIKE', '%' . request()->cari . '%')
+                ->orWhere('nama_kelas', 'LIKE', '%' . request()->cari . '%')
+                ->paginate(15);
+        }
 
         return view('/ADMpage/cetakRapor', [
             "title" => "E-Rapor | SMK Nusantara",
@@ -161,18 +176,64 @@ class RaporController extends Controller
         ]);
     }
 
+    public function raporDetail(Kelas $kelas)
+    {
+        $siswas = Siswa::where('kelas_id', $kelas->id)->paginate(15);
+
+        return view('/ADMpage/detailRapor', [
+            "title" => "E-Rapor | SMK Nusantara",
+            "kelas" => $kelas,
+            "siswas" => $siswas,
+        ]);
+    }
+
     public function raporPrintKelas(Kelas $kelas)
     {
-        Pdf::view('export.rapor', [
+        Pdf::view('export.rapor-kelas', [
             'kelas' => $kelas,
         ])
-        ->format('a4')
-        ->save('rapor.pdf');
+            ->format('a4')
+            ->save('rapor.pdf');
 
         return redirect('/rapor.pdf');
+    }
 
-        // return view('export.rapor', [
-        //     'kelas' => $kelas,
-        // ]);
+    public function raporPrintSiswa(Siswa $siswa)
+    {
+        Pdf::view('export.rapor-siswa', [
+            'siswa' => $siswa,
+        ])
+            ->format('a4')
+            ->save('rapor.pdf');
+
+        return redirect('/rapor.pdf');
+    }
+
+    public function nilaiAkhir()
+    {
+        $classes = Kelas::orderBy('nama_kelas')->get();
+
+        if (request()->get('cari')) {
+            $classes = Kelas::orderBy('nama_kelas')
+                ->where('tingkat_kelas', 'LIKE', '%' . request()->cari . '%')
+                ->orWhere('nama_kelas', 'LIKE', '%' . request()->cari . '%')
+                ->get();
+        }
+
+        return view('ADMpage.nilaiAkhir', [
+            "title" => "E-Rapor | SMK Nusantara",
+            'classes' => $classes,
+        ]);
+    }
+
+    public function detailNilaiAkhir(Kelas $kelas)
+    {
+        $kelasAjarans = KelasAjaran::where('kelas_id', $kelas->id)->get();
+
+        return view('ADMpage.detailNilaiAkhir', [
+            "title" => "E-Rapor | SMK Nusantara",
+            'kelas' => $kelas,
+            'kelasAjarans' => $kelasAjarans,
+        ]);
     }
 }

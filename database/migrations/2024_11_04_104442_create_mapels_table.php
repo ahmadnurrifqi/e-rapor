@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('singkatan');
             $table->string('kelompok');
+            $table->integer('kkm_c3')->nullable();
+            $table->integer('kkm_c4')->nullable();
             $table->timestamps();
         });
     }

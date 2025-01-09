@@ -75,6 +75,7 @@ class MapelController extends Controller
     {
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
+            ->select('gurus.*')
             ->get();
 
         $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
@@ -98,6 +99,8 @@ class MapelController extends Controller
             'nama' => $request->nama,
             'singkatan' => $request->singkatan,
             'kelompok' => $request->kelompok,
+            'kkm_c3' => $request->kkmc3,
+            'kkm_c4' => $request->kkmc4,
         ]);
 
         return redirect()->route('mapel.index');

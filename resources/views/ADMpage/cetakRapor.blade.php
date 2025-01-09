@@ -178,17 +178,17 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
+                    <form class="left-fitur" action="{{ route('rapor.kelas') }}" method="GET">
+                        <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
+                        <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                     <div class="right-fitur">
-                        {{-- <a href="">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            siswa
-                        </a> --}}
+                            Kelas
+                        </button>
                     </div>
                 </div>
                 <div class="main-tabel">
@@ -210,8 +210,8 @@
                                     <td>{{ $kelas->guru->user->name }}</td>
                                     <td>{{ $kelas->tahunAjaran->tahun }} - {{ $kelas->tahunAjaran->semester }}</td>
                                     <td class="primary">
-                                        <a href="{{ route('rapor.print.kelas', ['kelas' => $kelas->id]) }}">
-                                            <button>Cetak</button>
+                                        <a href="{{ route('rapor.kelas.detail', ['kelas' => $kelas->id]) }}">
+                                            Detail
                                         </a>
                                     </td>
                                 </tr>

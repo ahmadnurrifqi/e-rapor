@@ -89,6 +89,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::controller(RaporController::class)->group(function () {
         Route::get('/cetakRapor', 'raporPrint')->name('rapor.kelas');
+        Route::get('/cetakRapor/detailRapor/{kelas}', 'raporDetail')->name('rapor.kelas.detail');
         Route::get('/cetakRapor/kelas/{kelas}', 'raporPrintKelas')->name('rapor.print.kelas');
+        Route::get('/cetakRapor/siswa/{siswa}', 'raporPrintSiswa')->name('rapor.print.siswa');
+        Route::get('/nilaiAkhirADM', 'nilaiAkhir')->name('nilai.akhir');
+        Route::get('/detailNilaiAkhir/{kelas}', 'detailNilaiAkhir')->name('detail.nilai.akhir');
     });
 });

@@ -12,7 +12,9 @@ class NilaiEkskulController extends Controller
      */
     public function index()
     {
-        //
+        return view('/USRpage/nilaiEkskul', [
+            "title" => "E-Rapor | SMK Nusantara"
+        ]);
     }
 
     /**

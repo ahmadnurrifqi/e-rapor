@@ -178,18 +178,18 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
+                    <form class="left-fitur" action="{{ route('nilai.akhir') }}" method="GET">
+                        <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
+                        <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    {{-- <div class="right-fitur">
-                        <a href="">
+                        </button>
+                    </form>
+                    <div class="right-fitur">
+                        <button id="open">
                             <span class="material-symbols-outlined">add</span>
-                            siswa
-                        </a>
-                    </div> --}}
+                            Kelas
+                        </button>
+                    </div>
                 </div>
                 <div class="main-tabel">
                     <table>
@@ -202,7 +202,21 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($classes as $class)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $class->tingkat_kelas . ' - ' . $class->nama_kelas }}</td>
+                                    <td>{{ $class->guru->user->name }}</td>
+                                    <td>{{ $class->tahunAjaran->tahun . ' - ' . $class->tahunAjaran->semester }}</td>
+                                    <td class="primary">
+                                        <a href="{{ route('detail.nilai.akhir', ['kelas' => $class->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                     <div class="slide-data">
                         <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
@@ -232,7 +246,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>

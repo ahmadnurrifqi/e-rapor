@@ -357,7 +357,7 @@
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $tambahMapel->nama }}</td>
-                                                <td>{{ $tambahMapel->tahunAjaran->tahun }} - {{ $daftarMapel->mapel->tahunAjaran->semester }}</td>
+                                                <td>{{ $tambahMapel->tahunAjaran->tahun }} - {{ $tambahMapel->tahunAjaran->semester }}</td>
                                                 <td class="add">
                                                     <a href="{{ route('kelas.addMapel', ['kelas' => $class->id, 'mapel' => $tambahMapel->id]) }}">
                                                         <span class="material-symbols-outlined btn-hapus" id="hapus">add</span>

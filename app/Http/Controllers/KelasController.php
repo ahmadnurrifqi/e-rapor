@@ -77,6 +77,7 @@ class KelasController extends Controller
     {
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
+            ->select('gurus.*')
             ->get();
 
         $tahunAjarans = TahunAjaran::orderBy('tahun')->get();

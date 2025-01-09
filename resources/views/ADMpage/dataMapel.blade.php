@@ -213,8 +213,8 @@
                                     <td>{{ $mapel->nama }}</td>
                                     <td>{{ $mapel->singkatan }}</td>
                                     <td>{{ $mapel->kelompok }}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{ $mapel->kkm_c3 }}</td>
+                                    <td>{{ $mapel->kkm_c4 }}</td>
                                     <td>{{ $mapel->guru->user->name }}</td>
                                     <td>{{ $mapel->tahunAjaran->tahun }} - {{ $mapel->tahunAjaran->semester }}</td>
                                     <td class="primary">
