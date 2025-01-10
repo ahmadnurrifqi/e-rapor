@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EkskulMember;
 use App\Models\Ekstrakurikular;
 use App\Models\Guru;
+use App\Models\Siswa;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
@@ -24,6 +26,7 @@ class EkstrakurikularController extends Controller
 
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
+            ->select('gurus.*')
             ->get();
 
         $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
@@ -55,7 +58,7 @@ class EkstrakurikularController extends Controller
             'nama' => $request->nama,
         ]);
 
-        return redirect()->route('ekskul.index');
+        return redirect()->route('admin.ekskul.index');
     }
 
     /**
@@ -73,15 +76,40 @@ class EkstrakurikularController extends Controller
     {
         $teachers = Guru::join('users', 'gurus.user_id', '=', 'users.id')
             ->orderBy('users.name')
+            ->select('gurus.*')
             ->get();
 
         $tahunAjarans = TahunAjaran::orderBy('tahun')->get();
+
+        $ekskulMembers = EkskulMember::where('ekstrakurikular_id', $ekskul->id)->get();
+        $tambahSiswas = Siswa::orderBy('nama')
+            ->whereDoesntHave('ekskulMember', function ($q) use ($ekskul) {
+                $q->where('ekstrakurikular_id', $ekskul->id);
+            })->get();
+
+        if (request()->get('listSiswa')) {
+            $ekskulMembers = EkskulMember::where('ekstrakurikular_id', $ekskul->id)
+                ->whereHas('siswa', function ($q) {
+                    $q->where('nama', 'LIKE', '%' . request()->get('listSiswa') . '%');
+                })
+                ->get();
+        }
+        if (request()->get('unlistedSiswa')) {
+            $tambahSiswas = Siswa::orderBy('nama')
+                ->whereDoesntHave('ekskulMember', function ($q) use ($ekskul) {
+                    $q->where('ekstrakurikular_id', $ekskul->id);
+                })
+                ->where('nama', 'LIKE', '%' . request()->get('unlistedSiswa') . '%')
+                ->get();
+        }
 
         return view('/ADMpage/editDataEkstrakurikuler', [
             "title" => "E-Rapor | SMK Nusantara",
             "ekskul" => $ekskul,
             "teachers" => $teachers,
             "tahunAjarans" => $tahunAjarans,
+            "ekskulMembers" => $ekskulMembers,
+            "tambahSiswas" => $tambahSiswas,
         ]);
     }
 
@@ -96,7 +124,7 @@ class EkstrakurikularController extends Controller
             'nama' => $request->nama,
         ]);
 
-        return redirect()->route('ekskul.index');
+        return redirect()->route('admin.ekskul.index');
     }
 
     /**
@@ -106,6 +134,23 @@ class EkstrakurikularController extends Controller
     {
         $ekskul->delete();
 
-        return redirect()->route('ekskul.index');
+        return redirect()->route('admin.ekskul.index');
+    }
+
+    public function addSiswa(Ekstrakurikular $ekskul, Siswa $siswa)
+    {
+        EkskulMember::create([
+            'ekstrakurikular_id' => $ekskul->id,
+            'siswa_id' => $siswa->id,
+        ]);
+
+        return redirect()->route('ekskul.edit', ['ekskul' => $ekskul->id]);
+    }
+
+    public function deleteSiswa(Ekstrakurikular $ekskul, EkskulMember $ekskulMember)
+    {
+        $ekskulMember->delete();
+
+        return redirect()->route('ekskul.edit', ['ekskul' => $ekskul->id]);
     }
 }

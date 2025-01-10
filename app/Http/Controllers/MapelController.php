@@ -55,6 +55,8 @@ class MapelController extends Controller
             'nama' => $request->nama,
             'singkatan' => $request->singkatan,
             'kelompok' => $request->kelompok,
+            'kkm_c3' => $request->kkmc3,
+            'kkm_c4' => $request->kkmc4,
         ]);
 
         return redirect()->route('mapel.index');

@@ -33,4 +33,9 @@ class Rapor extends Model
     {
         return $this->hasMany(MapelRapor::class);
     }
+
+    public function predikatEkskul(): HasMany
+    {
+        return $this->hasMany(PredikatEkstrakurikular::class);
+    }
 }

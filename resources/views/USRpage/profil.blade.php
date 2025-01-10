@@ -125,75 +125,74 @@
                         <tr>
                             <td>Nama</td>
                             <td>:</td>
-                            <td>admin</td>
+                            <td>{{ auth()->user()->name }}</td>
                         </tr>
                         <tr>
                             <td>NIK</td>
                             <td>:</td>
-                            <td>01234</td>
+                            <td>{{ auth()->user()->guru->nik }}</td>
                         </tr>
                         <tr>
                             <td>NUPTK</td>
                             <td>:</td>
-                            <td>01234567</td>
+                            <td>{{ auth()->user()->guru->nuptk }}</td>
                         </tr>
                         <tr>
                             <td>NPY</td>
                             <td>:</td>
-                            <td>0123456789</td>
+                            <td>{{ auth()->user()->guru->npy }}</td>
                         </tr>
                         <tr>
                             <td>Tempat Lahir</td>
                             <td>:</td>
-                            <td>samarinda</td>
+                            <td>{{ auth()->user()->guru->tempat_lahir }}</td>
                         </tr>
                         <tr>
                             <td>Tanggal Lahir</td>
                             <td>:</td>
-                            <td>1999-09-09</td>
+                            <td>{{ auth()->user()->guru->tanggal_lahir }}</td>
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
                             <td>:</td>
-                            <td>pria</td>
+                            <td>{{ auth()->user()->guru->jenis_kelamin }}</td>
                         </tr>
                         <tr>
                             <td>Agama</td>
                             <td>:</td>
-                            <td>islam</td>
+                            <td>{{ auth()->user()->guru->agama }}</td>
                         </tr>
                         <tr>
                             <td>Studi Terakhir</td>
                             <td>:</td>
-                            <td>S1</td>
+                            <td>{{ auth()->user()->guru->studi_terakhir }}</td>
                         </tr>
                         <tr>
                             <td>Tahun Gabung</td>
                             <td>:</td>
-                            <td>2019</td>
+                            <td>{{ auth()->user()->guru->tahun_gabung }}</td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
-                            <td>JL. Pandjaitan</td>
+                            <td>{{ auth()->user()->guru->alamat }}</td>
                         </tr>
                         <tr>
                             <td>No Telp</td>
                             <td>:</td>
-                            <td>082404248666</td>
+                            <td>{{ auth()->user()->guru->no_telp }}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>admin01@gmail.com</td>
+                            <td>{{ auth()->user()->email }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>Password</td>
                             <td>:</td>
                             <td>
                                 <div class="password">
                                     <input type="password" value="admin123" id="pass" readonly>
-                                    {{-- admin123 --}}
                                     <span class="material-symbols-outlined eyepass1" id="visible" onclick="myFunction()">visibility</span>
                                     <span class="material-symbols-outlined eyepass2" id="visible-off" onclick="myFunction()">visibility_off</span>
                                 </div>
@@ -214,7 +213,7 @@
                                     }
                                 }
                             </script>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </div>
                 <div class="but_change">

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles/USRstyle/biodataPage.css">
-    <link rel="stylesheet" href="/styles/USRstyle/USRsidebar.css">
+    <link href="/styles/USRstyle/biodataPage.css" rel="stylesheet">
+    <link href="/styles/USRstyle/USRsidebar.css" rel="stylesheet">
 
     <title>{{ $title }}</title>
 </head>
+
 <body>
     <div class="container">
         <!--SideBar-->
@@ -49,7 +51,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="spritual">
+                                        <a href="spiritual">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Input Nilai Spiritual</p>
                                         </a>
@@ -69,7 +71,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="nilaiEkskul" class="active">
+                                <a class="active" href="nilaiEkskul">
                                     <span class="material-symbols-outlined">checkbook</span>
                                     <p>Input Nilai Ekskul</p>
                                 </a>
@@ -114,7 +116,7 @@
             </div>
         </aside>
         <!-- End of Sidebar Section -->
-        
+
         <!-- main content -->
         <main>
             <div class="main-head">
@@ -128,10 +130,10 @@
                     <p id="menit"></p>
                     <p>:</p>
                     <p id="detik"></p>
-                    
+
                     <script>
                         window.setTimeout("waktu()", 1000);
-                     
+
                         function waktu() {
                             var waktu = new Date();
                             setTimeout("waktu()", 1000);
@@ -147,13 +149,13 @@
                         <span class="material-symbols-outlined active">light_mode</span>
                         <span class="material-symbols-outlined">dark_mode</span>
                     </div> --}}
-    
+
                 </div>
             </div>
             <div class="main-content">
                 <div class="main-fitur">
                     <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
+                        <input id="" type="text" placeholder="cari...">
                         <div class="drop-limit">
                             <span class="material-symbols-outlined">search</span>
                         </div>
@@ -175,7 +177,26 @@
                                 <th>Tahun Ajaran</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            @foreach ($ekskuls as $ekskul)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $ekskul->nama }}</td>
+                                    <td>{{ $ekskul->guru->user->name }}</td>
+                                    <td>{{ $ekskul->tahunAjaran->tahun . ' ' . $ekskul->tahunAjaran->semester }}
+                                    </td>
+                                    <td class="primary">
+                                        <a href="{{ route('nilai.ekskul.edit', ['ekskul' => $ekskul->id]) }}">
+                                            <button id="edit">Details</button>
+                                        </a>
+                                    </td>
+                                    <td class="danger">
+                                        <span class="material-symbols-outlined btn-hapus" id="hapus"
+                                            delete-url="{{ route('ekskul.destroy', ['ekskul' => $ekskul->id]) }}">delete</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                     <div class="slide-data">
                         <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
@@ -184,191 +205,28 @@
                 </div>
             </div>
         </main>
-        <!--End of main--> 
-    </div>
-    {{-- modal tambah --}}
-    <div class="wrapper" id="wrapper">
-        <div class="modal">
-            <h3>Tambah Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L (Laki-Laki)</option>
-                            <option value="P">P (Perempuan)</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close" class="close">Kembali</button>
-                <button class="tambah">Simpan</button>
-            </div>
-        </div>
-    </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Siswa</h3>
-            <table>
-                <tr>
-                    <td>Nama Siswa</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>NIS</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>NISN</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Tanggal Lahir</td>
-                    <td>:</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>:</td>
-                    <td><select name="kelamin" id="kelamin">
-                            <option value="" disabled selected class="lol">--Pilih Jenis Kelamin--</option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Agama</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><select name="agama" id="agama">
-                            <option value="" disabled selected class="lol">--Pilih Agama--</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>No Telp</td>
-                    <td>:</td>
-                    <td><input type="number" max="9999999999999" min="0" placeholder="08----------"></td>
-                </tr>
-                <tr>
-                    <td>Konsentrasi Keahlian</td>
-                    <td>:</td>
-                    <td><select name="keahlian" id="keahlian">
-                            <option value="" disabled selected class="lol">--Pilih Konsentrasi Keahlian--</option>
-                            <option value="TAB">Teknik Alat Berat</option>
-                            <option value="TMI">Teknik Mekanik Industri</option>
-                            <option value="DPIB">Desain Pemodelan dan Informasi Bangunan</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
-        </div>
+        <!--End of main-->
     </div>
     {{-- modal hapus --}}
     <div class="wrapper3" id="wrapper3">
         <div class="modal">
             <p>Apakah anda yakin ingin menghapus data ini ?</p>
             <div class="modal-button">
-                <button id="close3" class="close">Kembali</button>
+                <button class="close" id="close3">Kembali</button>
                 <button class="hapus">Hapus</button>
             </div>
         </div>
     </div>
 
     <!-- Jquery -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+        integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+        crossorigin="anonymous"></script>
 
-    <script src="/scripts/ADMscript/ADMbiodata.js"></script>
+    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     <script src="/scripts/darkmode.js"></script>
 </body>
+
 </html>

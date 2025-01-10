@@ -178,7 +178,7 @@
             </div>
             <div class="main-content">
                 <div class="main-fitur">
-                    <form class="left-fitur" action="{{ route('ekskul.index') }}" method="GET">
+                    <form class="left-fitur" action="{{ route('admin.ekskul.index') }}" method="GET">
                         <input id="searchInput" type="text" style="height: 100%;" placeholder="cari..." name="cari" value="{{ request()->cari }}">
                         <button type="submit" class="drop-limit">
                             <span class="material-symbols-outlined">search</span>

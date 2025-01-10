@@ -22,4 +22,9 @@ class Siswa extends Model
     {
         return $this->hasMany(Rapor::class);
     }
+
+    public function ekskulMember(): HasMany
+    {
+        return $this->hasMany(EkskulMember::class);
+    }
 }
