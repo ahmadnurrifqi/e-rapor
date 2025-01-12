@@ -230,7 +230,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (segera)</small>
                         </div>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (segera)</small>
                         </div>
                     </div>
                 </div>
@@ -258,6 +258,6 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

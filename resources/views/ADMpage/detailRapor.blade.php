@@ -242,8 +242,7 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

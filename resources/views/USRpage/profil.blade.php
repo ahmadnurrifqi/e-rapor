@@ -220,9 +220,8 @@
                     <p>*Jika ada yang ingin ditanyakan lebih detail silahkan hubungi admin</p>
                     <div class="input_field button">
                         <button id="edit" class="ButtonLog">
-                            Ubah Data(soon)
+                            Ubah Data(segera)
                         </button>
-                        {{-- <input type="button" value="Ubah Data" class="ButtonLog"> --}}
                     </div>
                 </div>
             </div>
@@ -286,7 +285,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (segera)</small>
                         </div>
                     </div>
                 </div>
@@ -297,7 +296,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (segera)</small>
                         </div>
                     </div>
                 </div>
@@ -312,7 +311,6 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/USRscript/profil.js"></script> --}}
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
     {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>

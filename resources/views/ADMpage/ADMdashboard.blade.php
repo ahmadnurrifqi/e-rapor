@@ -257,7 +257,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Catatan untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Catatan untuk Pengguna  (segera)</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
@@ -269,7 +269,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <small class="text_muted">Pengingat untuk Pengguna  (soon)</small>
+                            <small class="text_muted">Pengingat untuk Pengguna  (segera)</small>
                         </div>
                         <span class="catatan-delete material-symbols-outlined">delete</span>
                     </div>
@@ -278,7 +278,7 @@
                 <div class="notification add-reminder">
                     <div>
                         <span class="material-symbols-outlined">add</span>
-                        <h5>Tambah Catatan (soon)</h5>
+                        <h5>Tambah Catatan (segera)</h5>
                     </div>
                 </div>
             </div>
@@ -293,6 +293,6 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

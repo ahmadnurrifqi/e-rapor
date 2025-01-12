@@ -179,20 +179,6 @@
                 </div>
             </div>
             <div class="main-content">
-                {{-- <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
-                            <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Siswa
-                        </button>
-                    </div>
-                </div> --}}
                 <form action="{{ route('siswa.update', ['siswa' => $siswa->id]) }}" method="POST">
                 @csrf
                     <div class="main-tabel">
@@ -257,8 +243,6 @@
                         <div class="submit">
                             <button><a href="{{ route('siswa.index') }}">Kembali</a></button>
                             <button class="simpan">Simpan</button>
-                            {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                            <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                         </div>
                     </div>
                 </form>
@@ -269,17 +253,6 @@
     <!--End of main--> 
 </div>
 
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin keluar dari halaman ini ?</p>
-            <div class="modal-button">
-                <button class="hapus"><a href="{{ route('siswa.index') }}">Keluar</a></button>
-                <button id="close3" class="close">Tutup</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Jquery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -287,9 +260,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

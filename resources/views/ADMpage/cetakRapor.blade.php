@@ -184,12 +184,6 @@
                             <span class="material-symbols-outlined">search</span>
                         </button>
                     </form>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Kelas
-                        </button>
-                    </div>
                 </div>
                 <div class="main-tabel">
                     <table>
@@ -211,7 +205,7 @@
                                     <td>{{ $kelas->tahunAjaran->tahun }} - {{ $kelas->tahunAjaran->semester }}</td>
                                     <td class="primary">
                                         <a href="{{ route('rapor.kelas.detail', ['kelas' => $kelas->id]) }}">
-                                            Detail
+                                            <button id="edit">Details</button>
                                         </a>
                                     </td>
                                 </tr>

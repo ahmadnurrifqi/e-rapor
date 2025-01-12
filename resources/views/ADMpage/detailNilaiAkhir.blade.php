@@ -29,7 +29,7 @@
                         <p class="title">Main</p>
                         <ul>
                             <li>
-                                <a href="ADMdashboard">
+                                <a href="">
                                     <span class="material-symbols-outlined">dashboard</span>
                                     <p>Dashboard</p>
                                 </a>
@@ -42,19 +42,19 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataSiswa">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Siswa</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataGuru">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Guru</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataAkun">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Akun</p>
                                         </a>
@@ -69,31 +69,31 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="dataTahunAjaran">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Tahun Ajaran</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataKelas">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Kelas</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataMapel">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Mapel</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataEkstrakurikuler">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Ekstrakurikuler</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="dataPrestasi">
+                                        <a href="">
                                             <span class="subicon material-symbols-outlined">radio_button_checked</span>
                                             <p>Data Prestasi</p>
                                         </a>
@@ -106,13 +106,13 @@
                         <p class="title">Rapor</p>
                         <ul>
                             <li>
-                                <a href="nilaiAkhirADM" class="active">
+                                <a href="" class="active">
                                     <span class="material-symbols-outlined">inventory</span>
                                     <p>Nilai Akhir</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="cetakRapor">
+                                <a href="">
                                     <span class="material-symbols-outlined">print</span>
                                     <p>Cetak Rapor</p>
                                 </a>
@@ -123,7 +123,7 @@
                         <p class="title">Account</p>
                         <ul>
                             <li>
-                                <a href="tentang">
+                                <a href="">
                                     <span class="material-symbols-outlined">report_gmailerrorred</span>
                                     <p>Tentang Kami</p>
                                 </a>
@@ -144,7 +144,10 @@
         <!-- main content -->
         <main>
             <div class="main-head">
-                <p class="main-title">Data Nilai Akhir - Kelas IX B</p>
+                <div class="detail-akhir">
+                    <a href="nilaiAkhirADM">Kembali</a>
+                    <p class="main-title">{{ $kelas->tingkat_kelas . ' ' . $kelas->nama_kelas }}</p>
+                </div>
                 <div class="time">
                     <p>
                         <span class="material-symbols-outlined">schedule</span>
@@ -193,7 +196,7 @@
                             </tr>
                             <tr>
                                 @foreach ($kelasAjarans as $kelasAjaran)
-                                    <th>{{ $kelasAjaran->mapel->nama }}</th>
+                                    <th>{{ $kelasAjaran->mapel->singkatan }}</th>
                                 @endforeach
                             </tr>
                         </thead>
@@ -237,6 +240,6 @@
     ></script>
 
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

@@ -158,12 +158,6 @@
                             <span class="material-symbols-outlined">search</span>
                         </button>
                     </form>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Kelas
-                        </button>
-                    </div>
                 </div>
                 <div class="main-tabel">
                     <table>
@@ -208,9 +202,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

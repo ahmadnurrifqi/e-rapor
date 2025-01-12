@@ -179,20 +179,6 @@
                 </div>
             </div>
             <div class="main-content">
-                {{-- <div class="main-fitur">
-                    <div class="left-fitur">
-                        <input type="text" placeholder="cari..." id="">
-                        <div class="drop-limit">
-                            <span class="material-symbols-outlined">search</span>
-                        </div>
-                    </div>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Siswa
-                        </button>
-                    </div>
-                </div> --}}
                 <form action="{{ route('tahun-ajaran.update', ['tahunAjaran' => $tahunAjaran->id]) }}" method="POST">
                 @csrf
                     <div class="main-tabel">
@@ -221,8 +207,6 @@
                         <div class="submit">
                             <button><a href="{{ route('tahun-ajaran.index') }}">Kembali</a></button>
                             <button class="simpan">Simpan</button>
-                            {{-- <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                            <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button> --}}
                         </div>
                     </div>
                 </form>
@@ -238,9 +222,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

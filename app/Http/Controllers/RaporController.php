@@ -217,7 +217,7 @@ class RaporController extends Controller
             $classes = Kelas::orderBy('nama_kelas')
                 ->where('tingkat_kelas', 'LIKE', '%' . request()->cari . '%')
                 ->orWhere('nama_kelas', 'LIKE', '%' . request()->cari . '%')
-                ->get();
+                ->paginate(15);
         }
 
         return view('ADMpage.nilaiAkhir', [

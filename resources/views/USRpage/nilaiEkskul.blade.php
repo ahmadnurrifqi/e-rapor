@@ -190,10 +190,6 @@
                                             <button id="edit">Details</button>
                                         </a>
                                     </td>
-                                    <td class="danger">
-                                        <span class="material-symbols-outlined btn-hapus" id="hapus"
-                                            delete-url="{{ route('ekskul.destroy', ['ekskul' => $ekskul->id]) }}">delete</span>
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -206,16 +202,6 @@
             </div>
         </main>
         <!--End of main-->
-    </div>
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin ingin menghapus data ini ?</p>
-            <div class="modal-button">
-                <button class="close" id="close3">Kembali</button>
-                <button class="hapus">Hapus</button>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery -->

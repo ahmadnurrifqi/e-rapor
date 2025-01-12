@@ -184,12 +184,6 @@
                             <span class="material-symbols-outlined">search</span>
                         </button>
                     </form>
-                    <div class="right-fitur">
-                        <button id="open">
-                            <span class="material-symbols-outlined">add</span>
-                            Kelas
-                        </button>
-                    </div>
                 </div>
                 <div class="main-tabel">
                     <table>
@@ -218,25 +212,11 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="slide-data">
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_left</span></button>
-                        <button><span class="arrow material-symbols-outlined">keyboard_arrow_right</span></button>
-                    </div>
+                    {{-- {{ $classes->links('pagination.default') }} --}}
                 </div>
             </div>
         </main>
         <!--End of main--> 
-    </div>
-
-    {{-- modal hapus --}}
-    <div class="wrapper3" id="wrapper3">
-        <div class="modal">
-            <p>Apakah anda yakin ingin menghapus data ini ?</p>
-            <div class="modal-button">
-                <button id="close3" class="close">Kembali</button>
-                <button class="hapus">Hapus</button>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery -->
@@ -246,9 +226,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

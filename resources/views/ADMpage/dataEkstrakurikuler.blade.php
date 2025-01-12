@@ -272,45 +272,6 @@
             </form>
         </div>
     </div>
-    {{-- modal edit --}}
-    <div class="wrapper2" id="wrapper2">
-        <div class="modal">
-            <h3>Info Data Ekstrakurikuler</h3>
-            <table>
-                <tr>
-                    <td>Nama Ekstrakurikuler</td>
-                    <td>:</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>Pembina</td>
-                    <td>:</td>
-                    <td><select name="pembina" id="pembina">
-                            <option value="" disabled selected class="lol">--Pilih Pembina--</option>
-                            <option value="">ambil dari tabel guru 1</option>
-                            <option value="">ambil dari tabel guru 2</option>
-                            <option value="">ambil dari tabel guru 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tahun Ajaran</td>
-                    <td>:</td>
-                    <td><select name="ajaran" id="ajaran">
-                            <option value="" disabled selected class="lol">--Pilih Tahun Ajaran--</option>
-                            <option value="">ambil dari tabel tahun ajaran 1</option>
-                            <option value="">ambil dari tabel tahun ajaran 2</option>
-                            <option value="">ambil dari tabel tahun ajaran 3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="modal-button">
-                <button id="close2" class="close">Kembali</button>
-                <button class="tambah">Simpan Edit</button>
-            </div>
-        </div>
-    </div>
     {{-- modal hapus --}}
     <div class="wrapper3" id="wrapper3">
         <div class="modal">
@@ -329,9 +290,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

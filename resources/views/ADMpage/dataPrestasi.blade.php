@@ -293,7 +293,6 @@
             </form>
         </div>
     </div>
-    {{-- modal edit gapake --}}
     {{-- modal hapus --}}
     <div class="wrapper3" id="wrapper3">
         <div class="modal">
@@ -312,9 +311,8 @@
       crossorigin="anonymous"
     ></script>
 
-    {{-- <script src="/scripts/ADMscript/ADMbiodata.js"></script> --}}
     <script src="/scripts/ADMscript/ADMmodal.js"></script>
     <script src="/scripts/ADMscript/ADMdashboard.js"></script>
-    <script src="/scripts/darkmode.js"></script>
+    {{-- <script src="/scripts/darkmode.js"></script> --}}
 </body>
 </html>

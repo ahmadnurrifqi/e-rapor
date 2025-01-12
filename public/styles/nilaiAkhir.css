@@ -67,11 +67,30 @@ main{
 }
 
 main .main-head{
-    /* background-color: #6C9BCF; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-right: 7.5rem;
+}
+main .detail-akhir{
+    display: flex;
+    flex-direction: row;
+    padding-right: 7.5rem;
+}
+
+main .detail-akhir a{
+    margin: 1rem 1rem 0 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 12px;
+    padding: 0 10px;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    opacity: 1;
 }
 
 main .main-title{
