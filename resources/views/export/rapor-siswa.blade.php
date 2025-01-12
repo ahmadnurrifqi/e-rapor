@@ -102,13 +102,13 @@
                                     <tr>
                                         <td class="text-center">{{ $numberI++ }}</td>
                                         <td class="max-w-44" style="width: 27%">{{ $mapelRapor->mapel->nama }}</td>
-                                        <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->kkm }}</td>
+                                        <td class="text-center">{{ $mapelRapor->mapel->kkm_c3 }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->nilai }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->predikat }}</td>
                                         <td class="max-w-60" style="width: 38%;">
                                             {{ $mapelRapor->nilaiPengetahuanC3->deskripsi }}
                                         </td>
-                                        <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->kkm }}</td>
+                                        <td class="text-center">{{ $mapelRapor->mapel->kkm_c4 }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->nilai }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->predikat }}</td>
                                         <td class="max-w-60" style="width: 35%;">
@@ -135,13 +135,13 @@
                                     <tr>
                                         <td class="text-center">{{ $numberJ++ }}</td>
                                         <td class="max-w-44" style="width: 27%">{{ $mapelRapor->mapel->nama }}</td>
-                                        <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->kkm }}</td>
+                                        <td class="text-center">{{ $mapelRapor->mapel->kkm_c3 }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->nilai }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiPengetahuanC3->predikat }}</td>
                                         <td class="max-w-60" style="width: 38%;">
                                             {{ $mapelRapor->nilaiPengetahuanC3->deskripsi }}
                                         </td>
-                                        <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->kkm }}</td>
+                                        <td class="text-center">{{ $mapelRapor->mapel->kkm_c4 }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->nilai }}</td>
                                         <td class="text-center">{{ $mapelRapor->nilaiKeterampilanC4->predikat }}</td>
                                         <td class="max-w-60" style="width: 35%;">
