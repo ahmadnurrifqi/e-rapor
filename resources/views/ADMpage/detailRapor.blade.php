@@ -182,7 +182,7 @@
                 <div class="main-fitur">
                     <div class="left-fitur">
                         <div class="drop-limit2">
-                            <a href="cetakRapor">Kembali</a>
+                            <a href="{{ route('rapor.kelas') }}">Kembali</a>
                         </div>
                         <div class="drop-limit22">
                             <p>{{ $kelas->tingkat_kelas . ' ' . $kelas->nama_kelas }}</p>

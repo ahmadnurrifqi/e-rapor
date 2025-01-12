@@ -149,7 +149,7 @@ class KelasController extends Controller
     {
         $kelas->delete();
 
-        return redirect()->route('kelas.edit');
+        return redirect()->route('kelas.index');
     }
 
     public function addSiswa(Kelas $kelas, Siswa $siswa)

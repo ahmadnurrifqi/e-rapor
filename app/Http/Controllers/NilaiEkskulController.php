@@ -17,7 +17,7 @@ class NilaiEkskulController extends Controller
      */
     public function index()
     {
-        $ekskuls = Ekstrakurikular::where('guru_id', auth()->user()->id)->get();
+        $ekskuls = Ekstrakurikular::where('guru_id', auth()->user()->guru->id)->get();
 
         return view('/USRpage/nilaiEkskul', [
             "title" => "E-Rapor | SMK Nusantara",

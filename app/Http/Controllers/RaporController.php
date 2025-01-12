@@ -211,7 +211,7 @@ class RaporController extends Controller
 
     public function nilaiAkhir()
     {
-        $classes = Kelas::orderBy('nama_kelas')->get();
+        $classes = Kelas::orderBy('nama_kelas')->paginate(15);
 
         if (request()->get('cari')) {
             $classes = Kelas::orderBy('nama_kelas')

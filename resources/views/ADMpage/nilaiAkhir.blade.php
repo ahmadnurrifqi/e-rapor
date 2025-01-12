@@ -212,7 +212,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $classes->links('pagination.default') }} --}}
+                    {{ $classes->links('pagination.default') }}
                 </div>
             </div>
         </main>

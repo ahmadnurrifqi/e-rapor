@@ -145,7 +145,7 @@
         <main>
             <div class="main-head">
                 <div class="detail-akhir">
-                    <a href="nilaiAkhirADM">Kembali</a>
+                    <a href="{{ route('nilai.akhir') }}">Kembali</a>
                     <p class="main-title">{{ $kelas->tingkat_kelas . ' ' . $kelas->nama_kelas }}</p>
                 </div>
                 <div class="time">
