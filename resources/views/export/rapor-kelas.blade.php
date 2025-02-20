@@ -17,7 +17,7 @@
 
 <body>
     @foreach ($kelas->siswa as $siswa)
-        <main class="mx-auto w-[1080px] font-tinos" style="margin-top: 16px;">
+        <main class="mx-auto w-[1080px] font-tinos" style="margin-top: 50px;">
             <div class="mx-auto w-fit text-xs">
                 <table class="mb-2">
                     <tbody class="biodata">
@@ -173,7 +173,7 @@
                             </tbody>
                         </table>
                     </li>
-                    @pageBreak
+                    {{-- @pageBreak --}}
                     <li class="!mt-4">
                         <span class="font-bold">
                             Ekstra Kurikuler
