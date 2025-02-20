@@ -206,7 +206,10 @@ class RaporController extends Controller
             ->format('a4')
             ->save('rapor.pdf');
 
-        return redirect('/rapor.pdf');
+            return redirect('/rapor.pdf');
+            return view('export.rapor-siswa', [
+                'siswa' => $siswa,
+            ]);
     }
 
     public function nilaiAkhir()

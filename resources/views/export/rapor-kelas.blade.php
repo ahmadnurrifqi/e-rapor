@@ -665,7 +665,8 @@
 
 <body>
     @foreach ($kelas->siswa as $siswa)
-        <main class="mx-auto w-[1080px] font-tinos" style="margin-top: 50px; position: relative; align-items: center;">
+        <main class="mx-auto w-[1080px] font-tinos"
+            style="margin-top: 50px; position: relative; align-items: center; height: 1400px;">
             <div
                 style="position: absolute; z-index: 999; opacity: 20%; width: 100%; display: flex; height: 100%; justify-content: center;">
                 <img src="{{ public_path('./assets/kop_logo.png') }}" alt="KOP Sekolah"
