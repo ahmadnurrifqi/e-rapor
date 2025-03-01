@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('nilai')->nullable();
             $table->integer('kkm')->nullable();
-            $table->char('predikat')->nullable();
-            $table->text('deskripsi')->nullable();
+            $table->char('predikat',3)->nullable();
+            $table->text('deskripsi',100)->nullable();
             $table->timestamps();
         });
     }

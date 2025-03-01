@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rapor_id')->constrained()->onDelete('cascade');
-            $table->string("jenis_prestasi");
-            $table->string("uraian_prestasi");
-            $table->string("keterangan");
+            $table->string("jenis_prestasi",13);
+            $table->string("uraian_prestasi",50);
+            $table->string("keterangan",100);
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('rapor_id')->constrained()->onDelete('cascade');
             $table->foreignId('ekstrakurikular_id')->constrained()->onDelete('cascade');
-            $table->string('predikat')->nullable();
+            $table->string('predikat',3)->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();
         });
