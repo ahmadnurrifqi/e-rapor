@@ -92,7 +92,7 @@
                             <li>
                                 <a href="profil"  class="active">
                                     <span class="material-symbols-outlined">person_outline</span>
-                                    <p>User</p>
+                                    <p>Profil</p>
                                 </a>
                             </li>
                             <li>

@@ -696,6 +696,7 @@
                         <td>Konsentrasi Keahlian</td>
                         <td>:</td>
                         <td>{{ $siswa->konsentrasi_keahlian }}</td>
+                        {{-- <td>{{ $siswa->konsentrasi_keahlian }}</td> --}}
                     </tr>
                     <tr>
                         <td class="!pl-0 pr-2">NIS / NISN</td>
@@ -707,6 +708,7 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
             <h1 class="-translate-x-3.5 font-bold">CAPAIAN HASIL BELAJAR </h1>
             <ol class="alpha max-w-[950px] space-y-2">
                 <li class="">

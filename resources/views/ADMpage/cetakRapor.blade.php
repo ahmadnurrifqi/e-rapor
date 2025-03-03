@@ -37,7 +37,7 @@
                             <li>
                                 <a href="#">
                                     <span class="material-symbols-outlined">groups</span>
-                                    <p>Biodata</p>
+                                    <p>Data Pribadi</p>
                                     <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
                                 </a>
                                 <ul class="sub-menu">
